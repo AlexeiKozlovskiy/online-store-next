@@ -9,7 +9,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd my-app
-          npm install
+          npm ci
       - name: Testing application
         run: |
           cd my-app
