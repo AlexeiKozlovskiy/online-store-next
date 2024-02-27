@@ -1,7 +1,7 @@
 name: online store next workflow
 on: push
 jobs:
-  testing:
+  Testing:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -12,13 +12,13 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with: 
-          path:  ~/.npm
+          path:  my-app/~.npm
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Testing application
         run: npm run test
-  linting:
+  Linting:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -29,13 +29,13 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with: 
-          path:  ~/.npm
+          path:  my-app/~.npm
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Run lint linting
         run: npm run lint
-  prettier:
+  Prettier:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -46,13 +46,13 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with: 
-          path:  ~/.npm
+          path:  my-app/~.npm
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Run lint prettier
         run: npm run prettier
-  build:
+  Build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -64,7 +64,7 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v4
         with: 
-          path:  ~/.npm
+          path:  my-app/~.npm
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
