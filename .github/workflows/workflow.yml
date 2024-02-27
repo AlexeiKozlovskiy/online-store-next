@@ -1,11 +1,13 @@
 name: online store next workflow
 on: push
+  paths: 'my-app'
 jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
       - name: Get reposetory code
         uses: actions/checkout@v4
+  
       - name: Install dependencies
         run: npm install
       - name: Testing application
