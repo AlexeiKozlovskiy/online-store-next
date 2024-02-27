@@ -13,3 +13,40 @@ jobs:
         run: npm ci
       - name: Testing application
         run: npm run test
+  linting:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-app
+    steps:
+      - name: Get reposetory code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint linting
+        run: npm run lint
+  prettier:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-app
+    steps:
+      - name: Get reposetory code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run lint prettier
+        run: npm run prettier
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-app
+    needs: [testing, linting, prettier]
+    steps:
+      - name: Get reposetory code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
+      - name: Run build
+        run: npm run build
