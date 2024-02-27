@@ -1,0 +1,32 @@
+name: online store next workflow
+on: push
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - name: Testing application
+      - run: npm run test
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - name: Run lint linting
+      - run: npm run lint
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - name: Run lint prettier
+      - run: npm run prettier
+  build: 
+    runs-on: ubuntu-latest
+    needs: [testing, linting, prettier]
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - name: Run build
+      - run: npm run build
