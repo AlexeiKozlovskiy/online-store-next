@@ -3,14 +3,13 @@ on: push
 jobs:
   testing:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: my-app
     steps:
       - name: Get reposetory code
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: |
-          cd my-app
-          npm ci
+        run: npm ci
       - name: Testing application
-        run: |
-          cd my-app
-          npm run test
+        run: npm run test
