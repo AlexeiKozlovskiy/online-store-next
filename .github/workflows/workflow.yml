@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-        cd my-app
-        npm install
+          cd my-app
+          npm install
       - name: Testing application
         run: npm run test
