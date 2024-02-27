@@ -10,7 +10,7 @@ jobs:
       - name: Get reposetory code
         uses: actions/checkout@v4
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with: 
           path: my-app/node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -27,7 +27,7 @@ jobs:
       - name: Get reposetory code
         uses: actions/checkout@v4
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with: 
           path: my-app/node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -44,7 +44,7 @@ jobs:
       - name: Get reposetory code
         uses: actions/checkout@v4
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with: 
           path: my-app/node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -62,7 +62,7 @@ jobs:
       - name: Get reposetory code
         uses: actions/checkout@v4
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with: 
           path: my-app/node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
