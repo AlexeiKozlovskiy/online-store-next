@@ -1,6 +1,5 @@
 name: online store next workflow
 on: push
-paths: 'my-app'
 jobs:
   testing:
     runs-on: ubuntu-latest
