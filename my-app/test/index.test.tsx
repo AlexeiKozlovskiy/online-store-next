@@ -5,7 +5,7 @@ describe('Home', () => {
   it('renders home page', () => {
     const { getByText } = render(<Home />);
 
-    const descriptionText = getByText('Get started by editing');
+    const descriptionText = getByText('Main page');
     expect(descriptionText).toBeInTheDocument();
   });
 });

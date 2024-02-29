@@ -2,6 +2,8 @@
   background: linear-gradient(45deg, $winter 10%, $winterHover 50%, $winter 80%);
   animation: background-gradient 3s infinite alternate;
   border-radius: 2px;
+  max-width: 1440px;
+  margin: 0 auto;
 
   &__container {
     height: 60px;
