@@ -6,13 +6,7 @@ type DualRangeInput = {
   onChange?: (e: { target: { value: string } }) => void;
 };
 
-export function DualRangeInput({
-  value,
-  defaultValue,
-  unit,
-  unitPosition,
-  onChange,
-}: DualRangeInput) {
+export function DualRangeInput({ value, defaultValue, unit, unitPosition, onChange }: DualRangeInput) {
   return (
     <>
       <input
