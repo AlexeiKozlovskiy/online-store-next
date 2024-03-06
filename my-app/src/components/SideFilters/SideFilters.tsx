@@ -1,5 +1,5 @@
 'use client';
-import './SideFilter.scss';
+import './SideFilters.scss';
 import Slider from 'react-slider';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
 // import { Balancers, DualRange, RootReducerProps, SelectedFilter } from '@/types/types';
@@ -16,7 +16,7 @@ import { DualRange, SelectedFilter } from '@/types/types';
 //   handleClickFilters: (value: boolean) => void;
 // }
 
-export function SideFilter() {
+export function SideFilters() {
   // const { selectedFilters, setSelectedFilters } = useMyURLContext();
   const [[priseMin, priseMax], setPrice] = useState<DualRange>([null, null]);
   const [[sizeMin, sizeMax], setSize] = useState<DualRange>([null, null]);

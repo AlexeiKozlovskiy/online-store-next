@@ -8,8 +8,6 @@
 
   &__img {
     background-repeat: no-repeat;
-    // width: 250px;
-    // height: 250px;
     transition: box-shadow 0.4s;
     border-radius: 5px;
 
@@ -70,7 +68,7 @@
   &__name-price {
     height: 45px;
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     gap: 15px;
     color: $mainBlack;
