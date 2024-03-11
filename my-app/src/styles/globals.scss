@@ -1,13 +1,19 @@
 @import './normalize.scss';
 
+.container {
+  max-width: 1440px;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
 .main-catalog {
   padding: 50px 20px;
   color: $mainBlack;
   margin-bottom: 50px;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  max-width: 1440px;
-  margin: 0 auto;
 
   &__products {
     min-height: 470px;

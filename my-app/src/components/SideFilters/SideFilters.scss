@@ -15,41 +15,41 @@
     flex-direction: column;
   }
 
-  &__bread-crumbs {
-    margin: 20px 0 40px 0;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 3;
+  // &__bread-crumbs {
+  //   margin: 20px 0 40px 0;
+  //   grid-column-start: 1;
+  //   grid-column-end: 4;
+  //   grid-row-start: 1;
+  //   grid-row-end: 3;
 
-    @media screen and (max-width: 768px) {
-      margin: 20px 0 20px 0;
-    }
-  }
+  //   @media screen and (max-width: 768px) {
+  //     margin: 20px 0 20px 0;
+  //   }
+  // }
 }
 
-.bread-crumbs {
-  display: flex;
+// .bread-crumbs {
+//   display: flex;
 
-  &__path {
-    font-family: $Roboto;
-    display: flex;
-    align-items: center;
-    line-height: 18px;
-    color: $darkGray;
-    font-size: 1rem;
+//   &__path {
+//     font-family: $Roboto;
+//     display: flex;
+//     align-items: center;
+//     line-height: 18px;
+//     color: $darkGray;
+//     font-size: 1rem;
 
-    &:not(:last-child):after {
-      content: url('https://api.iconify.design/ic/round-keyboard-arrow-right.svg?color=%23888&width=18&height=18');
-      width: 18px;
-      height: 18px;
-    }
+//     &:not(:last-child):after {
+//       content: url('https://api.iconify.design/ic/round-keyboard-arrow-right.svg?color=%23888&width=18&height=18');
+//       width: 18px;
+//       height: 18px;
+//     }
 
-    @media screen and (max-width: 767px) {
-      font-size: 0.7rem;
-    }
-  }
-}
+//     @media screen and (max-width: 767px) {
+//       font-size: 0.7rem;
+//     }
+//   }
+// }
 
 .filter-btn {
   display: flex;
