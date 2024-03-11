@@ -2,8 +2,9 @@
 import { Product } from '@/types/types';
 import './ProductCard.scss';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
+import { replaceSpace } from '@/helpers/helpersFunc';
 
 type ProductViewData = {
   product: Product;
@@ -27,7 +28,8 @@ export function ProductCard({ product }: ProductViewData) {
 
   function productItemClick() {
     setCookie('clikedId', `${id}`);
-    push(`/product/${name}`);
+    push(`/product/${replaceSpace(name)}`);
+    redirect(`/product/${replaceSpace(name)}`);
   }
 
   const addToCart = (
