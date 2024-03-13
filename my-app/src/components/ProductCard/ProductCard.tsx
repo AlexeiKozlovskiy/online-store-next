@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductViewData) {
   }
 
   function productItemClick() {
-    router.push(`/product/${id}`);
+    router.prefetch(`/product/${id}`);
   }
 
   const addToCart = (
