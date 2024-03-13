@@ -1,7 +1,5 @@
 .header {
   background-color: #fff;
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 .header__container {
@@ -70,7 +68,7 @@
 
   &__icon {
     display: none;
-    background: url('/img/burgerMenu.svg');
+    background: url('/img/burgerMenu.svg') no-repeat center;
     width: 45px;
     height: 45px;
     background-size: contain;

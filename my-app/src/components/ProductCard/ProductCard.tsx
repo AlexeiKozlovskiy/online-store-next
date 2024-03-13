@@ -1,8 +1,9 @@
 'use client';
-import { Product } from '@/types/types';
 import './ProductCard.scss';
-import Link from 'next/link';
+import { Product } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 type ProductViewData = {
   product: Product;
@@ -10,6 +11,7 @@ type ProductViewData = {
 
 export function ProductCard({ product }: ProductViewData) {
   const { id, images, name, price, color, collection, size, category, stock } = product;
+  const router = useRouter();
 
   function productItemAddCart(e: React.MouseEvent<HTMLElement>) {
     e.stopPropagation();
@@ -21,6 +23,12 @@ export function ProductCard({ product }: ProductViewData) {
     e.stopPropagation();
     const { dataset } = e.target as HTMLElement;
     console.log('productItemRemoveCart');
+  }
+
+  function productItemClick() {
+    // router.refresh();
+    // router.push(`/product/${id}`);
+    // router.prefetch(`/product/${id}`);
   }
 
   const addToCart = (
@@ -37,9 +45,11 @@ export function ProductCard({ product }: ProductViewData) {
 
   return (
     <div className="product-item">
-      <Link data-testid="product-item-chose" href={`/${name}`}>
-        <Image className="product-item__img" data-id={id} src={images[0]} alt="product image" width={250} height={250} />
-      </Link>
+      <div data-testid="product-item-chose">
+        <Link href={`/product/${id}`}>
+          <Image className="product-item__img" data-id={id} src={images[0]} alt="product image" width={250} height={250} />
+        </Link>
+      </div>
       <div className="product-item__text-wrapper">{addToCart}</div>
       {/* <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} /> */}
       <div className="product-item__info">

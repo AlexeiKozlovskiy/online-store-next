@@ -1,6 +1,6 @@
 'use client';
 import './SearchPanel.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function SearchPanel() {
   const [inputValue, setInputValue] = useState<string>('');
