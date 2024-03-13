@@ -1,10 +1,8 @@
 'use client';
-import { Product } from '@/types/types';
 import './ProductCard.scss';
+import { Product } from '@/types/types';
 import Image from 'next/image';
-import { redirect, useRouter } from 'next/navigation';
-import { setCookie } from 'cookies-next';
-import { replaceSpace } from '@/helpers/helpersFunc';
+import { useRouter } from 'next/navigation';
 
 type ProductViewData = {
   product: Product;
@@ -12,7 +10,7 @@ type ProductViewData = {
 
 export function ProductCard({ product }: ProductViewData) {
   const { id, images, name, price, color, collection, size, category, stock } = product;
-  const { push } = useRouter();
+  const router = useRouter();
 
   function productItemAddCart(e: React.MouseEvent<HTMLElement>) {
     e.stopPropagation();
@@ -27,9 +25,7 @@ export function ProductCard({ product }: ProductViewData) {
   }
 
   function productItemClick() {
-    setCookie('clikedId', `${id}`);
-    push(`/product/${replaceSpace(name)}`);
-    redirect(`/product/${replaceSpace(name)}`);
+    router.push(`/product/${id}`);
   }
 
   const addToCart = (

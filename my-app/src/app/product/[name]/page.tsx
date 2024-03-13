@@ -12,10 +12,8 @@ import { BreadCrumbSkeleton } from './skeletons/BreadCrumbSkeleton';
 import { NameSkeleton } from './skeletons/NameSkeleton';
 import { SpecSkeleton } from './skeletons/SpecSkeleton';
 import { QuantityPiecesProduct } from '@/components/QuantityPieces/QuantityPiecesProduct';
-
-function formatPrice(price: number) {
-  return price?.toFixed(2);
-}
+import { usePathname } from 'next/navigation';
+import { formatPrice, getIDProductFromURL } from '@/helpers/helpersFunc';
 
 export default function ProductPage() {
   const [curImage, setCurImage] = useState(0);
@@ -33,15 +31,17 @@ export default function ProductPage() {
     images: [],
   });
   const [isFetching, setIsFetching] = useState(true);
-  const clikedId = getCookie('clikedId');
+  const pathname = usePathname();
+
+  const idProduct = getIDProductFromURL(pathname);
   const isShake = false;
   const resetInput = false;
 
   useEffect(() => {
     async function getProducts() {
-      if (clikedId) {
+      if (idProduct) {
         setIsFetching(true);
-        const product = await getProductByID({ id: clikedId });
+        const product = await getProductByID({ id: idProduct });
         setIsFetching(false);
         if (product) {
           setProduct(product);
@@ -49,7 +49,7 @@ export default function ProductPage() {
       }
     }
     getProducts();
-  }, [clikedId]);
+  }, [idProduct]);
 
   const { id, name, price, collection, stock, color, size, category, images } = product as Product;
   const [firstImg, secondImg] = images;
