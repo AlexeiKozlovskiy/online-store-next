@@ -2,6 +2,7 @@
 import './ProductCard.scss';
 import { Product } from '@/types/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 type ProductViewData = {
@@ -25,8 +26,8 @@ export function ProductCard({ product }: ProductViewData) {
   }
 
   function productItemClick() {
-    router.refresh();
-    router.push(`/product/${id}`);
+    // router.refresh();
+    // router.push(`/product/${id}`);
     // router.prefetch(`/product/${id}`);
   }
 
@@ -44,8 +45,10 @@ export function ProductCard({ product }: ProductViewData) {
 
   return (
     <div className="product-item">
-      <div data-testid="product-item-chose" onClick={productItemClick}>
-        <Image className="product-item__img" data-id={id} src={images[0]} alt="product image" width={250} height={250} />
+      <div data-testid="product-item-chose">
+        <Link href={`/product/${id}`}>
+          <Image className="product-item__img" data-id={id} src={images[0]} alt="product image" width={250} height={250} />
+        </Link>
       </div>
       <div className="product-item__text-wrapper">{addToCart}</div>
       {/* <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} /> */}
