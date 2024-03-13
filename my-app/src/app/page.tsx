@@ -1,6 +1,6 @@
 import { SearchPanel } from '@/components/SearchPanel/SearchPanel';
 import { SideFilters } from '@/components/SideFilters/SideFilters';
-import { ProductsList } from '@/app/productList';
+import { ProductsList } from '@/components/ProductList/productList';
 
 export default function Home() {
   return (
