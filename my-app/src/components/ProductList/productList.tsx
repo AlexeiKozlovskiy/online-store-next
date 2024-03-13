@@ -1,4 +1,4 @@
-import { getData } from '../../app/api';
+import { getData } from '@/helpers/api';
 import { ProductCard } from '@/components/ProductCard/ProductCard';
 
 export async function ProductsList() {

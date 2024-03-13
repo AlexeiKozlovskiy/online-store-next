@@ -6,7 +6,7 @@ import { ArrowBack } from '@/components/ArrowBack/ArrowBack';
 import Image from 'next/image';
 import { Product } from '@/types/types';
 import { ImgsSkeleton } from '../skeletons/ImgsSkeleton';
-import { getProductByID } from '@/app/api';
+import { getProductByID } from '@/helpers/api';
 import { getCookie } from 'cookies-next';
 import { BreadCrumbSkeleton } from '../skeletons/BreadCrumbSkeleton';
 import { NameSkeleton } from '../skeletons/NameSkeleton';
