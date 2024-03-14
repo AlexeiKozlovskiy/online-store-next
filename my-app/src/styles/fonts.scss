@@ -1,9 +1,26 @@
-// @import url('https://fonts.googleapis.com/css2?family=Ruluko&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Ruge+Boogie&family=Ruluko&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ruge+Boogie&family=Ruluko&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ruge+Boogie&family=Ruluko&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
 @font-face {
   font-family: 'Ruge Boogie';
   src: url('/assets/fonts/RugeBoogie-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Ruluko';
+  src: url('/assets/fonts/Ruluko-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  src: url('/assets/fonts/TitilliumWeb-Regular.ttf');
 }

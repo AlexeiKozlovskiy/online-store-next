@@ -1,7 +1,6 @@
 import { SearchPanel } from '@/components/SearchPanel/SearchPanel';
 import { SideFilters } from '@/components/SideFilters/SideFilters';
 import { ProductsList } from '@/components/ProductList/productList';
-import Head from 'next/head';
 
 export default async function Home() {
   return (
