@@ -12,6 +12,7 @@ export function QuantityPieces({ inputValue, handelInput, handelArrowDownClick, 
     <div className="amount-item">
       <div className="amount-item__value-container">
         <input
+          id="quantity-input"
           data-testid="quantity-input"
           className="amount-item__value-container amount-input"
           type="text"

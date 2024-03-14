@@ -157,6 +157,7 @@ export function SideFilters() {
         <div className="filters-item__content item-content">
           <div className="item-content__price price">
             <DualRangeInput
+              id="priceMinSelected"
               value={priseMin || ''}
               unit={'$'}
               unitPosition={'start'}
@@ -165,6 +166,7 @@ export function SideFilters() {
               }
             />
             <DualRangeInput
+              id="priceMaxSelected"
               value={priseMax || ''}
               unit={'$'}
               unitPosition={'end'}
@@ -187,12 +189,14 @@ export function SideFilters() {
         <div className="filters-item__content item-content">
           <div className="item-content__size size">
             <DualRangeInput
+              id="sizeMinSelected"
               value={sizeMin || ''}
               unit={'cm'}
               unitPosition={'start'}
               onChange={(e) => handleInputChange('sizeSelected', e.target.value, sizeMax!.toString())}
             />
             <DualRangeInput
+              id="sizeMaxSelected"
               value={sizeMax || ''}
               unit={'cm'}
               unitPosition={'end'}
@@ -239,6 +243,7 @@ export function SideFilters() {
         <div className="filters-item__content item-content">
           <div className="item-content__stock stock">
             <DualRangeInput
+              id="stockMinSelected"
               value={stockMin || ''}
               unit={''}
               unitPosition={''}
@@ -247,6 +252,7 @@ export function SideFilters() {
               }
             />
             <DualRangeInput
+              id="stockMaxSelected"
               value={stockMax || ''}
               unit={''}
               unitPosition={''}

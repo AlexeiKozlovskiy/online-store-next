@@ -1,9 +1,9 @@
 'use client';
 import './ProductPage.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ArrowBack } from '@/components/ArrowBack/ArrowBack';
-import Image from 'next/image';
 import { Product } from '@/types/types';
 import { ImgsSkeleton } from '../skeletons/ImgsSkeleton';
 import { getProductByID } from '@/helpers/api';
@@ -88,24 +88,27 @@ export default function ProductPage() {
           className={`product-page-img-min ${!curImage && 'active-img'}`}
           alt="product-image-one"
           onClick={() => handelImageClick(0)}
-          width={300}
-          height={200}
+          width={90}
+          height={90}
+          priority={true}
         />
         <Image
           src={secondImg}
           className={`product-page-img-min ${curImage && 'active-img'}`}
           alt="product-image-two"
           onClick={() => handelImageClick(1)}
-          width={300}
-          height={200}
+          width={90}
+          height={90}
+          priority={true}
         />
       </div>
       <Image
         src={images && images[curImage]}
         className="product-page__img-main"
         alt="product-image-main"
-        width={800}
-        height={500}
+        width={600}
+        height={600}
+        priority={true}
       />
     </div>
   );
