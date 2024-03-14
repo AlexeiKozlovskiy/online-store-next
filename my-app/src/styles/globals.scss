@@ -1,19 +1,16 @@
+// @import './fonts.scss';
 @import './normalize.scss';
-@import './fonts.scss';
+@import url('https://fonts.googleapis.com/css2?family=Ruge+Boogie&display=swap');
 
-$Ruluko: 'Ruluko', sans-serif;
-$Titillium: 'Titillium Web', sans-serif;
-$Ruge_Boogie: 'Ruge Boogie', sans-serif;
-$Roboto: 'Roboto', sans-serif;
-$winter: #9dc7b2;
-$winterHover: #85c0cb;
-$oliva: #95bea1;
-$olivaBlack: #8b9d94;
-$olivaHover: #9bc6a9;
-$greyBorder: #c0c0c0;
-$darkGray: #747474;
-$lightGray: #d7d7d7;
-$mainBlack: #303c42;
+// @import url('https://fonts.googleapis.com/css2?family=Ruluko&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Ruge+Boogie&family=Ruluko&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ruge+Boogie&family=Ruluko&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ruge+Boogie&family=Ruluko&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+
+// body {
+// font-family: 'Ruluko', sans-serif;
+// }
 
 .container {
   max-width: 1440px;
