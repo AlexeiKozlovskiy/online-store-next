@@ -14,6 +14,7 @@ import { SpecSkeleton } from '../skeletons/SpecSkeleton';
 import { QuantityPiecesProduct } from '@/components/QuantityPieces/QuantityPiecesProduct';
 import { usePathname } from 'next/navigation';
 import { formatPrice, getIDProductFromURL } from '@/helpers/helpersFunc';
+import { useRouter } from 'next/router';
 
 export default function ProductPage() {
   const [curImage, setCurImage] = useState(0);
@@ -36,6 +37,8 @@ export default function ProductPage() {
   const idProduct = getIDProductFromURL(pathname);
   const isShake = false;
   const resetInput = false;
+  // const router = useRouter();
+  // console.log(router.query.slug);
 
   useEffect(() => {
     async function getProducts() {
