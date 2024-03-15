@@ -45,7 +45,7 @@ export default function ProductPage() {
 
   return (
     <div className="main-catalog__products" data-testid="main-catalog">
-      {product && <ProductCard product={product} />}
+      {product && `${product.name} | ${product.category} | ${product.collection}`}
     </div>
   );
 }
