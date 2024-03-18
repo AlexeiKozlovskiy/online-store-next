@@ -6,18 +6,16 @@ import { useEffect, useState } from 'react';
 import { ArrowBack } from '@/components/ArrowBack/ArrowBack';
 import { Product } from '@/types/types';
 import { ImgsSkeleton } from '@/components/ProductSkeletons/ImgsSkeleton';
-import { getProductByID } from '@/helpers/api';
-import { getCookie } from 'cookies-next';
+import { getData, getProductByID } from '@/helpers/api';
+// import { getCookie } from 'cookies-next';
 import { BreadCrumbSkeleton } from '@/components/ProductSkeletons/BreadCrumbSkeleton';
 import { NameSkeleton } from '@/components/ProductSkeletons/NameSkeleton';
 import { SpecSkeleton } from '@/components/ProductSkeletons/SpecSkeleton';
 import { QuantityPiecesProduct } from '@/components/QuantityPieces/QuantityPiecesProduct';
-import { usePathname } from 'next/navigation';
-import { formatPrice, getIDProductFromURL } from '@/helpers/helpersFunc';
-import { useRouter } from 'next/router';
+import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
+import { ProductImages } from '@/components/ProductImages/ProductImages';
 
-export default function ProductPage() {
-  const [curImage, setCurImage] = useState(0);
+export default function ProductPage({ params }: { params: { nameProduct: string } }) {
   const [isInCart, setIsInCart] = useState(false);
   const [quantity, setQuantity] = useState('1');
   const [product, setProduct] = useState<Product>({
@@ -32,19 +30,34 @@ export default function ProductPage() {
     images: [],
   });
   const [isFetching, setIsFetching] = useState(true);
-  const pathname = usePathname();
+  const [productID, setProductID] = useState('');
+  const { nameProduct } = params;
+  // const clikedId = getCookie('clikedId');
 
-  const idProduct = getIDProductFromURL(pathname);
+  // const idProduct = getIDProductFromURL(pathname);
   const isShake = false;
   const resetInput = false;
-  // const router = useRouter();
-  // console.log(router.query.slug);
+
+  useEffect(() => {
+    async function getProductId() {
+      const data = await getData();
+      const findProduct = data.find(({ name }) => {
+        const finedName = replaceUnderscore(nameProduct);
+        return name === finedName;
+      });
+
+      if (findProduct) {
+        setProductID(findProduct.id);
+      }
+    }
+    getProductId();
+  }, [nameProduct]);
 
   useEffect(() => {
     async function getProducts() {
-      if (idProduct) {
+      if (productID) {
         setIsFetching(true);
-        const product = await getProductByID({ id: idProduct });
+        const product = await getProductByID({ id: productID });
         setIsFetching(false);
         if (product) {
           setProduct(product);
@@ -52,18 +65,17 @@ export default function ProductPage() {
       }
     }
     getProducts();
-  }, [idProduct]);
+  }, [productID]);
 
   const { id, name, price, collection, stock, color, size, category, images } = product as Product;
-  const [firstImg, secondImg] = images;
 
-  function handelImageClick(numberImage: number) {
-    setCurImage(numberImage);
+  function handelAddClick() {
+    console.log('add click');
   }
 
-  function handelAddClick() {}
-
-  function handelBuyNowBtn() {}
+  function handelBuyNowBtn() {
+    console.log('buy now click');
+  }
 
   function handelChangeQty(value: string) {
     setQuantity(value);
@@ -81,39 +93,6 @@ export default function ProductPage() {
     <button className="button-add-cart button" onClick={handelAddClick} data-id={id}>
       ADD MORE
     </button>
-  );
-
-  const productImages = (
-    <div className="product-page__img-container">
-      <div className="img-container__slider">
-        <Image
-          src={firstImg}
-          className={`product-page-img-min ${!curImage && 'active-img'}`}
-          alt="product-image-one"
-          onClick={() => handelImageClick(0)}
-          width={90}
-          height={90}
-          priority={true}
-        />
-        <Image
-          src={secondImg}
-          className={`product-page-img-min ${curImage && 'active-img'}`}
-          alt="product-image-two"
-          onClick={() => handelImageClick(1)}
-          width={90}
-          height={90}
-          priority={true}
-        />
-      </div>
-      <Image
-        src={images && images[curImage]}
-        className="product-page__img-main"
-        alt="product-image-main"
-        width={600}
-        height={600}
-        priority={true}
-      />
-    </div>
   );
 
   const productName = (
@@ -141,7 +120,7 @@ export default function ProductPage() {
       <div className="bread-crumbs-product__container">{isFetching ? <BreadCrumbSkeleton /> : breadCrumbs}</div>
       <section className="product-page wrapper">
         <ArrowBack />
-        {isFetching ? <ImgsSkeleton /> : productImages}
+        {isFetching ? <ImgsSkeleton /> : <ProductImages images={images} />}
         <div className="product-page__summaru-item product-summary">
           {isFetching ? <NameSkeleton /> : productName}
           {isInCart && inCart}

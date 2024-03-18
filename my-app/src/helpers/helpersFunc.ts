@@ -6,6 +6,10 @@ export function replaceSpace(name: string) {
   return name.replace(/\s+/g, '_');
 }
 
+export function replaceUnderscore(name: string) {
+  return name.replace(/_/g, ' ');
+}
+
 export function formatPrice(price: number) {
   return price?.toFixed(2);
 }
