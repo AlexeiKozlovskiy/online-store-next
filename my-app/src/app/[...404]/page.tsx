@@ -16,3 +16,9 @@ export default function Custom404() {
     </div>
   );
 }
+
+// import { redirect } from 'next/navigation';
+
+// export default function NotFound() {
+//   redirect('/not-found');
+// }
