@@ -17,6 +17,12 @@ type MetadataParams = {
   params: { nameSlug: string };
 };
 
+const ogImage = {
+  src: 'https://online-store-next-rouge.vercel.app',
+  width: 600,
+  height: 600,
+};
+
 export async function generateMetadata({ params }: MetadataParams, parent: ResolvingMetadata): Promise<Metadata> {
   const { nameSlug } = params;
 
@@ -36,9 +42,11 @@ export async function generateMetadata({ params }: MetadataParams, parent: Resol
   const productID = await getProductID();
   const product = await getProductByID({ id: productID });
   const { name, images, category } = product as Product;
+  console.log(ogImage.src + images[0]);
 
   return {
-    metadataBase: new URL('https://online-store-next-rouge.vercel.app'),
+    metadataBase: new URL('https://online-store-next-rouge.vercel.app/'),
+
     title: name,
     category: category,
     keywords: ['decorations', 'christmas', 'atmosphere'],
@@ -55,8 +63,26 @@ export async function generateMetadata({ params }: MetadataParams, parent: Resol
     //   ],
     // },
 
+    // openGraph: {
+    //   images: [images[0], ...previousImages],
+    // },
     openGraph: {
-      images: [images[0], ...previousImages],
+      images: [
+        {
+          url: ogImage.src + images[0],
+          width: ogImage.width,
+          height: ogImage.height,
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: ogImage.src + images[0],
+          width: ogImage.width,
+          height: ogImage.height,
+        },
+      ],
     },
   };
 }
