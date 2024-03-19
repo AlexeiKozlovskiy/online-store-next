@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { replaceSpace } from '@/helpers/helpersFunc';
 import { Product } from '@/types/types';
 import { useRouter } from 'next/navigation';
-// import { setCookie } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 
 type ProductViewData = {
   product: Product;
@@ -28,7 +28,8 @@ export function ProductCard({ product }: ProductViewData) {
 
   function productItemClick() {
     // router.refresh();
-    // setCookie('clikedId', `${id}`);
+    setCookie('clikedId', `${id}`);
+    // router.push(`/product/${id}`);
     router.push(`/product/${replaceSpace(name)}`);
     // router.prefetch(`/product/${id}`);
   }

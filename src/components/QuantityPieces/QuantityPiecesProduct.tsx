@@ -1,18 +1,19 @@
+'use client';
 import { useEffect, useState } from 'react';
 import { QuantityPieces } from './QuantityPieces';
 
 interface IQuantity {
-  onChangeQuantity: (value: string) => void;
-  onResetInput: boolean;
   stock: number;
+  // onChangeQuantity: (value: string) => void;
+  onResetInput: boolean;
 }
 
-export function QuantityPiecesProduct({ onChangeQuantity, onResetInput, stock }: IQuantity) {
+export function QuantityPiecesProduct({ stock, onResetInput }: IQuantity) {
   const [inputValue, setInputValue] = useState('1');
 
-  useEffect(() => {
-    onChangeQuantity(inputValue.toString());
-  }, [inputValue, onChangeQuantity]);
+  // useEffect(() => {
+  //   // onChangeQuantity(inputValue.toString());
+  // }, [inputValue, onChangeQuantity]);
 
   useEffect(() => {
     onResetInput && setInputValue('1');

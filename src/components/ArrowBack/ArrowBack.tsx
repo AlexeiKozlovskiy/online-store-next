@@ -1,3 +1,4 @@
+'use client';
 import './ArrowBack.scss';
 import { useRouter } from 'next/navigation';
 
