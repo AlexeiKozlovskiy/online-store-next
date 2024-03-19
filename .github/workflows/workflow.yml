@@ -3,9 +3,6 @@ on: push
 jobs:
   Testing:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: my-app
     steps:
       - name: Get reposetory code
         uses: actions/checkout@v4
@@ -20,9 +17,6 @@ jobs:
         run: npm run test
   Linting:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: my-app
     steps:
       - name: Get reposetory code
         uses: actions/checkout@v4
@@ -37,9 +31,6 @@ jobs:
         run: npm run lint
   Prettier:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: my-app
     steps:
       - name: Get reposetory code
         uses: actions/checkout@v4
@@ -54,9 +45,6 @@ jobs:
         run: npm run prettier
   Build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: my-app
     needs: [testing, linting, prettier]
     steps:
       - name: Get reposetory code
