@@ -11,8 +11,59 @@ import { getCookie } from 'cookies-next';
 import { cookies } from 'next/headers';
 import { AddToCart } from '@/components/ProductPage/AddToCart/AddToCart';
 import ButtonBuyNow from '@/components/ProductPage/ButtonBuyNow/ButtonBuyNow';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-export default async function ProductPage({ params }: { params: { nameSlug: string } }) {
+type MetadataParams = {
+  params: { nameSlug: string };
+};
+
+export async function generateMetadata({ params }: MetadataParams, parent: ResolvingMetadata): Promise<Metadata> {
+  const { nameSlug } = params;
+
+  async function getProductID() {
+    try {
+      const products = await getData();
+      const findProduct = products.find(({ name }) => name === replaceUnderscore(nameSlug));
+      return findProduct?.id ?? '';
+    } catch (error) {
+      console.error('Error getting product ID:', error);
+      return '';
+    }
+  }
+
+  const previousImages = (await parent).openGraph?.images || [];
+  const productID = await getProductID();
+  const product = await getProductByID({ id: productID });
+  const { name, images, category } = product as Product;
+
+  return {
+    metadataBase: new URL('https://online-store-next-rouge.vercel.app'),
+    title: name,
+    category: category,
+    keywords: ['decorations', 'christmas', 'atmosphere'],
+    description: 'Find Christmas decorations to create a festive atmosphere at your home',
+    // openGraph: {
+    //   title: name,
+    //   images: [
+    //     {
+    //       url: images[0] || 'https://api.iconify.design/mdi:home.svg',
+    //       width: 90,
+    //       height: 90,
+    //       alt: `image ${name}`,
+    //     },
+    //   ],
+    // },
+    openGraph: {
+      images: [images[0], ...previousImages],
+    },
+  };
+}
+
+interface IProductPage {
+  params: { nameSlug: string };
+}
+
+export default async function ProductPage({ params }: IProductPage) {
   const { nameSlug } = params;
   const isInCart = false;
   const isShake = false;
