@@ -11,31 +11,28 @@ import { getCookie } from 'cookies-next';
 import { cookies } from 'next/headers';
 import { AddToCart } from '@/components/ProductPage/AddToCart/AddToCart';
 import ButtonBuyNow from '@/components/ProductPage/ButtonBuyNow/ButtonBuyNow';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 type MetadataParams = {
   params: { nameSlug: string };
 };
 
-export async function generateMetadata({ params }: MetadataParams): Promise<Metadata> {
+export async function generateMetadata({ params }: MetadataParams, parent: ResolvingMetadata): Promise<Metadata> {
   const { nameSlug } = params;
 
   async function getProductID() {
-    const clikedId = getCookie('clikedId', { cookies });
-
-    if (clikedId) {
-      return clikedId;
-    } else {
-      try {
-        const products = await getData();
-        const findProduct = products.find(({ name }) => name === replaceUnderscore(nameSlug));
-        return findProduct?.id ?? '';
-      } catch (error) {
-        console.error('Error getting product ID:', error);
-        return '';
-      }
+    try {
+      const products = await getData();
+      const findProduct = products.find(({ name }) => name === replaceUnderscore(nameSlug));
+      return findProduct?.id ?? '';
+    } catch (error) {
+      console.error('Error getting product ID:', error);
+      return '';
     }
   }
+
+  const previousImages = (await parent).openGraph?.images || [];
+
   const productID = await getProductID();
   const product = await getProductByID({ id: productID });
   const { name, images, category } = product as Product;
@@ -46,21 +43,20 @@ export async function generateMetadata({ params }: MetadataParams): Promise<Meta
     category: category,
     keywords: ['decorations', 'christmas', 'atmosphere'],
     description: 'Find Christmas decorations to create a festive atmosphere at your home',
+    // openGraph: {
+    //   title: name,
+    //   images: [
+    //     {
+    //       url: images[0] || 'https://api.iconify.design/mdi:home.svg',
+    //       width: 90,
+    //       height: 90,
+    //       alt: `image ${name}`,
+    //     },
+    //   ],
+    // },
+
     openGraph: {
-      title: name,
-      images: [
-        {
-          url: images[0],
-          width: 600,
-          height: 600,
-        },
-        {
-          url: images[1],
-          width: 600,
-          height: 600,
-          alt: `image ${name}`,
-        },
-      ],
+      images: [images[0], ...previousImages],
     },
   };
 }
