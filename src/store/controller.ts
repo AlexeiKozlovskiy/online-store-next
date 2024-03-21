@@ -1,8 +1,10 @@
-import { Product } from '@/types/types';
+import { Balancers, Product } from '@/types/types';
 import store from '@/store/store';
 import { addToCart, removeItemFromCart, removeAllItemsFromCart, setQuantityItemInCart, removeCart } from './cart';
 import { changeCount, resetCount } from './productPageQty';
 import { addAppliedPromocode, removeAppliedPromocode } from './promocode';
+import { resetBalansersFilters, updateBalancerProperty } from './balansersFilters';
+import { addQweryParams, resetQweryParams } from './productsQweryParams';
 
 export function addProductToCart(product: Product, quantity: number = 1) {
   store.dispatch(addToCart({ product, quantity }));
@@ -47,4 +49,20 @@ export function removePromocode(id: number): void {
 
 export function isPromocodeAvailable(name: string): boolean {
   return store.getState().promocode.available.some((code) => code.name === name);
+}
+
+export function updateBalancersPropertys<T extends keyof Balancers>(property: T, value: Balancers[T]) {
+  store.dispatch(updateBalancerProperty({ property, value }));
+}
+
+export function clearBalansersFilters() {
+  store.dispatch(resetBalansersFilters());
+}
+
+export function setQweryParams(qweryParams: string) {
+  store.dispatch(addQweryParams(qweryParams));
+}
+
+export function clearQweryParams() {
+  store.dispatch(resetQweryParams());
 }

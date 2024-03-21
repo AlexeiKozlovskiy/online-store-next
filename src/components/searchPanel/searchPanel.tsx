@@ -1,10 +1,24 @@
 'use client';
 import './searchPanel.scss';
-import { useState } from 'react';
+import { useDebounce } from '@/hooks/DebounceHook';
+import { useEffect, useState } from 'react';
+import { useMyURLContext } from '@/context/URLContext';
 
 export function SearchPanel() {
   const [inputValue, setInputValue] = useState<string>('');
+  const { inputSearchURL, setInputSearchURL } = useMyURLContext();
+  const debouncedValue = useDebounce(inputValue);
 
+  useEffect(() => {
+    function setFromURL() {
+      setInputValue(inputSearchURL ?? '');
+    }
+    setFromURL();
+  }, [inputSearchURL]);
+
+  useEffect(() => {
+    setInputSearchURL(debouncedValue);
+  }, [debouncedValue]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
