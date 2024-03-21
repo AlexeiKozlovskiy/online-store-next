@@ -1,5 +1,5 @@
 'use client';
-import './SearchPanel.scss';
+import './searchPanel.scss';
 import { useState } from 'react';
 
 export function SearchPanel() {

@@ -24,3 +24,34 @@ export interface SelectedFilters {
   sizeSelected: DualRange;
   stockSelected: DualRange;
 }
+
+export interface CartItemArg {
+  product: Product;
+  quantity: number;
+}
+export interface RootReducerProps {
+  cart: CartItem[];
+  productPageQty: IProductPageQty;
+  promocode: PromocodeData;
+}
+
+export interface IProductPageQty {
+  countProducts: number;
+  resetCount: boolean;
+}
+
+export interface CartItem extends CartItemArg {
+  cartID: string;
+  itemNumber: number;
+}
+
+export interface PromocodeData {
+  applied: Promocode[];
+  available: Promocode[];
+}
+
+export interface Promocode {
+  id: number;
+  name: string;
+  discount: number;
+}

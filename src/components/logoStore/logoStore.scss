@@ -1,4 +1,4 @@
-.header-logo {
+.logo-store {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,6 @@
   }
 }
 
-.header-logo:hover > .header-logo__img {
+.logo-store:hover > .logo-store__img {
   animation: 1s ease-in-out 0s normal none running shake-animation-cart;
 }

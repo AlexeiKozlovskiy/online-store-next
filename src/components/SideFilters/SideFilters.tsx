@@ -1,11 +1,11 @@
 'use client';
-import './SideFilters.scss';
+import './sideFilters.scss';
 import Slider from 'react-slider';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
 // import { Balancers, DualRange, RootReducerProps, SelectedFilter } from '@/types/types';
 // import { useMyURLContext } from '@/context/URLContext';
-import { ButtonCross } from '@/components/ButtonCross/ButtonCross';
-import { DualRangeInput } from './DualRangeInput';
+// import { ButtonCross } from '@/components/buttonCross/buttonCross';
+import { DualRangeInput } from './dualRangeInput';
 import { useState } from 'react';
 import { DualRange, SelectedFilter } from '@/types/types';
 // import { useSelector } from 'react-redux';

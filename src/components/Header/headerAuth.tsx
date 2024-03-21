@@ -1,9 +1,9 @@
-import './HeaderAuth.scss';
-
+'use client';
+import './headerAuth.scss';
 interface IHeaderAuth {
   handelClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
-export default function HeaderAuth({ handelClick }: IHeaderAuth) {
+export function HeaderAuth({ handelClick }: IHeaderAuth) {
   return (
     <>
       <button className="header-auth__btn-sign-in" data-id="modalSignIN" onClick={handelClick}>

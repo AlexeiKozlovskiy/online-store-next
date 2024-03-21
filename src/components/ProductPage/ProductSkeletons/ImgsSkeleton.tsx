@@ -1,6 +1,6 @@
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import './ImgsSkeleton.scss';
+import './imgsSkeleton.scss';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 export function ImgsSkeleton() {
   return (

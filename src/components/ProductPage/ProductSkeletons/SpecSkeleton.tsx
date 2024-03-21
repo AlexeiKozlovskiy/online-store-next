@@ -1,6 +1,6 @@
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import './SpecSkeleton.scss';
+import './specSkeleton.scss';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 export function SpecSkeleton({ width }: { width: number }) {
   return (

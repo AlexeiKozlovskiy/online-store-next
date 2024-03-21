@@ -1,11 +1,19 @@
 'use client';
-import '../Header.scss';
+import './header.scss';
 import Link from 'next/link';
 import { useState } from 'react';
-import { HeaderLogo } from '@/components/HeaderLogo/HeaderLogo';
-import { ButtonCross } from '@/components/ButtonCross/ButtonCross';
+import { LogoStore } from '@/components/logoStore/logoStore';
+import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { bodyNotScroll } from '@/helpers/helpersFunc';
-import HeaderAuth from '@/components/Header/HeaderAuth/HeaderAuth';
+import { HeaderAuth } from '@/components/header/headerAuth';
+import dynamic from 'next/dynamic';
+
+const TotalCountGoods = dynamic(() => import('./headerTotalCount'), {
+  loading: () => <>0</>,
+});
+const TotalPriceGoods = dynamic(() => import('./headerTotalPrice'), {
+  loading: () => <>$0</>,
+});
 
 export default function HeaderNav() {
   const [showBurgerMenu, setShowBurgerMenu] = useState(false);
@@ -31,7 +39,7 @@ export default function HeaderNav() {
       <div className="header-nav" data-show={showBurgerMenu}>
         <ButtonCross onClickCross={handleShowBurgerMenu} adittionClassName="close-burger-cross" />
         <Link href="/" className="header-link" onClick={logoClickBurger}>
-          <HeaderLogo />
+          <LogoStore />
         </Link>
         <div className="header-nav-contents">
           <HeaderAuth handelClick={modalsUdater} />
@@ -39,9 +47,13 @@ export default function HeaderNav() {
         <Link href="/cart" className="header-cart" onClick={() => setShowBurgerMenu(false)}>
           <div className="header-cart__img"></div>
           <div className="header-cart__amount-container">
-            <p className="header-cart__amount">{0}</p>
+            <p className="header-cart__amount">
+              <TotalCountGoods />
+            </p>
           </div>
-          <div className="header-cart__num">${0}</div>
+          <div className="header-cart__num">
+            <TotalPriceGoods />
+          </div>
         </Link>
       </div>
       <div className="header-nav__icon" onClick={handleShowBurgerMenu}></div>

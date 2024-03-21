@@ -1,55 +1,33 @@
 'use client';
-import './ProductCard.scss';
+import './productCard.scss';
 import Image from 'next/image';
 import { replaceSpace } from '@/helpers/helpersFunc';
 import { Product } from '@/types/types';
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
+import dynamic from 'next/dynamic';
+
+const CardButton = dynamic(() => import('./productCardCartButton'), {
+  ssr: false,
+});
 
 type ProductViewData = {
   product: Product;
+  products: Product[];
 };
 
-export function ProductCard({ product }: ProductViewData) {
+export function ProductCard({ product, products }: ProductViewData) {
   const { id, images, name, price, color, collection, size, category, stock } = product;
   const router = useRouter();
 
-  function productItemAddCart(e: React.MouseEvent<HTMLElement>) {
-    e.stopPropagation();
-    const { dataset } = e.target as HTMLElement;
-    console.log('productItemAddCart');
-  }
-
-  function productItemRemoveCart(e: React.MouseEvent<HTMLElement>) {
-    e.stopPropagation();
-    const { dataset } = e.target as HTMLElement;
-    console.log('productItemRemoveCart');
-  }
-
   function productItemClick() {
-    // router.refresh();
     setCookie('clikedId', `${id}`);
-    // router.push(`/product/${id}`);
     router.push(`/product/${replaceSpace(name)}`);
-    // router.prefetch(`/product/${id}`);
   }
-
-  const addToCart = (
-    <div className="product-item__cart-add" data-id={id} onClick={productItemAddCart}>
-      Add to cart
-    </div>
-  );
-
-  const inCart = (
-    <div className="product-item__cart-added" data-id={id} onClick={productItemRemoveCart}>
-      In cart
-    </div>
-  );
 
   return (
     <div className="product-item">
       <div data-testid="product-item-chose">
-        {/* <Link href={`/product/${id}`}> */}
         <Image
           className="product-item__img"
           data-id={id}
@@ -59,9 +37,10 @@ export function ProductCard({ product }: ProductViewData) {
           height={250}
           onClick={productItemClick}
         />
-        {/* </Link> */}
       </div>
-      <div className="product-item__text-wrapper">{addToCart}</div>
+      {/* <ReduxProvider> */}
+      <div className="product-item__text-wrapper">{<CardButton product={product} />}</div>
+      {/* </ReduxProvider> */}
       {/* <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} /> */}
       <div className="product-item__info">
         <div className="item-info__name-price">

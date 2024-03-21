@@ -1,23 +1,25 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { QuantityPieces } from './QuantityPieces';
+import { QuantityPieces } from './quantityPieces';
+import { changeCountProducts } from '@/store/controller';
+import { useSelector } from 'react-redux';
+import { IProductPageQty, RootReducerProps } from '@/types/types';
 
 interface IQuantity {
   stock: number;
-  // onChangeQuantity: (value: string) => void;
-  onResetInput: boolean;
 }
 
-export function QuantityPiecesProduct({ stock, onResetInput }: IQuantity) {
+export function QuantityPiecesProduct({ stock }: IQuantity) {
   const [inputValue, setInputValue] = useState('1');
-
-  // useEffect(() => {
-  //   // onChangeQuantity(inputValue.toString());
-  // }, [inputValue, onChangeQuantity]);
+  const { resetCount } = useSelector<RootReducerProps, IProductPageQty>((state) => state.productPageQty);
 
   useEffect(() => {
-    onResetInput && setInputValue('1');
-  }, [onResetInput]);
+    changeCountProducts(inputValue);
+  }, [inputValue]);
+
+  useEffect(() => {
+    setInputValue('1');
+  }, [resetCount]);
 
   function handelArrowAppClick() {
     if (inputValue && stock && +inputValue < stock) {

@@ -1,4 +1,4 @@
-import './ButtonCross.scss';
+import './buttonCross.scss';
 
 interface IButtonCross {
   onClickCross: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

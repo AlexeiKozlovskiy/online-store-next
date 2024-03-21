@@ -1,5 +1,5 @@
 import { getData } from '@/helpers/api';
-import { ProductCard } from '@/components/ProductCard/ProductCard';
+import { ProductCard } from '@/components/mainPage/productCard';
 
 export async function ProductsList() {
   const data = await getData();
@@ -12,7 +12,7 @@ export async function ProductsList() {
 
   return (
     <div className="main-catalog__products" data-testid="main-catalog">
-      {data.length ? data.map((product) => <ProductCard key={product.id} product={product} />) : noItemsFound}
+      {data.length ? data.map((product) => <ProductCard key={product.id} product={product} products={data} />) : noItemsFound}
     </div>
   );
 }

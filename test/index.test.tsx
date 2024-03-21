@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import Home from '@/app/page';
-import Header from '@/components/Header/Header';
+import Header from '@/components/Header/header';
 
 // jest.mock('./utils', () => ({
 //   getData: jest.fn().mockResolvedValue([

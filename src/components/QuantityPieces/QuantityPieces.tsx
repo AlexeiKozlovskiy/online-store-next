@@ -1,4 +1,4 @@
-import './QuantityPieces.scss';
+import './quantityPieces.scss';
 
 interface IQuantityPieces {
   inputValue: string;
