@@ -1,0 +1,18 @@
+import { getData } from '@/helpers/api';
+import { ProductCard } from '@/components/mainPage/productCard';
+
+export async function ProductsList() {
+  const data = await getData();
+
+  const noItemsFound = (
+    <section className="empty-catalog" data-testid="empty-catalog">
+      No items found
+    </section>
+  );
+
+  return (
+    <div className="main-catalog__products" data-testid="main-catalog">
+      {data.length ? data.map((product) => <ProductCard key={product.id} product={product} products={data} />) : noItemsFound}
+    </div>
+  );
+}
