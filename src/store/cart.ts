@@ -62,9 +62,7 @@ const cartSlice = createSlice({
       const item = state.find(({ product }) => product.id === id);
       if (item) {
         if (item.quantity <= 1) {
-          return state
-            .filter((stateItem) => stateItem !== item)
-            .map((p, i) => ({ ...p, itemNumber: i + 1 }));
+          return state.filter((stateItem) => stateItem !== item).map((p, i) => ({ ...p, itemNumber: i + 1 }));
         }
         item.quantity -= 1;
       }
@@ -77,9 +75,7 @@ const cartSlice = createSlice({
 
       const item = state.find(({ product }) => product.id === id);
       if (item) {
-        return state
-          .filter((stateItem) => stateItem !== item)
-          .map((p, i) => ({ ...p, itemNumber: i + 1 }));
+        return state.filter((stateItem) => stateItem !== item).map((p, i) => ({ ...p, itemNumber: i + 1 }));
       }
       return state;
     },
@@ -91,11 +87,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const {
-  addToCart,
-  setQuantityItemInCart,
-  removeItemFromCart,
-  removeAllItemsFromCart,
-  removeCart,
-} = cartSlice.actions;
+export const { addToCart, setQuantityItemInCart, removeItemFromCart, removeAllItemsFromCart, removeCart } = cartSlice.actions;
 export default cartSlice.reducer;
