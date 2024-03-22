@@ -5,12 +5,8 @@ import { CartItem, IProductPageQty, Product, RootReducerProps } from '@/types/ty
 import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 
-const ButtonAddMore = dynamic(() => import('./buttonAddMore'), {
-  loading: () => <>ADD TO CART</>,
-});
-const ButtonAddToCart = dynamic(() => import('./buttonAddToCart'), {
-  loading: () => <>ADD TO CART</>,
-});
+const ButtonAddMore = dynamic(() => import('./buttonAddMore'));
+const ButtonAddToCart = dynamic(() => import('./buttonAddToCart'));
 
 interface IAddToCart {
   product: Product | null;

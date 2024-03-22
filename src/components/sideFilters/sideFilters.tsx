@@ -2,30 +2,21 @@
 import './sideFilters.scss';
 import Slider from 'react-slider';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
-// import { Balancers, DualRange, RootReducerProps, SelectedFilter } from '@/types/types';
-// import { useMyURLContext } from '@/context/URLContext';
-// import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { DualRangeInput } from './dualRangeInput';
 import { useEffect, useState } from 'react';
-import { Balancers, DualRange, RootReducerProps, SelectedFilter, SelectedFilters } from '@/types/types';
+import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter, SelectedFilters } from '@/types/types';
 import { useSelector } from 'react-redux';
-import { ButtonCross } from '../buttonCross/buttonCross';
+import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { useMyURLContext } from '@/context/URLContext';
 import dynamic from 'next/dynamic';
-// import { useSelector } from 'react-redux';
+import { toggleShowFilters } from '@/store/controller';
 
 const CategoryCount = dynamic(() => import('./categoryCount'), {
   loading: () => <></>,
   ssr: false,
 });
 
-// interface ISideFilter {
-//   showFilters: boolean;
-//   onClickHideFilter: (event: React.MouseEvent<Element, MouseEvent>) => void;
-//   handleClickFilters: (value: boolean) => void;
-// }
-
-export function SideFilters() {
+export default function SideFilters() {
   const { selectedFilters, setSelectedFilters } = useMyURLContext();
   const [[priseMin, priseMax], setPrice] = useState<DualRange>([null, null]);
   const [[sizeMin, sizeMax], setSize] = useState<DualRange>([null, null]);
@@ -35,16 +26,9 @@ export function SideFilters() {
     Balancers
   >((state) => state.balansersFilters);
 
-  const { colorsSelected, collectionsSelected, categorySelected, priceSelected, sizeSelected, stockSelected } = selectedFilters;
+  const { showFilters } = useSelector<RootReducerProps, IviewSideFilters>((state) => state.viewSideFilters);
 
-  // const [selectedFilters, setSelectedFilters] = useState<SelectedFilters>({
-  //   colorsSelected: [],
-  //   collectionsSelected: [],
-  //   categorySelected: [],
-  //   priceSelected: [PRICE_MIN, PRICE_MAX],
-  //   sizeSelected: [SIZE_MIN, SIZE_MAX],
-  //   stockSelected: [STOCK_MIN, STOCK_MAX],
-  // });
+  const { colorsSelected, collectionsSelected, categorySelected, priceSelected, sizeSelected, stockSelected } = selectedFilters;
 
   const [balancedMinPrice, balancedMaxPrice] = balancerPrise;
   const [balancedMinSize, balancedMaxSize] = balancerSize;
@@ -278,7 +262,7 @@ export function SideFilters() {
   );
 
   return (
-    <div className="filters" data-testid="filterPanel">
+    <div className="filters" data-show={showFilters} data-testid="filterPanel">
       <div className="filters__item filters-item">
         <div className="filters-item__title">Color</div>
         {ColorFilter}
@@ -303,7 +287,7 @@ export function SideFilters() {
         <div className="filters-item__title">In stock</div>
         {StockFilter}
       </div>
-      {/* <ButtonCross onClickCross={onClickHideFilter} adittionClassName="close-side-filters-cross" /> */}
+      <ButtonCross onClickCross={() => toggleShowFilters()} adittionClassName="close-side-filters-cross" />
     </div>
   );
 }

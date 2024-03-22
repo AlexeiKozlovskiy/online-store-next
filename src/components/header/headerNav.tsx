@@ -38,9 +38,7 @@ export default function HeaderNav() {
     <>
       <div className="header-nav" data-show={showBurgerMenu}>
         <ButtonCross onClickCross={handleShowBurgerMenu} adittionClassName="close-burger-cross" />
-        <Link href="/" className="header-link" onClick={logoClickBurger}>
-          <LogoStore />
-        </Link>
+        <LogoStore onClickBurger={logoClickBurger} />
         <div className="header-nav-contents">
           <HeaderAuth handelClick={modalsUdater} />
         </div>

@@ -14,5 +14,5 @@ export default function CartIsInCart({ id }: ICartIsInCart) {
 
   const inCart = <div className="product-summary__state-in-cart">In cart</div>;
 
-  return isInCart ? inCart : '';
+  return isInCart && inCart;
 }

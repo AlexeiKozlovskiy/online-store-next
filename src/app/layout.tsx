@@ -25,8 +25,8 @@ export default function RootLayout({
           <URLContextProvider>
             <Header />
             {children}
-            <Footer />
           </URLContextProvider>
+          <Footer />
         </ReduxProvider>
       </body>
     </html>

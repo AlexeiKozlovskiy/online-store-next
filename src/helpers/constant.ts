@@ -1,4 +1,4 @@
-import { Balancers, ProductDualRangesFilters, ProductFilters } from '@/types/types';
+import { Balancers, ProductDualRangesFilters, ProductFilters, SortingsValue } from '@/types/types';
 
 export const PRICE_MIN = 1.99;
 export const PRICE_MAX = 34.99;
@@ -19,6 +19,8 @@ export const COLOR_STOCK = [
   { color: 'white' },
   { color: 'yellow' },
 ];
+
+export const MAX_PAGES = 12;
 
 export const CATEGORIES_STOCK = [
   { category: 'Christmas decorations', count: 0 },
@@ -67,4 +69,37 @@ export const BALANCERS: Record<string, keyof Balancers> = {
   BALANCER_PRICE: 'balancerPrise',
   BALANCER_SIZE: 'balancerSize',
   BALANCER_STOCK: 'balancerStock',
+};
+
+export const ITEMS_IN_PAGE = [
+  { value: '5', label: 'Show items: 5' },
+  { value: '10', label: 'Show items: 10' },
+  { value: '20', label: 'Show items: 20' },
+  { value: '30', label: 'Show items: 30' },
+  { value: 'all', label: 'All' },
+];
+
+export const ITEMS_IN_PAGE_CART = [
+  { value: '1', label: 'Show items: 1' },
+  { value: '3', label: 'Show items: 3' },
+  { value: '5', label: 'Show items: 5' },
+  { value: '10', label: 'Show items: 10' },
+  { value: 'all', label: 'All' },
+];
+
+export const SORT_OPTIONS = [
+  { value: '', label: 'Recommended' },
+  { value: 'name', label: 'Name' },
+  { value: 'price-asc', label: 'Price ascending' },
+  { value: 'price-desc', label: 'Price descending' },
+  { value: 'stock-asc', label: 'Stock ascending' },
+  { value: 'stock-desc', label: 'Stock descending' },
+];
+
+export const SORTING_SELECT: Record<string, SortingsValue> = {
+  NAME: 'name',
+  PRICE_ASC: 'price-asc',
+  PRICE_DESC: 'price-desc',
+  STOCK_ASC: 'stock-asc',
+  STOCK_DESC: 'stock-desc',
 };

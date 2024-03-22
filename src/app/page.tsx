@@ -1,12 +1,10 @@
+import dynamic from 'next/dynamic';
 import { SearchPanel } from '@/components/searchPanel/searchPanel';
-import { SideFilters } from '@/components/sideFilters/sideFilters';
 import { getProducts } from '@/helpers/api';
 import { ProductList } from '@/components/mainPage/productList';
-import dynamic from 'next/dynamic';
 
-const QweryPanel = dynamic(() => import('@/components/qweryPanel/qweryPanel'), {
-  ssr: false,
-});
+const QweryPanel = dynamic(() => import('@/components/qweryPanel/qweryPanel'));
+const SideFilters = dynamic(() => import('@/components/sideFilters/sideFilters'));
 
 export default async function Home() {
   const productsFromServer = await getProducts();

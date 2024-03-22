@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import {
   PRICE_MIN,

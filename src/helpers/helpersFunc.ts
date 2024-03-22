@@ -119,3 +119,50 @@ export function categoryBalancer(products: Product[], categoryStock: BalancerCat
     count: products.filter((product) => product.category === category).length,
   }));
 }
+
+export function sortByKey(products: Product[], criteria: (a: Product, b: Product) => number) {
+  return [...products].sort((a, b) => criteria(a, b));
+}
+
+export function sortByPriceAsc(a: Product, b: Product) {
+  return a.price - b.price;
+}
+
+export function sortByPriceDesc(a: Product, b: Product) {
+  return b.price - a.price;
+}
+
+export function sortByStockAsc(a: Product, b: Product) {
+  return a.stock - b.stock;
+}
+
+export function sortByStockDesc(a: Product, b: Product) {
+  return b.stock - a.stock;
+}
+
+export function sortByFavorite(products: Product[]) {
+  const productsByName = sortByName(products).reverse();
+  return [...productsByName].sort(({ favorite }) => (favorite ? -1 : 1));
+}
+
+export function sortByName(products: Product[]) {
+  return [...products].sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (nameA > nameB) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+}
+
+export function handlerScrollUp() {
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, 20);
+}

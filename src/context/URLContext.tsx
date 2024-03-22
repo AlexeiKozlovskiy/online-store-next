@@ -7,32 +7,28 @@ import {
   SIZE_MAX,
   STOCK_MIN,
   STOCK_MAX,
-  // SORT_OPTIONS,
-  // ITEMS_IN_PAGE,
-  // ITEMS_IN_PAGE_CART,
+  SORT_OPTIONS,
+  ITEMS_IN_PAGE,
+  ITEMS_IN_PAGE_CART,
 } from '@/helpers/constant';
-import { SelectedFilters } from '@/types/types';
-import router, { usePathname } from 'next/navigation';
-// import { ISelect, InputSearch, SelectedFilters } from '@/types/types';
-// import { useLocation } from 'react-router-dom';
-// import { clearQweryParams, setQweryParams } from '@/store/controller';
-import { useSearchParams } from 'next/navigation';
+import { ISelect, SelectedFilters } from '@/types/types';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { clearQweryParams, setQweryParams } from '@/store/controller';
 
 interface IURLContext {
-  // sortindViewOption: ISelect;
-  // setSortindViewOption: (selectedOption: ISelect) => void;
-  // curPageMain: number;
-  // setCurPageMain: (value: number) => void;
-  // perMainPageOption: ISelect;
-  // setPerMainPageOption: (selectedOption: ISelect) => void;
-  // curPageCart: number;
-  // setCurPageCart: (value: number) => void;
-  // perCartPageOption: ISelect;
-  // setPerCartPageOption: (selectedOption: ISelect) => void;
-  // swichedView: string;
-  // setSwichedView: (value: string) => void;
-  // cartUrl: string;
+  sortindViewOption: ISelect;
+  setSortindViewOption: (selectedOption: ISelect) => void;
+  curPageMain: number;
+  setCurPageMain: (value: number) => void;
+  perMainPageOption: ISelect;
+  setPerMainPageOption: (selectedOption: ISelect) => void;
+  curPageCart: number;
+  setCurPageCart: (value: number) => void;
+  perCartPageOption: ISelect;
+  setPerCartPageOption: (selectedOption: ISelect) => void;
+  swichedView: string;
+  setSwichedView: (value: string) => void;
+  cartUrl: string;
   inputSearchURL: string | null;
   setInputSearchURL: (value: string | null) => void;
   selectedFilters: SelectedFilters;
@@ -45,19 +41,19 @@ export const useMyURLContext = () => useContext(URLContext);
 export const URLContext = createContext<IURLContext>({
   inputSearchURL: '',
   setInputSearchURL: () => null,
-  // sortindViewOption: SORT_OPTIONS[0],
-  // setSortindViewOption: () => null,
-  // curPageMain: 1,
-  // setCurPageMain: () => null,
-  // perMainPageOption: ITEMS_IN_PAGE[2],
-  // setPerMainPageOption: () => null,
-  // curPageCart: 1,
-  // setCurPageCart: () => null,
-  // perCartPageOption: ITEMS_IN_PAGE_CART[1],
-  // setPerCartPageOption: () => null,
-  // swichedView: 'block',
-  // setSwichedView: () => null,
-  // cartUrl: '/cart',
+  sortindViewOption: SORT_OPTIONS[0],
+  setSortindViewOption: () => null,
+  curPageMain: 1,
+  setCurPageMain: () => null,
+  perMainPageOption: ITEMS_IN_PAGE[2],
+  setPerMainPageOption: () => null,
+  curPageCart: 1,
+  setCurPageCart: () => null,
+  perCartPageOption: ITEMS_IN_PAGE_CART[1],
+  setPerCartPageOption: () => null,
+  swichedView: 'block',
+  setSwichedView: () => null,
+  cartUrl: '/cart',
   selectedFilters: {
     colorsSelected: [],
     collectionsSelected: [],
@@ -80,25 +76,22 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     stockSelected: [STOCK_MIN, STOCK_MAX],
   });
   const [inputSearchURL, setInputSearchURL] = useState<string | null>('');
-  // const [sortindViewOption, setSortindViewOption] = useState<ISelect>(SORT_OPTIONS[0]);
-  // const [curPageMain, setCurPageMain] = useState<number>(1);
-  // const [perMainPageOption, setPerMainPageOption] = useState<ISelect>(ITEMS_IN_PAGE[2]);
-  // const [curPageCart, setCurPageCart] = useState<number>(1);
-  // const [perCartPageOption, setPerCartPageOption] = useState<ISelect>(ITEMS_IN_PAGE_CART[1]);
-  // const [swichedView, setSwichedView] = useState('block');
-  // const [cartUrl, setCartUrl] = useState('/cart');
-  // const location = useLocation();
-
+  const [sortindViewOption, setSortindViewOption] = useState<ISelect>(SORT_OPTIONS[0]);
+  const [curPageMain, setCurPageMain] = useState<number>(1);
+  const [perMainPageOption, setPerMainPageOption] = useState<ISelect>(ITEMS_IN_PAGE[2]);
+  const [curPageCart, setCurPageCart] = useState<number>(1);
+  const [perCartPageOption, setPerCartPageOption] = useState<ISelect>(ITEMS_IN_PAGE_CART[1]);
+  const [swichedView, setSwichedView] = useState('block');
+  const [cartUrl, setCartUrl] = useState('/cart');
   const { colorsSelected, collectionsSelected, categorySelected, priceSelected, sizeSelected, stockSelected } = selectedFilters;
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [minPrice, maxPrice] = priceSelected;
   const [minSize, maxSize] = sizeSelected;
   const [minStock, maxStock] = stockSelected;
 
-  // const queryParams = useSearchParams();
-  const searchParams = useSearchParams();
-
-  useLayoutEffect(() => {
+  useEffect(() => {
     function setDataFromUrl() {
       const queryParams = new URLSearchParams(location.search);
       const getQueryParam = (paramName: string) => queryParams.getAll(paramName);
@@ -112,29 +105,30 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
       const valMinStock = getQueryParam('minStock');
       const valMaxStock = getQueryParam('maxStock');
       const [search] = getQueryParam('q');
-      // const [viewOption] = getQueryParam('sortBy');
-      // const [curPageMain] = getQueryParam('page');
-      // const [perMainOption] = getQueryParam('perPage');
-      // const [curPageCart] = getQueryParam('page');
-      // const [perCartOption] = getQueryParam('perPage');
-      // const [swichedViews] = getQueryParam('switchView');
+      const [viewOption] = getQueryParam('sortBy');
+      const [curPageMain] = getQueryParam('page');
+      const [perMainOption] = getQueryParam('perPage');
+      const [curPageCart] = getQueryParam('page');
+      const [perCartOption] = getQueryParam('perPage');
+      const [swichedViews] = getQueryParam('switchView');
 
       updatedFilters(colors, collections, categories, valMinPrice, valMaxPrice, valMinSize, valMaxSize, valMinStock, valMaxStock);
 
-      // updatedRowBlockView(viewOption);
-      // updatedPagination(curPageMain, perMainOption, curPageCart, perCartOption);
+      updatedRowBlockView(viewOption);
+      updatedPagination(curPageMain, perMainOption, curPageCart, perCartOption);
 
       search && setInputSearchURL(search);
-      // swichedViews && setSwichedView(swichedViews);
+      swichedViews && setSwichedView(swichedViews);
     }
-
     setDataFromUrl();
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     function setDataInURL() {
       const params = new URLSearchParams(searchParams.toString());
       setFiltersQweryInParams(params);
+      setPagesQweryInParams(params);
+
       const newURL = `${location.pathname}?${params.toString()}`;
       window.history.pushState({ ...window.history.state, as: newURL, url: newURL }, '', newURL);
     }
@@ -147,12 +141,12 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     sizeSelected,
     stockSelected,
     inputSearchURL,
-    // sortindViewOption.value,
-    // curPageMain,
-    // perMainPageOption,
-    // curPageCart,
-    // perCartPageOption,
-    // swichedView,
+    sortindViewOption.value,
+    curPageMain,
+    perMainPageOption,
+    curPageCart,
+    perCartPageOption,
+    swichedView,
   ]);
 
   useEffect(() => {
@@ -164,17 +158,17 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     setDataInReduxState();
   }, [colorsSelected, collectionsSelected, categorySelected, priceSelected, sizeSelected, stockSelected, inputSearchURL]);
 
-  // useEffect(() => {
-  //   if (+perCartPageOption.value !== 3) {
-  //     setCartUrl(`/cart?page=${curPageCart}&perPage=${perCartPageOption.value}`);
-  //   }
-  //   if (+perCartPageOption.value === 3 && curPageCart !== 1) {
-  //     setCartUrl(`/cart?page=${curPageCart}`);
-  //   }
-  //   if (+perCartPageOption.value === 3 && curPageCart === 1) {
-  //     setCartUrl(`/cart`);
-  //   }
-  // }, [perCartPageOption, perCartPageOption, curPageCart]);
+  useEffect(() => {
+    if (+perCartPageOption.value !== 3) {
+      setCartUrl(`/cart?page=${curPageCart}&perPage=${perCartPageOption.value}`);
+    }
+    if (+perCartPageOption.value === 3 && curPageCart !== 1) {
+      setCartUrl(`/cart?page=${curPageCart}`);
+    }
+    if (+perCartPageOption.value === 3 && curPageCart === 1) {
+      setCartUrl(`/cart`);
+    }
+  }, [perCartPageOption, perCartPageOption, curPageCart]);
 
   const setFiltersQweryInParams = (params: URLSearchParams) => {
     if (colorsSelected.length) {
@@ -209,26 +203,26 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // const setPagesQweryInParams = (params: URLSearchParams) => {
-  //   if (sortindViewOption.value.length) {
-  //     params.set('sortBy', sortindViewOption.value);
-  //   }
-  //   if (curPageMain > 1 && location.pathname === '/') {
-  //     params.set('page', curPageMain.toString());
-  //   }
-  //   if (+perMainPageOption.value !== 20 && location.pathname === '/') {
-  //     params.set('perPage', perMainPageOption.value);
-  //   }
-  //   if (curPageCart > 1 && location.pathname === '/cart') {
-  //     params.set('page', curPageCart.toString());
-  //   }
-  //   if (+perCartPageOption.value !== 3 && location.pathname === '/cart') {
-  //     params.set('perPage', perCartPageOption.value);
-  //   }
-  //   if (swichedView === 'row') {
-  //     params.set('switchView', swichedView);
-  //   }
-  // };
+  const setPagesQweryInParams = (params: URLSearchParams) => {
+    if (sortindViewOption.value.length) {
+      params.set('sortBy', sortindViewOption.value);
+    }
+    if (curPageMain > 1 && location.pathname === '/') {
+      params.set('page', curPageMain.toString());
+    }
+    if (+perMainPageOption.value !== 20 && location.pathname === '/') {
+      params.set('perPage', perMainPageOption.value);
+    }
+    if (curPageCart > 1 && location.pathname === '/cart') {
+      params.set('page', curPageCart.toString());
+    }
+    if (+perCartPageOption.value !== 3 && location.pathname === '/cart') {
+      params.set('perPage', perCartPageOption.value);
+    }
+    if (swichedView === 'row') {
+      params.set('switchView', swichedView);
+    }
+  };
 
   function updatedFilters(
     colors: string,
@@ -264,49 +258,49 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     setSelectedFilters(filters);
   }
 
-  // function updatedPagination(curPageMain: string, perMainOption: string, curPageCart: string, perCartOption: string) {
-  //   if (curPageMain && location.pathname === '/') {
-  //     setCurPageMain(+curPageMain);
-  //   }
+  function updatedPagination(curPageMain: string, perMainOption: string, curPageCart: string, perCartOption: string) {
+    if (curPageMain && location.pathname === '/') {
+      setCurPageMain(+curPageMain);
+    }
 
-  //   if (perMainOption && location.pathname === '/') {
-  //     setPerMainPageOption({
-  //       value: perMainOption,
-  //       label: ITEMS_IN_PAGE.filter(({ value, label }) => {
-  //         if (value === perMainOption) {
-  //           return label;
-  //         }
-  //       })[0].label,
-  //     });
-  //   }
+    if (perMainOption && location.pathname === '/') {
+      setPerMainPageOption({
+        value: perMainOption,
+        label: ITEMS_IN_PAGE.filter(({ value, label }) => {
+          if (value === perMainOption) {
+            return label;
+          }
+        })[0].label,
+      });
+    }
 
-  //   if (curPageCart && location.pathname === '/cart') {
-  //     setCurPageCart(+curPageCart);
-  //   }
+    if (curPageCart && location.pathname === '/cart') {
+      setCurPageCart(+curPageCart);
+    }
 
-  //   if (perCartOption && location.pathname === '/cart') {
-  //     setPerCartPageOption({
-  //       value: perCartOption,
-  //       label: ITEMS_IN_PAGE_CART.filter(({ value, label }) => {
-  //         if (value === perCartOption) {
-  //           return label;
-  //         }
-  //       })[0].label,
-  //     });
-  //   }
-  // }
+    if (perCartOption && location.pathname === '/cart') {
+      setPerCartPageOption({
+        value: perCartOption,
+        label: ITEMS_IN_PAGE_CART.filter(({ value, label }) => {
+          if (value === perCartOption) {
+            return label;
+          }
+        })[0].label,
+      });
+    }
+  }
 
-  // function updatedRowBlockView(viewOption: string) {
-  //   viewOption &&
-  //     setSortindViewOption({
-  //       value: viewOption,
-  //       label: SORT_OPTIONS.filter(({ value, label }) => {
-  //         if (value === viewOption) {
-  //           return label;
-  //         }
-  //       })[0].label,
-  //     });
-  // }
+  function updatedRowBlockView(viewOption: string) {
+    viewOption &&
+      setSortindViewOption({
+        value: viewOption,
+        label: SORT_OPTIONS.filter(({ value, label }) => {
+          if (value === viewOption) {
+            return label;
+          }
+        })[0].label,
+      });
+  }
 
   function removeAllSelected() {
     setSelectedFilters({
@@ -318,32 +312,33 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
       stockSelected: [STOCK_MIN, STOCK_MAX],
     });
     setInputSearchURL('');
-    // setSortindViewOption(SORT_OPTIONS[0]);
-    // setCurPageMain(1);
-    // setPerMainPageOption(ITEMS_IN_PAGE[2]);
-    // setPerCartPageOption(ITEMS_IN_PAGE_CART[1]);
-    // setCurPageCart(1);
+    setSortindViewOption(SORT_OPTIONS[0]);
+    setCurPageMain(1);
+    setPerMainPageOption(ITEMS_IN_PAGE[2]);
+    setPerCartPageOption(ITEMS_IN_PAGE_CART[1]);
+    setCurPageCart(1);
     clearQweryParams();
+    setSwichedView('block');
   }
 
   return (
     <URLContext.Provider
       value={{
-        // sortindViewOption,
-        // setSortindViewOption,
+        sortindViewOption,
+        setSortindViewOption,
         inputSearchURL,
         setInputSearchURL,
-        // curPageMain,
-        // setCurPageMain,
-        // perMainPageOption,
-        // setPerMainPageOption,
-        // curPageCart,
-        // setCurPageCart,
-        // perCartPageOption,
-        // setPerCartPageOption,
-        // swichedView,
-        // setSwichedView,
-        // cartUrl,
+        curPageMain,
+        setCurPageMain,
+        perMainPageOption,
+        setPerMainPageOption,
+        curPageCart,
+        setCurPageCart,
+        perCartPageOption,
+        setPerCartPageOption,
+        swichedView,
+        setSwichedView,
+        cartUrl,
         selectedFilters,
         setSelectedFilters,
         removeAllSelected,

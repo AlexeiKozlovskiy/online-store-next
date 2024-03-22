@@ -7,9 +7,7 @@ import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
 import dynamic from 'next/dynamic';
 
-const CardButton = dynamic(() => import('./productCardCartButton'), {
-  ssr: false,
-});
+const CardButton = dynamic(() => import('./productCardCartButton'));
 
 type ProductViewData = {
   product: Product;

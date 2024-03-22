@@ -1,10 +1,11 @@
-import { Balancers, Product } from '@/types/types';
 import store from '@/store/store';
+import { Balancers, Product } from '@/types/types';
 import { addToCart, removeItemFromCart, removeAllItemsFromCart, setQuantityItemInCart, removeCart } from './cart';
 import { changeCount, resetCount } from './productPageQty';
 import { addAppliedPromocode, removeAppliedPromocode } from './promocode';
 import { resetBalansersFilters, updateBalancerProperty } from './balansersFilters';
 import { addQweryParams, resetQweryParams } from './productsQweryParams';
+import { toggleViewFilters } from './viewSideFilters';
 
 export function addProductToCart(product: Product, quantity: number = 1) {
   store.dispatch(addToCart({ product, quantity }));
@@ -65,4 +66,8 @@ export function setQweryParams(qweryParams: string) {
 
 export function clearQweryParams() {
   store.dispatch(resetQweryParams());
+}
+
+export function toggleShowFilters() {
+  store.dispatch(toggleViewFilters());
 }

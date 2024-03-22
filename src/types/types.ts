@@ -35,6 +35,7 @@ export interface RootReducerProps {
   promocode: PromocodeData;
   balansersFilters: Balancers;
   productsQweryParams: ProductsQweryParams;
+  viewSideFilters: IviewSideFilters;
 }
 
 export interface IProductPageQty {
@@ -97,7 +98,22 @@ export type ProductFilters = Omit<Product, 'id' | 'name' | 'favorite' | 'images'
 
 export type ProductDualRangesFilters = Pick<ProductFilters, 'price' | 'size' | 'stock'>;
 
+export type SortingsValue = 'name' | 'price-asc' | 'price-desc' | 'stock-asc' | 'stock-desc';
+
 export interface InputSearch {
   inputSearchURL: string | null;
   setInputSearchURL: (value: string | null) => void;
+}
+
+export interface ISelect {
+  value: string;
+  label: string;
+}
+
+export interface IviewSideFilters {
+  showFilters: boolean;
+}
+
+export interface PageClickEvent {
+  selected: number;
 }
