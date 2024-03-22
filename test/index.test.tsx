@@ -20,6 +20,14 @@ import ReduxProvider from '@/store/redux-provider';
 //   ]),
 // }));
 
+jest.mock('next/navigation', () => ({
+  useRouter() {
+    return {
+      prefetch: () => null,
+    };
+  },
+}));
+
 describe('Home', () => {
   class ResizeObserverMock {
     observe() {}
