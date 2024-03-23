@@ -1,6 +1,6 @@
 'use client';
 import './searchPanel.scss';
-import { useDebounce } from '@/hooks/debounceHook';
+import { useDebounce } from '@/hooks/debouncedHook';
 import { useEffect, useState } from 'react';
 import { useMyURLContext } from '@/context/URLContext';
 
