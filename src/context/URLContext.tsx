@@ -12,7 +12,7 @@ import {
   ITEMS_IN_PAGE_CART,
 } from '@/helpers/constant';
 import { ISelect, SelectedFilters } from '@/types/types';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { clearQweryParams, setQweryParams } from '@/store/controller';
 
 interface IURLContext {
@@ -85,7 +85,6 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
   const [cartUrl, setCartUrl] = useState('/cart');
   const { colorsSelected, collectionsSelected, categorySelected, priceSelected, sizeSelected, stockSelected } = selectedFilters;
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const [minPrice, maxPrice] = priceSelected;
   const [minSize, maxSize] = sizeSelected;
@@ -125,7 +124,8 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     function setDataInURL() {
-      const params = new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(location.search);
+
       setFiltersQweryInParams(params);
       setPagesQweryInParams(params);
 

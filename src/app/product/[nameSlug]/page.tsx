@@ -26,7 +26,7 @@ interface IProductPage {
   params: { nameSlug: string };
 }
 
-export async function getProductIDByName(nameSlug: string): Promise<string> {
+async function getProductIDByName(nameSlug: string): Promise<string> {
   const clikedId = getCookie('clikedId', { cookies });
   if (clikedId) return clikedId;
   const products = await getProducts();

@@ -58,6 +58,12 @@ export function ProductList({ productsFromServer }: IProductListDoble) {
 
   const { countPages, curPageMain, currentItems, handlePageClick } = useMainPagination({ productsByQwery });
 
+  async function fetchProductsByQwery() {
+    const data = await getProductsQwery(qweryParams);
+    const products = sortByFavorite(data);
+    setProductsByQwery(products);
+  }
+
   function sortingView(viewOption: ISelect) {
     const { value } = viewOption;
     const { NAME, PRICE_ASC, PRICE_DESC, STOCK_ASC, STOCK_DESC } = SORTING_SELECT;
@@ -111,12 +117,6 @@ export function ProductList({ productsFromServer }: IProductListDoble) {
       const stockValues = dualRangesBalancer(productsByQwery, STOCK);
       updateBalancersPropertys(BALANCER_STOCK, stockValues);
     }
-  }
-
-  async function fetchProductsByQwery() {
-    const data = await getProductsQwery(qweryParams);
-    const products = sortByFavorite(data);
-    setProductsByQwery(products);
   }
 
   const noItemsFound = (
