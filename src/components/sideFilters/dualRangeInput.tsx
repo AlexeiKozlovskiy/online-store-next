@@ -1,10 +1,11 @@
+'use client';
 type DualRangeInput = {
-  id?: string;
   value?: string | number;
   defaultValue?: string | number;
   unit: string;
   unitPosition: string;
   onChange?: (e: { target: { value: string } }) => void;
+  id?: string;
 };
 
 export function DualRangeInput({ value, defaultValue, unit, unitPosition, onChange, id }: DualRangeInput) {

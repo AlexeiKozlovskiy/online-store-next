@@ -4,13 +4,15 @@ import dynamic from 'next/dynamic';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
 import type { Metadata } from 'next';
 import { Product } from '@/types/types';
-import { getProductByID, getProductIDByName } from '@/helpers/api';
+import { getProducts, getProductByID } from '@/helpers/api';
 import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
-import { formatPrice } from '@/helpers/helpersFunc';
+import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
 import { ProductImages } from '@/components/productPage/productImages';
 import { AddToCart } from '@/components/productPage/buttonAddToCart/addToCart';
 import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
 import ShakeField from '@/components/productPage/shakeField';
+import { getCookie } from 'cookies-next';
+import { cookies } from 'next/headers';
 
 const CartIsInCart = dynamic(() => import('@/components/cartPage/cartIsInCart'), {
   ssr: false,
@@ -22,6 +24,14 @@ type MetadataParams = {
 
 interface IProductPage {
   params: { nameSlug: string };
+}
+
+async function getProductIDByName(nameSlug: string): Promise<string> {
+  const clikedId = getCookie('clikedId', { cookies });
+  if (clikedId) return clikedId;
+  const products = await getProducts();
+  const findProduct = products.find(({ name }) => name === replaceUnderscore(nameSlug));
+  return findProduct?.id ?? '';
 }
 
 export default async function ProductPage({ params }: IProductPage) {

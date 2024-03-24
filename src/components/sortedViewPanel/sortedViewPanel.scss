@@ -1,0 +1,87 @@
+.sorted-filters {
+  font-family: $Roboto;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 5px;
+  margin-bottom: 50px;
+  color: $darkGray;
+  flex-wrap: wrap;
+
+  &__item-count {
+    width: 60px;
+  }
+}
+
+.filters-menu {
+  display: none;
+  gap: 10px;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+  }
+
+  &__icon {
+    background: url('/img/filters-icon.svg');
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-family: $Roboto;
+    font-size: 0.9rem;
+  }
+
+  &__count {
+    background-color: $oliva;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    font-family: $Roboto;
+    width: 25px;
+    height: 25px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $olivaHover;
+      color: #eeeeee;
+    }
+  }
+}
+
+.switch-view {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: auto;
+
+  @media screen and (max-width: 780px) {
+    margin-left: 0;
+  }
+
+  &__line,
+  &__block {
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+  }
+
+  &__line {
+    background: url('/img/view_switching_string.svg') no-repeat center center / contain;
+  }
+
+  &__block {
+    background: url('/img/view_switching_block.svg') no-repeat center center / contain;
+  }
+
+  .switch-active {
+    filter: invert(44%) sepia(10%) saturate(19%) hue-rotate(42deg) brightness(96%) contrast(89%);
+  }
+}

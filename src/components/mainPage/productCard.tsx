@@ -7,16 +7,13 @@ import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
 import dynamic from 'next/dynamic';
 
-const CardButton = dynamic(() => import('./productCardCartButton'), {
-  ssr: false,
-});
+const CardButton = dynamic(() => import('./productCardCartButton'));
 
 type ProductViewData = {
   product: Product;
-  products: Product[];
 };
 
-export function ProductCard({ product, products }: ProductViewData) {
+export function ProductCard({ product }: ProductViewData) {
   const { id, images, name, price, color, collection, size, category, stock } = product;
   const router = useRouter();
 
@@ -38,9 +35,7 @@ export function ProductCard({ product, products }: ProductViewData) {
           onClick={productItemClick}
         />
       </div>
-      {/* <ReduxProvider> */}
       <div className="product-item__text-wrapper">{<CardButton product={product} />}</div>
-      {/* </ReduxProvider> */}
       {/* <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} /> */}
       <div className="product-item__info">
         <div className="item-info__name-price">
