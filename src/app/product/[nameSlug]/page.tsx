@@ -1,18 +1,18 @@
 import './productPage.scss';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowBack } from '@/components/arrowBack/arrowBack';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { Product } from '@/types/types';
+import { getCookie } from 'cookies-next';
 import { getProducts, getProductByID } from '@/helpers/api';
-import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
+import { ArrowBack } from '@/components/arrowBack/arrowBack';
+import ShakeField from '@/components/productPage/shakeField';
+import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
 import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
 import { ProductImages } from '@/components/productPage/productImages';
 import { AddToCart } from '@/components/productPage/buttonAddToCart/addToCart';
-import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
-import ShakeField from '@/components/productPage/shakeField';
-import { getCookie } from 'cookies-next';
-import { cookies } from 'next/headers';
+import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
 
 const CartIsInCart = dynamic(() => import('@/components/cartPage/cartIsInCart'), {
   ssr: false,

@@ -1,13 +1,13 @@
 'use client';
 import '@/app/cart/cartPage.scss';
-import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import Link from 'next/link';
-import { CartItem } from '@/types/types';
-import { formatPrice, replaceSpace } from '@/helpers/helpersFunc';
 import Image from 'next/image';
-import { QuantityPiecesCart } from '@/components/quantityPieces/quantityPiecesCart';
-import { removeAllProductsFromCart } from '@/store/controller';
+import { CartItem } from '@/types/types';
 import { useAnimations } from '@/hooks/animationsHook';
+import { removeAllProductsFromCart } from '@/store/controller';
+import { formatPrice, replaceSpace } from '@/helpers/helpersFunc';
+import { ButtonCross } from '@/components/buttonCross/buttonCross';
+import { QuantityPiecesCart } from '@/components/quantityPieces/quantityPiecesCart';
 
 export function CartItemList({ itemNumber, quantity, product }: CartItem) {
   const { id, images, name, price, color, collection, size, category, stock } = product;

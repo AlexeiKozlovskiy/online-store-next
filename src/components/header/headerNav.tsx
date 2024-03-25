@@ -2,17 +2,17 @@
 import './header.scss';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { bodyNotScroll } from '@/helpers/helpersFunc';
+import { Authentication, RootReducerProps } from '@/types/types';
+import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { LogoStore } from '@/components/logoStore/logoStore';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
-import { bodyNotScroll } from '@/helpers/helpersFunc';
 import { SignUPModal } from '@/components/modalWindow/signUP/signUPModal';
-import { Authentication, RootReducerProps } from '@/types/types';
 import { SignINModal } from '@/components/modalWindow/signIN/signINModal';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
-import { useSelector } from 'react-redux';
 import { UserModal } from '@/components/modalWindow/user/userModal';
-import { useMyUserAuthContext } from '@/context/UserAuthContext';
-import { Preloader } from '../preloader/preloader';
+import { Preloader } from '@/components/preloader/preloader';
 
 const CartIcon = dynamic(() => import('./cartIcon'));
 const UserIcon = dynamic(() => import('@/components/userIcon/userIcon'));

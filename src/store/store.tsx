@@ -1,14 +1,13 @@
-import authSlice from './auth';
-import cartSlice from './cart';
-import productPageQtySlice from './productPageQty';
-import promocodeSlice from './promocode';
-import balansersFiltersSlise from './balansersFilters';
-import productsQweryParamsSlise from './productsQweryParams';
-import viewSideFiltersSlice from './viewSideFilters';
-
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import authSlice from './auth';
+import cartSlice from './cart';
+import promocodeSlice from './promocode';
+import productPageQtySlice from './productPageQty';
+import viewSideFiltersSlice from './viewSideFilters';
+import balansersFiltersSlise from './balansersFilters';
+import productsQweryParamsSlise from './productsQweryParams';
 
 const rootReduser = combineReducers({
   auth: authSlice,

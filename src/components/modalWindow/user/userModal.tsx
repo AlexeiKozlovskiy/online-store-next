@@ -1,9 +1,9 @@
 import './userModal.scss';
+import { ROUTE } from '@/types/types';
+import { useRouter } from 'next/navigation';
 import { UserProfile } from '@/components/userProfile/userProfile';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { MODAL_WINDOWS } from '@/helpers/constant';
-import { ROUTE } from '@/types/types';
-import { useRouter } from 'next/navigation';
 
 interface IUserModal {
   handelCloseModal: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -17,7 +17,7 @@ export const UserModal = ({ handelCloseModal, closeAnimationModal }: IUserModal)
 
   function handelClickProfile() {
     closeAnimationModal(USER);
-    router.push(`/profile`);
+    router.push(ROUTE.PROFILE);
   }
 
   function handelClickLogout() {

@@ -1,13 +1,13 @@
-import { LogoStore } from '@/components/logoStore/logoStore';
 import { useForm } from 'react-hook-form';
-import { useFormsInputsHelper } from '@/hooks/formsInputsHelperHook';
 import { MyForms } from '@/types/types';
+import { LogoStore } from '@/components/logoStore/logoStore';
+import { useFormsInputsHelper } from '@/hooks/formsInputsHelperHook';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { GoogleButton } from '@/components/googleButton/googleButton';
+import { Preloader } from '@/components/preloader/preloader';
 import { FormInput } from '@/components/formInput/formInput';
 import { useFormsValidation } from '@/hooks/formsValidationHook';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
-import { Preloader } from '@/components/preloader/preloader';
 
 export function Form() {
   const { getSignIN, showPreloader, errorUser } = useMyUserAuthContext();

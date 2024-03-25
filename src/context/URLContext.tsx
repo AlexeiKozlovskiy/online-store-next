@@ -1,5 +1,6 @@
 'use client';
-import { createContext, useState, useContext, ReactNode, useEffect, useLayoutEffect } from 'react';
+import { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   PRICE_MIN,
   PRICE_MAX,
@@ -12,7 +13,6 @@ import {
   ITEMS_IN_PAGE_CART,
 } from '@/helpers/constant';
 import { ISelect, SelectedFilters } from '@/types/types';
-import { useRouter } from 'next/navigation';
 import { clearQweryParams, setQweryParams } from '@/store/controller';
 
 interface IURLContext {

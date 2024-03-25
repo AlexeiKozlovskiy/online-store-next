@@ -1,7 +1,7 @@
-import '@/components/formInput/formInput.scss';
 import { useState } from 'react';
-import { FormErrorMessages, FORM_MESSAGES, ErrorType } from '@/types/types';
+import '@/components/formInput/formInput.scss';
 import { thisYear, thisMonth } from '@/helpers/helpersFunc';
+import { FormErrorMessages, FORM_MESSAGES, ErrorType } from '@/types/types';
 
 export function useFormsValidation() {
   const [formErrors, setFormErrors] = useState<FormErrorMessages>({

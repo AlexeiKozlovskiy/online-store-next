@@ -1,4 +1,5 @@
 import '@/styles/globals.scss';
+import Script from 'next/script';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/footer/footer';
@@ -7,7 +8,6 @@ import ReduxProvider from '@/store/redux-provider';
 import { URLContextProvider } from '@/context/URLContext';
 import { CloseOpenModalsContextProvider } from '@/context/CloseOpenModalsContext';
 import { UserAuthContextProvider } from '@/context/UserAuthContext';
-import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 

@@ -1,6 +1,6 @@
 import './userProfile.scss';
-import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import UserIcon from '@/components/userIcon/userIcon';
+import { useMyUserAuthContext } from '@/context/UserAuthContext';
 
 export function UserProfile() {
   const { user } = useMyUserAuthContext();

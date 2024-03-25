@@ -1,8 +1,8 @@
 'use client';
-import { useMyURLContext } from '@/context/URLContext';
 import './logoStore.scss';
-import { useRouter } from 'next/navigation';
 import { ROUTE } from '@/types/types';
+import { useRouter } from 'next/navigation';
+import { useMyURLContext } from '@/context/URLContext';
 
 interface ILogoStore {
   onClickBurger?: () => void;

@@ -1,7 +1,7 @@
 import './cartPage.scss';
-import { ArrowBack } from '@/components/arrowBack/arrowBack';
-import Cart from '@/components/cartPage/cart';
 import type { Metadata } from 'next';
+import Cart from '@/components/cartPage/cart';
+import { ArrowBack } from '@/components/arrowBack/arrowBack';
 
 export const metadata: Metadata = {
   title: 'Online Store | Cart',

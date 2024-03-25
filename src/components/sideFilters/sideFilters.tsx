@@ -1,15 +1,15 @@
 'use client';
 import './sideFilters.scss';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Slider from 'react-slider';
-import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
-import { DualRangeInput } from './dualRangeInput';
-import { useEffect, useState } from 'react';
-import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter, SelectedFilters } from '@/types/types';
-import { useSelector } from 'react-redux';
-import { ButtonCross } from '@/components/buttonCross/buttonCross';
-import { useMyURLContext } from '@/context/URLContext';
 import { toggleShowFilters } from '@/store/controller';
+import { useMyURLContext } from '@/context/URLContext';
+import { DualRangeInput } from './dualRangeInput';
+import { ButtonCross } from '@/components/buttonCross/buttonCross';
+import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
+import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter } from '@/types/types';
 
 const CategoryCount = dynamic(() => import('./categoryCount'), {
   loading: () => <></>,

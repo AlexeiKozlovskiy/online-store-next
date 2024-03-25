@@ -1,9 +1,9 @@
 'use client';
-import { CartItemList } from '@/components/cartPage/cartItemList';
-import { Summary } from '@/components/cartPage/cartSummary';
-import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
-import { CartItem, RootReducerProps } from '@/types/types';
 import { useSelector } from 'react-redux';
+import { CartItem, RootReducerProps } from '@/types/types';
+import { Summary } from '@/components/cartPage/cartSummary';
+import { CartItemList } from '@/components/cartPage/cartItemList';
+import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { PaymentModal } from '@/components/modalWindow/payment/paymentModal';
 
 export default function TakenCart() {

@@ -1,11 +1,11 @@
 'use client';
-import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
-import { User, CredentialGoogle, Authentication, RootReducerProps, FORM_MESSAGES, FormSignIN, FormSignUP } from '@/types/types';
-import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { useSelector } from 'react-redux';
-import { setAuthParams, clearAuthParams } from '@/store/controller';
-import { refreshTokensApi, signInApi, signInGoogleApi, signUPApi, getUser } from '@/helpers/api';
+import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
 import { MODAL_WINDOWS } from '@/helpers/constant';
+import { setAuthParams, clearAuthParams } from '@/store/controller';
+import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
+import { refreshTokensApi, signInApi, signInGoogleApi, signUPApi, getUser } from '@/helpers/api';
+import { User, CredentialGoogle, Authentication, RootReducerProps, FORM_MESSAGES, FormSignIN, FormSignUP } from '@/types/types';
 
 interface IUserAuthContext {
   user: User | null;

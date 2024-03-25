@@ -1,12 +1,12 @@
 import store from '@/store/store';
 import { Authentication, Balancers, Product } from '@/types/types';
-import { addToCart, removeItemFromCart, removeAllItemsFromCart, setQuantityItemInCart, removeCart } from './cart';
+import { clearAuthUser, setAuthUser } from './auth';
+import { toggleViewFilters } from './viewSideFilters';
 import { changeCount, resetCount } from './productPageQty';
+import { addQweryParams, resetQweryParams } from './productsQweryParams';
 import { addAppliedPromocode, removeAppliedPromocode } from './promocode';
 import { resetBalansersFilters, updateBalancerProperty } from './balansersFilters';
-import { addQweryParams, resetQweryParams } from './productsQweryParams';
-import { toggleViewFilters } from './viewSideFilters';
-import { clearAuthUser, setAuthUser } from './auth';
+import { addToCart, removeItemFromCart, removeAllItemsFromCart, setQuantityItemInCart, removeCart } from './cart';
 
 export function addProductToCart(product: Product, quantity: number = 1) {
   store.dispatch(addToCart({ product, quantity }));

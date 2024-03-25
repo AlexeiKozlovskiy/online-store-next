@@ -1,9 +1,9 @@
-import { useMyURLContext } from '@/context/URLContext';
+import { useSelector } from 'react-redux';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import { MAX_PAGES } from '@/helpers/constant';
+import { useMyURLContext } from '@/context/URLContext';
 import { handlerScrollUp } from '@/helpers/helpersFunc';
 import { PageClickEvent, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
-import { useState, useEffect, useLayoutEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 interface MainPagination {
   productsByQwery: Product[];

@@ -1,8 +1,8 @@
 'use client';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { addProductToCart } from '@/store/controller';
 import { IProductPageQty, Product, ROUTE, RootReducerProps } from '@/types/types';
-import { useSelector } from 'react-redux';
 
 interface IBuyNow {
   product: Product | null;

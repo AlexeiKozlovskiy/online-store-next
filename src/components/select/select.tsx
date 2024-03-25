@@ -1,7 +1,7 @@
-import { customStyles, customTheme } from './selectCustomStyles';
-import { ISelect } from '@/types/types';
 import Select from 'react-select';
 import { v4 as uuidv4 } from 'uuid';
+import { ISelect } from '@/types/types';
+import { customStyles, customTheme } from './selectCustomStyles';
 
 interface IMySelect {
   selectedItem: ISelect | null;

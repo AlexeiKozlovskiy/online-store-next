@@ -1,9 +1,9 @@
 'use client';
 import { useSelector } from 'react-redux';
-import { ISelect, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
 import { ProductCard } from './productCard';
 import { useEffect, useState } from 'react';
 import { getProductsQwery } from '@/helpers/api';
+import { ISelect, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
 import { updateBalancersPropertys } from '@/store/controller';
 import {
   categoryBalancer,

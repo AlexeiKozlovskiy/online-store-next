@@ -1,18 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-import { CartItem, MyForms, ROUTE, RootReducerProps } from '@/types/types';
-// import { Preloader } from '@/components/Preloader/Preloader';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import { removeAllCart } from '@/store/controller';
 import { useFormsInputsHelper } from '@/hooks/formsInputsHelperHook';
-import { FormInput } from '@/components/formInput/formInput';
+import { useTotalCartInfo } from '@/hooks/totalCartInfo';
+import { CartItem, MyForms, ROUTE, RootReducerProps } from '@/types/types';
 import { useFormsValidation } from '@/hooks/formsValidationHook';
 import { CARD_IMAGES, TEST_USER_DATA } from '@/helpers/constant';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
-// import { useMyProfileUserContext } from '@/context/profileUserContext';
-import { removeAllCart } from '@/store/controller';
-import { useTotalCartInfo } from '@/hooks/totalCartInfo';
-import { useRouter } from 'next/navigation';
+import { FormInput } from '@/components/formInput/formInput';
 import { Preloader } from '@/components/preloader/preloader';
 
 export function Form() {

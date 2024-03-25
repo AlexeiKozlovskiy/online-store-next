@@ -1,14 +1,14 @@
 'use client';
 import '@/app/cart/cartPage.scss';
-import { useRef, useState } from 'react';
-import { formatPrice } from '@/helpers/helpersFunc';
-import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { useSelector } from 'react-redux';
-import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
-import { applyPromocode, isPromocodeAvailable, removePromocode } from '@/store/controller';
+import { useRef, useState } from 'react';
 import { PROMOCODES } from '@/helpers/constant';
+import { formatPrice } from '@/helpers/helpersFunc';
 import { useTotalCartInfo } from '@/hooks/totalCartInfo';
+import { ButtonCross } from '@/components/buttonCross/buttonCross';
+import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
+import { applyPromocode, isPromocodeAvailable, removePromocode } from '@/store/controller';
 
 export function Summary() {
   const [inputValue, setInputValue] = useState('');

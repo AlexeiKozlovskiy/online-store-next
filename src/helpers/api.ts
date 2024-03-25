@@ -1,7 +1,7 @@
-import { Product, UserResp, CredentialGoogle, AuthDataResp, FormSignIN, FormSignUP } from '@/types/types';
 import axios from 'axios';
 import { API_ROUTES } from '@/helpers/constant';
 import { commonError } from '@/helpers/helpersFunc';
+import { Product, UserResp, CredentialGoogle, AuthDataResp, FormSignIN, FormSignUP } from '@/types/types';
 
 export async function getProducts(): Promise<Product[]> {
   try {

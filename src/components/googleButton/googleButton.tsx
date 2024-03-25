@@ -1,10 +1,10 @@
 import './googleButton.scss';
-import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
-import { jwtDecode } from 'jwt-decode';
-import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { useEffect } from 'react';
-import { CredentialGoogle, GoogleResp } from '@/types/types';
+import { jwtDecode } from 'jwt-decode';
 import { MODAL_WINDOWS } from '@/helpers/constant';
+import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
+import { useMyUserAuthContext } from '@/context/UserAuthContext';
+import { CredentialGoogle, GoogleResp } from '@/types/types';
 
 export function GoogleButton() {
   const { openModals, closeAnimationModal } = useCloseOpenModalsContext();

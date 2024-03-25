@@ -1,9 +1,9 @@
 'use client';
+import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 import { getIsInCart } from '@/helpers/helpersFunc';
 import { addProductToCart, resetCountProducts } from '@/store/controller';
 import { CartItem, IProductPageQty, Product, RootReducerProps } from '@/types/types';
-import { useSelector } from 'react-redux';
-import dynamic from 'next/dynamic';
 
 const ButtonAddMore = dynamic(() => import('./buttonAddMore'));
 const ButtonAddToCart = dynamic(() => import('./buttonAddToCart'));
