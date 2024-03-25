@@ -1,6 +1,5 @@
 import { LogoStore } from '@/components/logoStore/logoStore';
 import { useForm } from 'react-hook-form';
-// import { Preloader } from '@/components/Preloader/Preloader';
 import { useFormsInputsHelper } from '@/hooks/formsInputsHelperHook';
 import { MyForms } from '@/types/types';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
@@ -8,6 +7,7 @@ import { GoogleButton } from '@/components/googleButton/googleButton';
 import { FormInput } from '@/components/formInput/formInput';
 import { useFormsValidation } from '@/hooks/formsValidationHook';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
+import { Preloader } from '@/components/preloader/preloader';
 
 export function Form() {
   const { getSignIN, showPreloader, errorUser } = useMyUserAuthContext();
@@ -97,7 +97,7 @@ export function Form() {
               Sign up
             </span>
           </div>
-          {/* {showPreloader && <Preloader />} */}
+          {showPreloader && <Preloader additionalClassname="preloader-modal" />}
           {errorUser && ErrorSignIN}
         </div>
       </form>

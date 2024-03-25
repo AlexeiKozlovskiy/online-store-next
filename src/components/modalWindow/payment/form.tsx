@@ -12,10 +12,13 @@ import { useMyUserAuthContext } from '@/context/UserAuthContext';
 // import { useMyProfileUserContext } from '@/context/profileUserContext';
 import { removeAllCart } from '@/store/controller';
 import { useTotalCartInfo } from '@/hooks/totalCartInfo';
+import { useRouter } from 'next/navigation';
+import { Preloader } from '@/components/preloader/preloader';
 
 export function Form() {
   const imageCard = useRef('');
-  // const navigate = useNavigate();
+  const router = useRouter();
+
   const cartItemsState = useSelector<RootReducerProps, CartItem[]>((state) => state.cart);
   const {
     register,
@@ -80,7 +83,7 @@ export function Form() {
       setShowPreloader(false);
       reset();
       removeAllCart();
-      // navigate(ROUTE.MAIN);
+      router.push('/');
     }, 2000);
   };
 
@@ -228,7 +231,7 @@ export function Form() {
         <div className="payment-test" onClick={testDataClick}>
           Test payment data
         </div>
-        {/* {showPreloader && <Preloader />} */}
+        {showPreloader && <Preloader additionalClassname="preloader-modal" />}
       </form>
     </>
   );
