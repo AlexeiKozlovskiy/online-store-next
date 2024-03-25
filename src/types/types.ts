@@ -13,6 +13,13 @@ export interface Product {
   images: string[];
 }
 
+export enum ROUTE {
+  MAIN = '/',
+  CART = 'cart',
+  PRODUCT = 'product',
+  PROFILE = 'profile',
+}
+
 export type DualRange = [number | null, number | null];
 
 export interface SelectedFilter {

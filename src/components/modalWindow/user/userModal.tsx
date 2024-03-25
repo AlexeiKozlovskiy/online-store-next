@@ -2,6 +2,7 @@ import './userModal.scss';
 import { UserProfile } from '@/components/userProfile/userProfile';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { MODAL_WINDOWS } from '@/helpers/constant';
+import { ROUTE } from '@/types/types';
 import { useRouter } from 'next/navigation';
 
 interface IUserModal {
@@ -22,7 +23,7 @@ export const UserModal = ({ handelCloseModal, closeAnimationModal }: IUserModal)
   function handelClickLogout() {
     closeAnimationModal(USER);
     logOut();
-    router.push(`/`);
+    router.push(ROUTE.MAIN);
   }
 
   return (
