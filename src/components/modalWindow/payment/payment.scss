@@ -1,0 +1,117 @@
+.profile-form {
+  &__modal {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    font: 1.2rem $Roboto;
+
+    @media screen and (max-width: 580px) {
+      width: 400px;
+      padding: 20px;
+    }
+
+    @media screen and (max-width: 460px) {
+      width: 360px;
+    }
+
+    @media screen and (max-width: 410px) {
+      width: 300px;
+    }
+
+    @media screen and (max-width: 370px) {
+      width: 270px;
+    }
+  }
+}
+
+.payment-method {
+  display: flex;
+  flex-direction: column;
+  border: none;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__title {
+    margin-right: 15px;
+    color: $oliva;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+  }
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+
+  &__img {
+    width: 57px;
+    height: 37px;
+    padding: 5px;
+
+    &-visa {
+      background: url('/assets/img/visa.svg') no-repeat center;
+      background-size: contain;
+    }
+
+    &-mastercard {
+      background: url('/assets/img/mastercard.svg') no-repeat center;
+      background-size: contain;
+    }
+
+    &-express {
+      background: url('/assets/img/americanExpress.png') no-repeat center;
+      background-size: contain;
+    }
+  }
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  font:
+    1rem 'Sitara',
+    sans-serif;
+  border: solid 1px $greyBorder;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+
+  &__title {
+    font-size: 20px;
+    color: $oliva;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: solid $greyBorder 1px;
+    margin-bottom: 10px;
+  }
+
+  &__list {
+    margin-bottom: 60px;
+  }
+}
+
+.payment-test {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: $greyBorder;
+  font-size: 0.6rem;
+  padding-top: 10px;
+}

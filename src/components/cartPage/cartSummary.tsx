@@ -4,16 +4,19 @@ import { useRef, useState } from 'react';
 import { formatPrice } from '@/helpers/helpersFunc';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { useSelector } from 'react-redux';
-import { PromocodeData, RootReducerProps } from '@/types/types';
+import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
 import { applyPromocode, isPromocodeAvailable, removePromocode } from '@/store/controller';
 import { PROMOCODES } from '@/helpers/constant';
 import { useTotalCartInfo } from '@/hooks/totalCartInfo';
+import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 
 export function Summary() {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<string | null>(null);
+  const { setOpenModals } = useCloseOpenModalsContext();
   const promocodeState = useSelector<RootReducerProps, PromocodeData>((state) => state.promocode);
   const { totalItems, totalPrice, totalPriseByPromocode } = useTotalCartInfo();
+  const { authenticated } = useSelector<RootReducerProps, Authentication>((state) => state.auth);
 
   function handelClickBTN() {
     setInputValue('');
@@ -31,7 +34,18 @@ export function Summary() {
   }
 
   function proceedClick() {
-    console.log('call modal payment');
+    if (authenticated) {
+      checkAuth('modalPayment');
+    } else {
+      checkAuth('modalSignIN');
+    }
+  }
+
+  function checkAuth(key: string) {
+    setOpenModals((prevOpenModals) => ({
+      ...prevOpenModals,
+      [key]: true,
+    }));
   }
 
   const isAvailablePromos = !isPromocodeAvailable(inputRef.current!);

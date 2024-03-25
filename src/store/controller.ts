@@ -1,11 +1,12 @@
 import store from '@/store/store';
-import { Balancers, Product } from '@/types/types';
+import { Authentication, Balancers, Product } from '@/types/types';
 import { addToCart, removeItemFromCart, removeAllItemsFromCart, setQuantityItemInCart, removeCart } from './cart';
 import { changeCount, resetCount } from './productPageQty';
 import { addAppliedPromocode, removeAppliedPromocode } from './promocode';
 import { resetBalansersFilters, updateBalancerProperty } from './balansersFilters';
 import { addQweryParams, resetQweryParams } from './productsQweryParams';
 import { toggleViewFilters } from './viewSideFilters';
+import { clearAuthUser, setAuthUser } from './auth';
 
 export function addProductToCart(product: Product, quantity: number = 1) {
   store.dispatch(addToCart({ product, quantity }));
@@ -70,4 +71,12 @@ export function clearQweryParams() {
 
 export function toggleShowFilters() {
   store.dispatch(toggleViewFilters());
+}
+
+export function setAuthParams(authParams: Authentication): void {
+  store.dispatch(setAuthUser(authParams));
+}
+
+export function clearAuthParams() {
+  store.dispatch(clearAuthUser());
 }

@@ -1,9 +1,13 @@
 'use client';
 import './preloader.scss';
 
-export function Preloader() {
+interface IPreloader {
+  additionalClassname?: string;
+}
+
+export function Preloader({ additionalClassname }: IPreloader) {
   return (
-    <div className="loading-spinner-container">
+    <div className={`preloader-cart ${additionalClassname}`}>
       <div data-testid="loading-spinner" className="loading-spinner"></div>
     </div>
   );

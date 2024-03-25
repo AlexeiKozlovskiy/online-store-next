@@ -1,3 +1,4 @@
+import authSlice from './auth';
 import cartSlice from './cart';
 import productPageQtySlice from './productPageQty';
 import promocodeSlice from './promocode';
@@ -10,6 +11,7 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 
 const rootReduser = combineReducers({
+  auth: authSlice,
   cart: cartSlice,
   productPageQty: productPageQtySlice,
   promocode: promocodeSlice,

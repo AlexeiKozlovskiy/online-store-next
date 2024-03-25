@@ -1,0 +1,21 @@
+.user-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba($oliva, 0.85);
+  height: 35px;
+  width: 35px;
+  color: white;
+  font: 1rem $Roboto;
+  transition:
+    0.3s background,
+    0.3s transform;
+  user-select: none;
+}
+
+.google-logo {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+}

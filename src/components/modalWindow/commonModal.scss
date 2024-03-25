@@ -1,0 +1,118 @@
+.modal-page {
+  display: flex;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  &__container {
+    padding: 20px 10px;
+    margin: auto;
+    position: relative;
+
+    @media screen and (max-width: 460px) {
+      padding: 10px 5px;
+    }
+  }
+}
+
+[data-id='modalPayment'] {
+  display: flex;
+}
+
+[data-id='modalSignIN'] {
+  display: flex;
+}
+
+[data-id='modalSignUP'] {
+  display: flex;
+}
+
+.main-modal-btn {
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $oliva;
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  height: 50px;
+  transition: all 0.2s;
+  margin-top: 10px;
+  border: none;
+
+  @media screen and (max-width: 410px) {
+    font-size: 15px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $olivaHover;
+    transition: all 0.2s;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.error-message {
+  margin-top: -8px;
+  margin-left: 10px;
+  padding: 2px;
+  text-align: center;
+  color: $darkGray;
+  position: absolute;
+  font-size: 0.55rem;
+  background-color: #fff;
+}
+
+.animation-view-form {
+  animation: modal-view 1s forwards;
+}
+
+.modalSignUP-hide,
+.modalSignIN-hide,
+.modalPayment-hide {
+  animation: modal-hide 0.5s forwards;
+}
+
+.form-error-response {
+  text-align: center;
+  font: 1rem $Roboto;
+  color: red;
+}
+.hr {
+  text-align: center;
+  position: relative;
+
+  @media screen and (height <= 700px) {
+    margin: 0.5vh 0;
+  }
+}
+
+.hr::before,
+.hr::after {
+  position: absolute;
+  top: 55%;
+  content: '';
+  background-color: $greyBorder;
+  height: 1px;
+  width: 30%;
+  overflow: hidden;
+}
+
+.hr::after {
+  margin-left: 3%;
+}
+
+.hr::before {
+  margin-left: -33%;
+  text-align: right;
+}
