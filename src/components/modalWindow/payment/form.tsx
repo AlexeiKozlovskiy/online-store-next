@@ -58,6 +58,7 @@ export function Form() {
 
   const onSubmit = ({ formProfile }: MyForms) => {
     setShowPreloader(true);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { email, ...dataForm } = formProfile;
     // updateUserProfile(dataForm);
 

@@ -69,15 +69,6 @@ export interface Promocode {
   discount: number;
 }
 
-export interface SelectedFilters {
-  colorsSelected: string[];
-  collectionsSelected: number[];
-  categorySelected: string[];
-  priceSelected: DualRange;
-  sizeSelected: DualRange;
-  stockSelected: DualRange;
-}
-
 export interface BalancerColor {
   color: string;
 }
@@ -214,7 +205,8 @@ export interface InputComponents extends errorsForm, RegisterType {
   placeholder: string;
   required?: boolean | null;
   register: UseFormRegister<MyForms>;
-  validate?: (value: string | any) => boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  validate?: (value: string | MyForms[keyof MyForms] | any) => boolean;
   errorDefinitions: Record<ErrorType, JSX.Element>;
 }
 

@@ -1,15 +1,16 @@
+import { MyForms } from '@/types/types';
 import { useEffect } from 'react';
 import { UseFormSetValue, UseFormWatch } from 'react-hook-form';
 
-type Helper = {
-  watch: UseFormWatch<any>;
-  setValue: UseFormSetValue<any>;
+type InputsHelper = {
+  watch: UseFormWatch<MyForms>;
+  setValue: UseFormSetValue<MyForms>;
 };
 
-export function useFormsInputsHelper({ watch, setValue }: Helper) {
+export function useFormsInputsHelper({ watch, setValue }: InputsHelper) {
   useEffect(() => {
-    setValue('formSignUP.name', watch('formSignUP.name')?.substring(0, 40));
-  }, [watch('formSignUP.name')]);
+    setValue('formProfile.name', watch('formProfile.name')?.substring(0, 40));
+  }, [watch('formProfile.name')]);
 
   useEffect(() => {
     setValue('formSignUP.login', watch('formSignUP.login')?.substring(0, 40));
