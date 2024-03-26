@@ -124,13 +124,13 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     function setDataInURL() {
-      const params = new URLSearchParams(location.search);
+      const params = new URLSearchParams();
 
       setFiltersQweryInParams(params);
       setPagesQweryInParams(params);
 
       const newURL = `${location.pathname}?${params.toString()}`;
-      window.history.pushState({ ...window.history.state, as: newURL, url: newURL }, '', newURL);
+      window.history.replaceState({ ...window.history.state, as: null, url: null }, '', newURL);
     }
     setDataInURL();
   }, [
