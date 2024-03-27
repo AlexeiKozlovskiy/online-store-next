@@ -1,9 +1,9 @@
 'use client';
 import { useSelector } from 'react-redux';
-import { ISelect, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
 import { ProductCard } from './productCard';
 import { useEffect, useState } from 'react';
 import { getProductsQwery } from '@/helpers/api';
+import { ISelect, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
 import { updateBalancersPropertys } from '@/store/controller';
 import {
   categoryBalancer,
@@ -37,6 +37,14 @@ export function ProductList({ productsFromServer }: IProductListDoble) {
 
   const { colorsSelected, collectionsSelected, categorySelected } = selectedFilters;
   const { BALANCER_COLOR, BALANCER_COLLECTION, BALANCER_CATEGORY, BALANCER_PRICE, BALANCER_SIZE, BALANCER_STOCK } = BALANCERS;
+
+  // useMemo(() => {
+  //   if (qweryParams) {
+  //     fetchProductsByQwery();
+  //   } else {
+  //     setProductsByQwery(sortByFavorite(productsFromServer));
+  //   }
+  // }, [productsFromServer]);
 
   useEffect(() => {
     if (productsByQwery.length) {

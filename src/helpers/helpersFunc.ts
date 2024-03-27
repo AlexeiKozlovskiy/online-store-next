@@ -7,6 +7,7 @@ import {
   ProductDualRangesFilters,
   PromocodeData,
 } from '@/types/types';
+import { AxiosError } from 'axios';
 
 export function bodyNotScroll() {
   document.body.classList.toggle('lock');
@@ -165,4 +166,15 @@ export function handlerScrollUp() {
       behavior: 'smooth',
     });
   }, 20);
+}
+
+export const thisYear = new Date().getFullYear().toString().substring(2, 4);
+
+export const thisMonth = new Date().getMonth().toString();
+
+export function commonError(err: unknown) {
+  const error = err as AxiosError<Error>;
+  const { message } = error.response!.data;
+  console.warn(error.response!.data);
+  return { error: message, data: null };
 }

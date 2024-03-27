@@ -24,7 +24,7 @@ export function ProductImages({ images }: IProductImages) {
           onClick={() => handelImageClick(0)}
           width={90}
           height={90}
-          priority={true}
+          priority={false}
         />
         <Image
           src={secondImg}
@@ -33,7 +33,7 @@ export function ProductImages({ images }: IProductImages) {
           onClick={() => handelImageClick(1)}
           width={90}
           height={90}
-          priority={true}
+          priority={false}
         />
       </div>
       <Image
@@ -42,7 +42,7 @@ export function ProductImages({ images }: IProductImages) {
         alt="product-image-main"
         width={600}
         height={600}
-        priority={true}
+        priority={false}
       />
     </div>
   );

@@ -1,10 +1,10 @@
 'use client';
 import './sortedViewPanel.scss';
-import { ITEMS_IN_PAGE, SORT_OPTIONS } from '@/helpers/constant';
-import { useMyURLContext } from '@/context/URLContext';
-import { ISelect } from '@/types/types';
 import dynamic from 'next/dynamic';
+import { ISelect } from '@/types/types';
+import { useMyURLContext } from '@/context/URLContext';
 import { toggleShowFilters } from '@/store/controller';
+import { ITEMS_IN_PAGE, SORT_OPTIONS } from '@/helpers/constant';
 
 const CustomSelect = dynamic(() => import('@/components/select/select'));
 

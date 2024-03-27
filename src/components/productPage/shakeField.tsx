@@ -1,7 +1,7 @@
 'use client';
+import { useSelector } from 'react-redux';
 import { useAnimations } from '@/hooks/animationsHook';
 import { IProductPageQty, RootReducerProps } from '@/types/types';
-import { useSelector } from 'react-redux';
 
 interface IshakeField {
   stock: number;

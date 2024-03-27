@@ -1,8 +1,8 @@
 'use client';
+import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { addProductToCart } from '@/store/controller';
-import { IProductPageQty, Product, RootReducerProps } from '@/types/types';
-import { useSelector } from 'react-redux';
+import { IProductPageQty, Product, ROUTE, RootReducerProps } from '@/types/types';
 
 interface IBuyNow {
   product: Product | null;
@@ -14,7 +14,7 @@ export default function ButtonBuyNow({ product }: IBuyNow) {
 
   function handelBuyNowBtn() {
     addProductToCart(product!, countProducts);
-    router.push(`/cart`);
+    router.push(ROUTE.CART);
   }
 
   return (

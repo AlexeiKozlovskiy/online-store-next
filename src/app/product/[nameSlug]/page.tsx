@@ -1,18 +1,18 @@
 import './productPage.scss';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { ArrowBack } from '@/components/arrowBack/arrowBack';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import { Product } from '@/types/types';
+import { getCookie } from 'cookies-next';
 import { getProducts, getProductByID } from '@/helpers/api';
-import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
+import { ArrowBack } from '@/components/arrowBack/arrowBack';
+import ShakeField from '@/components/productPage/shakeField';
+import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
 import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
 import { ProductImages } from '@/components/productPage/productImages';
 import { AddToCart } from '@/components/productPage/buttonAddToCart/addToCart';
-import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
-import ShakeField from '@/components/productPage/shakeField';
-import { getCookie } from 'cookies-next';
-import { cookies } from 'next/headers';
+import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
 
 const CartIsInCart = dynamic(() => import('@/components/cartPage/cartIsInCart'), {
   ssr: false,
@@ -38,6 +38,7 @@ export default async function ProductPage({ params }: IProductPage) {
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
+
   const { id, name, price, collection, stock, color, size, category, images } = product as Product;
 
   const productName = (
@@ -123,6 +124,7 @@ export async function generateMetadata({ params }: MetadataParams): Promise<Meta
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
+
   const { name, images, category } = product as Product;
 
   return {

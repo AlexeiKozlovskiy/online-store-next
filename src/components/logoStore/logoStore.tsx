@@ -1,7 +1,8 @@
 'use client';
-import { useMyURLContext } from '@/context/URLContext';
 import './logoStore.scss';
+import { ROUTE } from '@/types/types';
 import { useRouter } from 'next/navigation';
+import { useMyURLContext } from '@/context/URLContext';
 
 interface ILogoStore {
   onClickBurger?: () => void;
@@ -13,8 +14,8 @@ export function LogoStore({ onClickBurger }: ILogoStore) {
 
   function handleClick() {
     removeAllSelected();
-    router.push(`/`);
     onClickBurger && onClickBurger();
+    router.push(ROUTE.MAIN);
   }
 
   return (

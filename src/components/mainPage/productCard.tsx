@@ -1,11 +1,11 @@
 'use client';
 import './productCard.scss';
 import Image from 'next/image';
-import { replaceSpace } from '@/helpers/helpersFunc';
-import { Product } from '@/types/types';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
-import dynamic from 'next/dynamic';
+import { Product, ROUTE } from '@/types/types';
+import { replaceSpace } from '@/helpers/helpersFunc';
 
 const CardButton = dynamic(() => import('./productCardCartButton'));
 
@@ -19,7 +19,7 @@ export function ProductCard({ product }: ProductViewData) {
 
   function productItemClick() {
     setCookie('clikedId', `${id}`);
-    router.push(`/product/${replaceSpace(name)}`);
+    router.push(`${ROUTE.PRODUCT}/${replaceSpace(name)}`);
   }
 
   return (

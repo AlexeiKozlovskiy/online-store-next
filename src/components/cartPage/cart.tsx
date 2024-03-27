@@ -5,7 +5,7 @@ import { CartItem, RootReducerProps } from '@/types/types';
 import { Preloader } from '@/components/preloader/preloader';
 
 const EmptyCart = dynamic(() => import('./emptyCart'), {
-  loading: () => <Preloader />,
+  loading: () => <Preloader additionalClassname="preloader-cart" />,
   ssr: false,
 });
 const TakenCart = dynamic(() => import('./takenCart'));

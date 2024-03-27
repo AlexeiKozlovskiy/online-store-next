@@ -10,6 +10,11 @@ export default function Footer() {
             <span className="github-link__person">Alexei Kozlovskiy</span>
           </a>
         </div>
+        <div className="footer__about">
+          <p>This is Pet-project</p>
+          <p>You can not buy goods here</p>
+          <p>No need to enter payment real data here</p>
+        </div>
         <div className="footer-task">Online Store 2024</div>
       </div>
     </footer>

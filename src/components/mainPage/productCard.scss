@@ -20,14 +20,13 @@
 
   &__text-wrapper {
     overflow: hidden;
-    height: 30px;
     cursor: pointer;
     position: relative;
   }
 
   &__cart-add,
   &__cart-added {
-    padding: 4px;
+    height: 30px;
     background-color: $oliva;
     display: flex;
     justify-content: center;

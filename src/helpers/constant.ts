@@ -1,4 +1,20 @@
-import { Balancers, ProductDualRangesFilters, ProductFilters, SortingsValue } from '@/types/types';
+import { Balancers, CardImg, ModalsValue, ProductDualRangesFilters, ProductFilters, SortingsValue } from '@/types/types';
+
+export const NEST_SERVICE_URL = process.env.NEXT_PUBLIC_URL_NEST_SERVICE;
+// export const NEST_SERVICE_URL = 'http://localhost:4000';
+
+export const API_ROUTES = {
+  SIGN_UP: `${NEST_SERVICE_URL}/auth/register`,
+  SIGN_IN: `${NEST_SERVICE_URL}/auth/login`,
+  SIGN_IN_GOOGLE: `${NEST_SERVICE_URL}/auth/login/google`,
+  GET_USER: `${NEST_SERVICE_URL}/user/`,
+  REFRESH: `${NEST_SERVICE_URL}/auth/refresh/`,
+  PROFILE: `${NEST_SERVICE_URL}/profile/`,
+  PROFILE_CREATE: `${NEST_SERVICE_URL}/profile/create`,
+  PROFILE_UPDATE: `${NEST_SERVICE_URL}/profile/update`,
+  FAVORITES: `${NEST_SERVICE_URL}/favorites/`,
+  PODUCTS: `${NEST_SERVICE_URL}/products`,
+};
 
 export const PRICE_MIN = 1.99;
 export const PRICE_MAX = 34.99;
@@ -102,4 +118,27 @@ export const SORTING_SELECT: Record<string, SortingsValue> = {
   PRICE_DESC: 'price-desc',
   STOCK_ASC: 'stock-asc',
   STOCK_DESC: 'stock-desc',
+};
+
+export const MODAL_WINDOWS: Record<string, ModalsValue> = {
+  SIGN_UP: 'modalSignUP',
+  SIGN_IN: 'modalSignIN',
+  USER: 'modalUser',
+  PAYMENT: 'modalPayment',
+};
+
+export const TEST_USER_DATA = {
+  name: 'Rubi Rhod',
+  address: 'United States, New-York, Times Square',
+  phone: '+37533123456789',
+  nameCard: 'RUBI RHOD',
+  numberCard: '5555 4444 3333 2222',
+  dateCard: '05/25',
+  cvvCard: '123',
+};
+
+export const CARD_IMAGES: Record<string, CardImg> = {
+  '3': 'cards__img-express',
+  '4': 'cards__img-visa',
+  '5': 'cards__img-mastercard',
 };

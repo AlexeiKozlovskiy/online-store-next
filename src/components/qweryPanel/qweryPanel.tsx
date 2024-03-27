@@ -1,5 +1,7 @@
 'use client';
 import './qweryPanel.scss';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   PRICE_MIN,
   PRICE_MAX,
@@ -10,9 +12,7 @@ import {
   PRODUCT_FILTER_FIELDS,
   PRODUCT_DUAL_RANGE_FILTER_FIELDS,
 } from '@/helpers/constant';
-import { useState } from 'react';
 import { useMyURLContext } from '@/context/URLContext';
-import { useSelector } from 'react-redux';
 import { ProductsQweryParams, RootReducerProps } from '@/types/types';
 
 export default function QweryPanel() {
