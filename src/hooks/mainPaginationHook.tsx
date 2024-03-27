@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect, useLayoutEffect } from 'react';
 import { MAX_PAGES } from '@/helpers/constant';
 import { useMyURLContext } from '@/context/URLContext';
-import { handlerScrollUp } from '@/helpers/helpersFunc';
 import { PageClickEvent, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
 
 interface MainPagination {
@@ -68,7 +67,6 @@ export function useMainPagination({ productsByQwery: products }: MainPagination)
     const newOffset = (event.selected * itemsPerPage) % countProducts;
     setItemOffset(newOffset);
     setCurPageMain(event.selected + 1);
-    handlerScrollUp();
   };
 
   return { countPages, curPageMain, currentItems, handlePageClick };

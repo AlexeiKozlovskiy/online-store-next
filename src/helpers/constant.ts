@@ -1,6 +1,6 @@
 import { Balancers, CardImg, ModalsValue, ProductDualRangesFilters, ProductFilters, SortingsValue } from '@/types/types';
 
-export const NEST_SERVICE_URL = 'https://online-store-api-7fyt.onrender.com';
+export const NEST_SERVICE_URL = process.env.NEXT_PUBLIC_URL_NEST_SERVICE;
 // export const NEST_SERVICE_URL = 'http://localhost:4000';
 
 export const API_ROUTES = {
@@ -13,7 +13,7 @@ export const API_ROUTES = {
   PROFILE_CREATE: `${NEST_SERVICE_URL}/profile/create`,
   PROFILE_UPDATE: `${NEST_SERVICE_URL}/profile/update`,
   FAVORITES: `${NEST_SERVICE_URL}/favorites/`,
-  PODUCTS: 'products',
+  PODUCTS: `${NEST_SERVICE_URL}/products`,
 };
 
 export const PRICE_MIN = 1.99;

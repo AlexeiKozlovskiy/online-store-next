@@ -38,6 +38,7 @@ export default async function ProductPage({ params }: IProductPage) {
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
+
   const { id, name, price, collection, stock, color, size, category, images } = product as Product;
 
   const productName = (
@@ -123,6 +124,7 @@ export async function generateMetadata({ params }: MetadataParams): Promise<Meta
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
+
   const { name, images, category } = product as Product;
 
   return {

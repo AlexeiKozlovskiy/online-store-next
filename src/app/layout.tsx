@@ -9,7 +9,7 @@ import { URLContextProvider } from '@/context/URLContext';
 import { CloseOpenModalsContextProvider } from '@/context/CloseOpenModalsContext';
 import { UserAuthContextProvider } from '@/context/UserAuthContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Online Store Next',

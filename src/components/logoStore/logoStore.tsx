@@ -14,8 +14,8 @@ export function LogoStore({ onClickBurger }: ILogoStore) {
 
   function handleClick() {
     removeAllSelected();
-    router.push(ROUTE.MAIN);
     onClickBurger && onClickBurger();
+    router.push(ROUTE.MAIN);
   }
 
   return (
