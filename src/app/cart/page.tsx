@@ -1,6 +1,6 @@
 import './cartPage.scss';
 import type { Metadata } from 'next';
-import Cart from '@/components/cartPage/cart';
+import Cart from './cart';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
 
 export const metadata: Metadata = {

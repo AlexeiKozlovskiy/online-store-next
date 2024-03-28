@@ -1,12 +1,12 @@
 'use client';
 import { useSelector } from 'react-redux';
 import { CartItem, RootReducerProps } from '@/types/types';
-import { Summary } from '@/components/cartPage/cartSummary';
-import { CartItemList } from '@/components/cartPage/cartItemList';
+import { Summary } from './cartSummary';
+import { CartItemList } from './cartItem';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { PaymentModal } from '@/components/modalWindow/payment/paymentModal';
 
-export default function TakenCart() {
+export default function CartList() {
   const cartItemsState = useSelector<RootReducerProps, CartItem[]>((state) => state.cart);
   const countCartItem = cartItemsState.length;
   const { handelCloseModal, openModals } = useCloseOpenModalsContext();

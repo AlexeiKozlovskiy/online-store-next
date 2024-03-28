@@ -31,7 +31,7 @@ export function GoogleButton() {
         theme: 'outline',
         size: 'large',
         locale: 'EN',
-        width: '400',
+        width: '300',
       });
     }
   }, [modalSignUP, modalSignIN]);

@@ -78,6 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 8px;
 
     @media screen and (max-width: 1070px) {
       grid-column: 1;
@@ -192,7 +193,9 @@
   width: 87px;
   height: 87px;
   cursor: pointer;
-  border: 2px solid #d9d9d9;
+  // border: 1px solid $lightGray;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.05);
+
   transition:
     transform 0.3s,
     box-shadow 0.3s;
@@ -303,4 +306,21 @@
 
 .shake-product {
   animation: 1s ease-in-out 0s normal none infinite running shake-animation-product;
+}
+
+.error-page {
+  font: 1rem $Roboto;
+  padding-top: 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  min-height: calc(100vh - 190px);
+
+  &__button {
+    width: 150px;
+    height: 40px;
+  }
 }
