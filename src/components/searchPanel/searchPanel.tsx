@@ -3,6 +3,7 @@ import './searchPanel.scss';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '@/hooks/debouncedHook';
 import { useMyURLContext } from '@/context/URLContext';
+import Snow from '../snow/snow';
 
 export function SearchPanel() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -24,25 +25,18 @@ export function SearchPanel() {
   };
 
   return (
-    <label htmlFor="find-input">
-      <div className="find-container">
-        <div className="snow-blocks">
-          <div className="snow-blocks__snow1"></div>
-          <div className="snow-blocks__snow2"></div>
-        </div>
-        <h2 className="find-title">Find Christmas decorations to create a festive atmosphere at your home</h2>
-        <div className="find-input-wrapper">
-          <input
-            className="find-input"
-            type="search"
-            placeholder="Search..."
-            id="find-input"
-            value={inputValue}
-            onChange={handleChange}
-          />
-          <div className="find-input-img_search"></div>
-        </div>
+    <Snow>
+      <div className="find-input-wrapper">
+        <input
+          className="find-input"
+          type="search"
+          placeholder="Search..."
+          id="find-input"
+          value={inputValue}
+          onChange={handleChange}
+        />
+        <div className="find-input-img_search"></div>
       </div>
-    </label>
+    </Snow>
   );
 }

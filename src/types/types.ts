@@ -16,8 +16,12 @@ export interface Product {
 export enum ROUTE {
   MAIN = '/',
   CART = '/cart',
-  PRODUCT = '/product',
+  PRODUCT = '/products',
   PROFILE = '/profile',
+  NEWS = '/news',
+  PAYMENT = '/payment',
+  ABOUT = '/about',
+  CONTACTS = '/contacts',
 }
 
 export type DualRange = [number | null, number | null];

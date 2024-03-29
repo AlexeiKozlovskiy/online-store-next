@@ -103,7 +103,7 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
       const params = new URLSearchParams();
       setFiltersQweryInParams(params);
       setPagesQweryInParams(params);
-      if (pathname === ROUTE.MAIN) {
+      if (pathname === ROUTE.PRODUCT) {
         router.push(`${pathname}?${params.toString()}`);
       }
     }

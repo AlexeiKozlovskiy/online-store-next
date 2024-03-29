@@ -1,5 +1,5 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
-import Home from '@/app/page';
+import Home from '@/app/wqrpage';
 import Header from '@/components/header/header';
 import ReduxProvider from '@/components/redux-provider';
 
