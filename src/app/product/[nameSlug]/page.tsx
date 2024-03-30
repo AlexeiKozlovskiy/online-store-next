@@ -1,20 +1,23 @@
 import './productPage.scss';
 import Link from 'next/link';
+import Loading from './loading';
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
-import { Product } from '@/types/types';
 import { getCookie } from 'cookies-next';
 import { getProducts, getProductByID } from '@/helpers/api';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
-import ShakeField from '@/components/productPage/shakeField';
-import ButtonBuyNow from '@/components/productPage/buttonBuyNow';
+import ShakeField from './shakeField';
+import ButtonBuyNow from './buttonBuyNow';
 import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
-import { ProductImages } from '@/components/productPage/productImages';
-import { AddToCart } from '@/components/productPage/buttonAddToCart/addToCart';
+import { ProductImages } from './productImages';
+import { AddToCart } from './buttonAddToCart/addToCart';
 import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorProductPage from './error';
 
-const CartIsInCart = dynamic(() => import('@/components/cartPage/cartIsInCart'), {
+const CartIsInCart = dynamic(() => import('@/app/cart/cartIsInCart'), {
   ssr: false,
 });
 
@@ -39,7 +42,15 @@ export default async function ProductPage({ params }: IProductPage) {
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
 
-  const { id, name, price, collection, stock, color, size, category, images } = product as Product;
+  if (!product) {
+    throw new Error('Error Product');
+  }
+
+  const { id, name, price, collection, stock, color, size, category, images } = product;
+
+  if (!id || !images.length || !category) {
+    throw new Error('Error properties product');
+  }
 
   const productName = (
     <h3 className="product-summary__description" data-testid="product-description">
@@ -97,26 +108,30 @@ export default async function ProductPage({ params }: IProductPage) {
   );
 
   return (
-    <main>
-      <div className="bread-crumbs-product__container">{breadCrumbs}</div>
-      <section className="product-page wrapper">
-        <ArrowBack />
-        <ProductImages images={images} />
-        <div className="product-page__summaru-item product-summary">
-          {productName}
-          <CartIsInCart id={id} />
-        </div>
-        <div className="product-page__cart-container">
-          <QuantityPiecesProduct stock={stock} />
-          <AddToCart product={product} />
-        </div>
-        <div className="product-page__specifications-container">
-          <h4 className="product-page__specifications-title">Product specifications</h4>
-          {specificationsTable}
-          <ButtonBuyNow product={product} />
-        </div>
-      </section>
-    </main>
+    <ErrorBoundary fallback={<ErrorProductPage />}>
+      <Suspense fallback={<Loading />}>
+        <main>
+          <div className="bread-crumbs-product__container">{breadCrumbs}</div>
+          <section className="product-page wrapper">
+            <ArrowBack />
+            <ProductImages images={images} />
+            <div className="product-page__summaru-item product-summary">
+              {productName}
+              <CartIsInCart id={id} />
+            </div>
+            <div className="product-page__cart-container">
+              <QuantityPiecesProduct stock={stock} />
+              <AddToCart product={product} />
+            </div>
+            <div className="product-page__specifications-container">
+              <h4 className="product-page__specifications-title">Product specifications</h4>
+              {specificationsTable}
+              <ButtonBuyNow product={product} />
+            </div>
+          </section>
+        </main>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
@@ -125,7 +140,15 @@ export async function generateMetadata({ params }: MetadataParams): Promise<Meta
   const productID = await getProductIDByName(nameSlug);
   const product = await getProductByID({ id: productID });
 
-  const { name, images, category } = product as Product;
+  if (!product) {
+    throw new Error('Error Product metadata');
+  }
+
+  const { name, images, category } = product;
+
+  if (!name || !images.length || !category) {
+    throw new Error('Error properties metadata');
+  }
 
   return {
     metadataBase: new URL('https://online-store-next-rouge.vercel.app'),

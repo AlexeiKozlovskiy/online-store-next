@@ -4,10 +4,12 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
-import ReduxProvider from '@/store/redux-provider';
+import ReduxProvider from '@/components/redux-provider';
 import { URLContextProvider } from '@/context/URLContext';
 import { CloseOpenModalsContextProvider } from '@/context/CloseOpenModalsContext';
 import { UserAuthContextProvider } from '@/context/UserAuthContext';
+import { ProfileUserContextProvider } from '@/context/ProfileUserContext';
+import QueryClientProviders from '@/components/queryClientProvider';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -25,15 +27,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={(inter.className, 'container wrapper')}>
         <ReduxProvider>
-          <URLContextProvider>
-            <CloseOpenModalsContextProvider>
-              <UserAuthContextProvider>
-                <Header />
-                {children}
-              </UserAuthContextProvider>
-            </CloseOpenModalsContextProvider>
-          </URLContextProvider>
-          <Footer />
+          <QueryClientProviders>
+            <URLContextProvider>
+              <CloseOpenModalsContextProvider>
+                <UserAuthContextProvider>
+                  <ProfileUserContextProvider>
+                    <Header />
+                    {children}
+                  </ProfileUserContextProvider>
+                </UserAuthContextProvider>
+              </CloseOpenModalsContextProvider>
+            </URLContextProvider>
+            <Footer />
+          </QueryClientProviders>
         </ReduxProvider>
         <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />
       </body>

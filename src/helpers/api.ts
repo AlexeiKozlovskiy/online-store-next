@@ -1,7 +1,16 @@
 import axios from 'axios';
 import { API_ROUTES } from '@/helpers/constant';
 import { commonError } from '@/helpers/helpersFunc';
-import { Product, UserResp, CredentialGoogle, AuthDataResp, FormSignIN, FormSignUP } from '@/types/types';
+import {
+  Product,
+  UserResp,
+  CredentialGoogle,
+  AuthDataResp,
+  FormSignIN,
+  FormSignUP,
+  UserProfileResp,
+  Profile,
+} from '@/types/types';
 
 export async function getProducts(): Promise<Product[]> {
   try {
@@ -102,4 +111,23 @@ export async function refreshTokensApi(refreshToken: string) {
   } catch (err) {
     return commonError(err);
   }
+}
+
+export async function getProfile(accessToken: string | null, idUser: string | null) {
+  const response: UserProfileResp = await axios({
+    method: 'GET',
+    url: API_ROUTES.PROFILE + idUser,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return response.data;
+}
+
+export async function updateProfile(formPayment: Profile, id: string) {
+  await axios({
+    method: 'PUT',
+    url: API_ROUTES.PROFILE_UPDATE,
+    data: { ...formPayment, userId: id },
+  });
 }

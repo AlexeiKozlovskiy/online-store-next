@@ -140,6 +140,10 @@ export interface FormSignIN {
   password: string;
 }
 
+export interface UserProfileResp {
+  data: Profile;
+}
+
 export interface Profile {
   name: string;
   address: string;

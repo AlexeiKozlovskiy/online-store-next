@@ -1,7 +1,7 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
 import Home from '@/app/page';
 import Header from '@/components/header/header';
-import ReduxProvider from '@/store/redux-provider';
+import ReduxProvider from '@/components/redux-provider';
 
 // jest.mock('./utils', () => ({
 //   getData: jest.fn().mockResolvedValue([

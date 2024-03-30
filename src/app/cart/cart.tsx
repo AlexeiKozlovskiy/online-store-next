@@ -8,11 +8,11 @@ const EmptyCart = dynamic(() => import('./emptyCart'), {
   loading: () => <Preloader additionalClassname="preloader-cart" />,
   ssr: false,
 });
-const TakenCart = dynamic(() => import('./takenCart'));
+const CartList = dynamic(() => import('./cartList'));
 
 export default function Cart() {
   const cartItemsState = useSelector<RootReducerProps, CartItem[]>((state) => state.cart);
   const countCartItem = cartItemsState.length;
 
-  return countCartItem ? <TakenCart /> : <EmptyCart />;
+  return countCartItem ? <CartList /> : <EmptyCart />;
 }
