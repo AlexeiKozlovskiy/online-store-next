@@ -142,3 +142,48 @@ export const CARD_IMAGES: Record<string, CardImg> = {
   '4': 'cards__img-visa',
   '5': 'cards__img-mastercard',
 };
+
+export const CATEGORIS_MAIN_PAGE = [
+  {
+    title: 'Christmas lights',
+    pathRedirect: '/products?categories=Christmas+lights',
+    srcImage: '/assets/products/50-led-light-chain-warm-white-battery-operated-indoor-use(1).jpg',
+    altImage: 'Christmas lights',
+  },
+  {
+    title: 'Garland & Wreath',
+    pathRedirect: '/products?categories=Garland+%26+Wreath',
+    srcImage: '/assets/products/garland-with-snow-20-x-270cm.jpg',
+    altImage: 'Garland & Wreath',
+  },
+  {
+    title: 'Christmas decorations',
+    pathRedirect: '/products?categories=Christmas+decorations',
+    srcImage: '/assets/products/snowman-with-lantern-magnesia-48cm.jpg',
+    altImage: 'Christmas decorations',
+  },
+  {
+    title: 'Do It Yourself',
+    pathRedirect: '/products?categories=Do+It+Yourself',
+    srcImage: '/assets/products/3-diy-silver-christmas-baubles-8-cm-with-markers(1).jpg',
+    altImage: 'Do It Yourself',
+  },
+  {
+    title: 'Tree decorations',
+    pathRedirect: '/products?categories=Tree+decorations',
+    srcImage: '/assets/products/jellyfish-glass-hanging-figurine-12cm-blue(1).jpg',
+    altImage: 'Tree decorations',
+  },
+  {
+    title: 'Black decorations',
+    pathRedirect: '/products?colors=black',
+    srcImage: '/assets/products/black-bauble-with-ruches-8-cm(1).jpg',
+    altImage: 'Black decorations',
+  },
+  {
+    title: 'NEW decorations',
+    pathRedirect: '/products?collections=2023',
+    srcImage: '/assets/products/blowfish-glass-hanging-figurine-9cm-blue.jpg',
+    altImage: 'NEW decorations',
+  },
+];

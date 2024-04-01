@@ -96,7 +96,7 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
       swichedViews && setSwichedView(swichedViews);
     }
     setDataFromUrl();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     function setDataInURL() {
@@ -120,6 +120,7 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     curPageMain,
     perMainPageOption,
     swichedView,
+    pathname,
   ]);
 
   useEffect(() => {

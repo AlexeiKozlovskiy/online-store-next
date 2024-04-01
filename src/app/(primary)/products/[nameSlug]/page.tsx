@@ -1,7 +1,7 @@
 import './productPage.scss';
 import Link from 'next/link';
-import Loading from './loading';
-import { Suspense } from 'react';
+// import Loading from './loading';
+// import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
@@ -115,30 +115,30 @@ export default async function ProductPage({ params }: IProductPage) {
 
   return (
     <ErrorBoundary fallback={<ErrorProductPage />}>
-      <Suspense fallback={<Loading />}>
-        <main>
-          <div className="bread-crumbs-product__container">{breadCrumbs}</div>
-          <section className="product-page wrapper">
-            <ArrowBack />
-            <ProductImages images={images} />
-            <div className="product-page__summaru-item product-summary">{productName}</div>
-            <div className="product-page__cart-container">
-              <div className="product-page__isInCart-container">
-                <IsInCart id={id} />
-              </div>
-              <div className="product-page__add-to-cart-container">
-                <QuantityPiecesProduct stock={stock} />
-                <AddToCart product={product} />
-              </div>
+      {/* <Suspense fallback={<Loading />}> */}
+      <main>
+        <div className="bread-crumbs-product__container">{breadCrumbs}</div>
+        <section className="product-page wrapper">
+          <ArrowBack />
+          <ProductImages images={images} />
+          <div className="product-page__summaru-item product-summary">{productName}</div>
+          <div className="product-page__cart-container">
+            <div className="product-page__isInCart-container">
+              <IsInCart id={id} />
             </div>
-            <div className="product-page__specifications-container">
-              <h4 className="product-page__specifications-title">Product specifications</h4>
-              {specificationsTable}
-              <ButtonBuyNow product={product} />
+            <div className="product-page__add-to-cart-container">
+              <QuantityPiecesProduct stock={stock} />
+              <AddToCart product={product} />
             </div>
-          </section>
-        </main>
-      </Suspense>
+          </div>
+          <div className="product-page__specifications-container">
+            <h4 className="product-page__specifications-title">Product specifications</h4>
+            {specificationsTable}
+            <ButtonBuyNow product={product} />
+          </div>
+        </section>
+      </main>
+      {/* </Suspense> */}
     </ErrorBoundary>
   );
 }

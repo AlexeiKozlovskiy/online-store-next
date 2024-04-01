@@ -3,9 +3,15 @@ import dynamic from 'next/dynamic';
 import { SearchPanel } from '@/components/searchPanel/searchPanel';
 import { getProducts } from '@/helpers/api';
 import { ProductList } from '@/components/mainPage/productList';
+import { Metadata } from 'next';
 
 const QweryPanel = dynamic(() => import('@/components/qweryPanel/qweryPanel'));
 const SideFilters = dynamic(() => import('@/components/sideFilters/sideFilters'));
+
+export const metadata: Metadata = {
+  title: 'Online Store | Products',
+  description: 'Buy Christmas decorations to create a festive atmosphere at your home',
+};
 
 export default async function Products() {
   const productsFromServer = await getProducts();

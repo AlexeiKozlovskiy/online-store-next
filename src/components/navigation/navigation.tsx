@@ -5,11 +5,13 @@ import Tab from '@mui/material/Tab';
 import { usePathname, useRouter } from 'next/navigation';
 import { ROUTE } from '@/types/types';
 import { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
+import { SxProps, Theme, useMediaQuery } from '@mui/material';
 
 export default function Navigation() {
+  const mediaMatches = useMediaQuery('(max-width:600px)');
   const pathname = usePathname();
   const router = useRouter();
+  const color = '#2e8b57';
 
   useEffect(() => {
     const currentTab = getCurrentTab();
@@ -67,28 +69,43 @@ export default function Navigation() {
     }
   };
 
+  function checkStylesTab(): SxProps<Theme> {
+    if (mediaMatches) {
+      return { '&.Mui-selected': { color }, '&.MuiButtonBase-root': { fontSize: '0.rem', minWidth: 'auto' } };
+    } else {
+      return { '&.Mui-selected': { color } };
+    }
+  }
+
+  function checkStylesPanel(): SxProps<Theme> {
+    if (mediaMatches) {
+      return { '& .MuiTabs-indicator': { background: color }, '& .MuiTabs-scrollButtons': { display: 'flex' } };
+    } else {
+      return { '& .MuiTabs-indicator': { background: color } };
+    }
+  }
+
+  const stylesTab = checkStylesTab();
+  const stylesPanel = checkStylesPanel();
+
   return (
     <div className="header-navigation-wrapper">
       <nav className="header-navigation">
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}></Box>
+        {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }}></Box> */}
         <Tabs
           value={value}
           onChange={handleChange}
           variant="scrollable"
           scrollButtons={true}
           aria-label="scrollable prevent tabs example"
-          sx={{ '& .MuiTabs-indicator': { background: '#2e8b57' }, '& .MuiTabs-scrollButtons': { display: 'flex' } }}
+          sx={stylesPanel}
         >
-          {/* <Tab
-            sx={{ '&.Mui-selected': { color: '#2e8b57' }, '&.MuiButtonBase-root': { fontSize: '0.7rem', minWidth: 'auto' } }}
-            label="main"
-          /> */}
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="main" />
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="products" />
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="news" />
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="Payment and delivery" />
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="about us" />
-          <Tab sx={{ '&.Mui-selected': { color: '#2e8b57' } }} label="contacts" />
+          <Tab sx={stylesTab} label="main" />
+          <Tab sx={stylesTab} label="products" />
+          <Tab sx={stylesTab} label="news" />
+          <Tab sx={stylesTab} label="Payment and delivery" />
+          <Tab sx={stylesTab} label="about us" />
+          <Tab sx={stylesTab} label="contacts" />
         </Tabs>
       </nav>
     </div>
