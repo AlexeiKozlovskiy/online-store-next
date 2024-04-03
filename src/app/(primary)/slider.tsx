@@ -43,11 +43,9 @@ export default function Slider() {
   function checkHeight() {
     if (mediaMatches420) {
       return 194;
-    }
-    if (mediaMatches766) {
+    } else if (mediaMatches766) {
       return 240;
-    }
-    if (mediaMatches1040) {
+    } else if (mediaMatches1040) {
       return 430;
     } else {
       return 550;

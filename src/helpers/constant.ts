@@ -143,7 +143,7 @@ export const CARD_IMAGES: Record<string, CardImg> = {
   '5': 'cards__img-mastercard',
 };
 
-export const CATEGORIS_MAIN_PAGE = [
+export const CATEGORIES_MAIN_PAGE = [
   {
     title: 'Christmas lights',
     pathRedirect: '/products?categories=Christmas+lights',
