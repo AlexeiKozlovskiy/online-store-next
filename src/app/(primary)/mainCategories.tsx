@@ -2,32 +2,25 @@
 import { useMyURLContext } from '@/context/URLContext';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useMediaQuery } from '@mui/material';
+import { useMediaMatches } from '@/hooks/mediaMatchesHook';
 
 interface IlinkCategories {
   children?: React.ReactNode;
   pathRedirect: string;
-  srcImage: string;
+  image: string;
   altImage: string;
 }
 
-export default function MainCategories({ children, pathRedirect, srcImage, altImage }: IlinkCategories) {
+export default function MainCategories({ children, pathRedirect, image, altImage }: IlinkCategories) {
   const { removeAllSelected } = useMyURLContext();
-
-  const mediaMatches766 = useMediaQuery('(max-width:766px)');
-  const mediaMatches420 = useMediaQuery('(max-width:420px)');
-
-  function checkSize() {
-    if (mediaMatches420) {
-      return 105;
-    } else if (mediaMatches766) {
-      return 132;
-    } else {
-      return 250;
-    }
-  }
-
-  const imageSize = checkSize();
+  const { width, height } = useMediaMatches({
+    mediaPoints: [
+      { maxWidth: 420, width: 105, height: 105 },
+      { maxWidth: 766, width: 132, height: 132 },
+    ],
+    baseWidth: 250,
+    baseHeight: 250,
+  });
 
   function handleClickCategories() {
     removeAllSelected();
@@ -35,7 +28,7 @@ export default function MainCategories({ children, pathRedirect, srcImage, altIm
 
   return (
     <Link onClick={handleClickCategories} href={pathRedirect}>
-      <Image priority={true} width={imageSize} height={imageSize} src={srcImage} alt={altImage}></Image>
+      <Image priority={true} width={width} height={height} src={image} alt={altImage}></Image>
       {children}
     </Link>
   );

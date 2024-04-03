@@ -1,6 +1,13 @@
 import './contactsPage.scss';
 import MapYandex from './mapYandex';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Online Store | Contacts',
+  description: 'Find Christmas decorations to create a festive atmosphere at your home',
+};
+
 export default async function Contacts() {
   return (
     <main className="contactsPage__container wrapper">

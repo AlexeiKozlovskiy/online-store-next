@@ -8,7 +8,7 @@ import { ROUTE } from '@/types/types';
 import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { useMediaQuery } from '@mui/material';
+import { useMediaMatches } from '@/hooks/mediaMatchesHook';
 
 const SliderDescription = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -24,36 +24,15 @@ const SliderDescription = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function Slider() {
-  const mediaMatches1040 = useMediaQuery('(max-width:1040px)');
-  const mediaMatches766 = useMediaQuery('(max-width:766px)');
-  const mediaMatches420 = useMediaQuery('(max-width:420px)');
-
-  function checkWidth() {
-    if (mediaMatches420) {
-      return 310;
-    } else if (mediaMatches766) {
-      return 380;
-    } else if (mediaMatches1040) {
-      return 700;
-    } else {
-      return 960;
-    }
-  }
-
-  function checkHeight() {
-    if (mediaMatches420) {
-      return 194;
-    } else if (mediaMatches766) {
-      return 240;
-    } else if (mediaMatches1040) {
-      return 430;
-    } else {
-      return 550;
-    }
-  }
-
-  const width = checkWidth();
-  const height = checkHeight();
+  const { width, height } = useMediaMatches({
+    mediaPoints: [
+      { maxWidth: 420, width: 310, height: 194 },
+      { maxWidth: 766, width: 380, height: 240 },
+      { maxWidth: 1040, width: 700, height: 430 },
+    ],
+    baseWidth: 960,
+    baseHeight: 550,
+  });
 
   return (
     <div className="slider__container categories-grid-1">
@@ -87,6 +66,7 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
+            priority={true}
             className="slider-img"
             width={width}
             height={height}
@@ -102,6 +82,7 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
+            priority={true}
             className="slider-img"
             width={width}
             height={height}
@@ -117,6 +98,7 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
+            priority={true}
             className="slider-img"
             width={width}
             height={height}
@@ -132,6 +114,7 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
+            priority={true}
             className="slider-img"
             width={width}
             height={height}
@@ -147,6 +130,7 @@ export default function Slider() {
         </SwiperSlide>
         <SwiperSlide>
           <Image
+            priority={true}
             className="slider-img"
             width={width}
             height={height}

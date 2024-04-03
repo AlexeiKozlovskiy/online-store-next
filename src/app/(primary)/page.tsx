@@ -21,7 +21,7 @@ export default function Home() {
             <p className="mainPage__categories-title">{category.title} </p>
             <MainCategories
               pathRedirect={category.pathRedirect}
-              srcImage={category.srcImage}
+              image={category.image}
               altImage={category.altImage}
             ></MainCategories>
           </div>

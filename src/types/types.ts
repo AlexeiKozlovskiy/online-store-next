@@ -307,3 +307,10 @@ export enum FORM_MESSAGES {
   SOMETHING_WRONG_WITH_GOOGLE = 'Something wrong with google.',
   SOMETHING_WRONG = 'Something wrong.',
 }
+
+export interface INews {
+  title: string;
+  date: string;
+  image: string;
+  description?: string;
+}
