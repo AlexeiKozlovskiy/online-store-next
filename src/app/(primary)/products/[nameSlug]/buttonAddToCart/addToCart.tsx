@@ -1,6 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
+import { roboto } from '@/styles/nextFonts';
 import { getIsInCart } from '@/helpers/helpersFunc';
 import { addProductToCart, resetCountProducts } from '@/store/controller';
 import { CartItem, IProductPageQty, Product, RootReducerProps } from '@/types/types';
@@ -26,7 +27,7 @@ export function AddToCart({ product }: IAddToCart) {
   const isInCart = getIsInCart(cartItemsState, id);
 
   return (
-    <button className="button-add-cart button" data-id={id} onClick={handelAddClick}>
+    <button className={roboto.className + ' button-add-cart button'} data-id={id} onClick={handelAddClick}>
       {isInCart ? <ButtonAddMore /> : <ButtonAddToCart />}
     </button>
   );

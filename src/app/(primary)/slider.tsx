@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import { ROUTE } from '@/types/types';
 import { useRouter } from 'next/navigation';
+import { roboto } from '@/styles/nextFonts';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useMediaMatches } from '@/hooks/mediaMatchesHook';
@@ -16,7 +17,7 @@ const SliderDescription = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="slider__content">
       {children}
-      <button onClick={() => router.push(ROUTE.PRODUCT)} className="button button-main">
+      <button onClick={() => router.push(ROUTE.PRODUCT)} className={roboto.className + ' button button-main'}>
         GO TO PRODUCTS
       </button>
     </div>
@@ -58,7 +59,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title">
+            <p className={roboto.className + ' slider__content-title'}>
               As the holiday season draws near, the air is filled with anticipation and joy, and homes come alive with the sparkle
               of Christmas decorations
             </p>
@@ -74,7 +75,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title">
+            <p className={roboto.className + ' slider__content-title'}>
               For those with a penchant for creativity, do-it-yourself projects abound, offering opportunities to infuse personal
               flair into the holiday decor.
             </p>
@@ -90,7 +91,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title">
+            <p className={roboto.className + ' slider__content-title'}>
               In the heart of the home stands the Christmas tree, a beacon of cheer and warmth. Its branches, adorned with an
               array of ornaments, tell stories of cherished memories and beloved traditions.
             </p>
@@ -106,7 +107,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title white-title">
+            <p className={roboto.className + ' slider__content-title white-title'}>
               From delicate glass baubles to handmade treasures passed down through generations, each decoration adds its own
               unique touch to the symphony of holiday magic.
             </p>
@@ -122,7 +123,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title white-title">
+            <p className={roboto.className + ' slider__content-title white-title'}>
               Garlands gracefully drape across mantelpieces and staircases, weaving a tapestry of greenery adorned with festive
               accents.
             </p>
@@ -138,7 +139,7 @@ export default function Slider() {
             alt="image"
           />
           <SliderDescription>
-            <p className="slider__content-title">
+            <p className={roboto.className + ' slider__content-title'}>
               And what would Christmas be without the enchanting glow of twinkling lights? Strands of shimmering bulbs illuminate
               the darkness, casting a soft, inviting glow throughout the home.
             </p>

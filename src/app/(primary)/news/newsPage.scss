@@ -1,5 +1,6 @@
 .newsPage {
   &__container {
+    font-size: 1.1rem;
     margin: 30px;
     min-height: calc(100vh - 218px);
     display: flex;
@@ -41,12 +42,10 @@
 
   &__date {
     padding-left: 20px;
-    font: 1rem $Roboto;
     opacity: 0.6;
   }
 
   &__title {
     padding-left: 20px;
-    font: 1rem $Roboto;
   }
 }

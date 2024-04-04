@@ -66,7 +66,7 @@ export default function Navigation() {
 
   function checkStylesTab(): SxProps<Theme> {
     if (mediaMatches) {
-      return { '&.Mui-selected': { color }, '&.MuiButtonBase-root': { fontSize: '0.rem', minWidth: 'auto' } };
+      return { '&.Mui-selected': { color }, '&.MuiButtonBase-root': { fontSize: '0.6rem', minWidth: 'auto' } };
     } else {
       return { '&.Mui-selected': { color } };
     }
@@ -98,7 +98,6 @@ export default function Navigation() {
           <Tab sx={stylesTab} label="main" />
           <Tab sx={stylesTab} label="products" />
           <Tab sx={stylesTab} label="news" />
-          {/* <Tab sx={stylesTab} label="Payment and delivery" /> */}
           <Tab sx={stylesTab} label="about project" />
           <Tab sx={stylesTab} label="contacts" />
         </Tabs>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from '@/hooks/debouncedHook';
 import { useMyURLContext } from '@/context/URLContext';
 import Snow from '../snow/snow';
+import { roboto } from '@/styles/nextFonts';
 
 export function SearchPanel() {
   const [inputValue, setInputValue] = useState<string>('');
@@ -28,7 +29,7 @@ export function SearchPanel() {
     <Snow>
       <div className="find-input-wrapper">
         <input
-          className="find-input"
+          className={roboto.className + ' find-input'}
           type="search"
           placeholder="Search..."
           id="find-input"

@@ -80,15 +80,15 @@
     top: 3%;
     width: 100%;
     text-align: center;
-    font: 1.5rem $Ruluko;
+    font-size: 1.5rem;
     opacity: 0.9;
     transition: transform 0.2s;
 
     @media screen and (max-width: 766px) {
-      font: 1rem $Ruluko;
+      font-size: 1rem;
     }
     @media screen and (max-width: 420px) {
-      font: 0.8rem $Ruluko;
+      font-size: 0.8rem;
     }
   }
 }
@@ -139,12 +139,12 @@
   }
 
   &__content-title {
-    font: 0.8rem $Roboto;
+    font-size: 0.8rem;
     color: $lightGray;
     opacity: 0.9;
 
     @media screen and (max-width: 766px) {
-      font: 0.6rem $Roboto;
+      font-size: 0.6rem;
     }
   }
 }
@@ -178,7 +178,7 @@
   border-radius: 4px;
   background-color: $oliva;
   border: none;
-  font: 0.85rem $Roboto;
+  font-size: 0.8rem;
   color: #fff;
   cursor: pointer;
   transition:
@@ -193,7 +193,7 @@
   @media screen and (max-width: 766px) {
     width: 80px;
     height: 20px;
-    font: 0.5rem $Roboto;
+    font-size: 0.5rem;
     border-radius: 2px;
   }
 }
@@ -201,8 +201,4 @@
 .slider-img {
   object-fit: cover;
   animation: 6s ease-in-out infinite slider-img;
-
-  // &__container {
-  //   overflow: hidden;
-  // }
 }

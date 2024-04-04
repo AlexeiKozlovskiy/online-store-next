@@ -1,18 +1,16 @@
 .profile {
-  font-family: $Roboto;
   min-height: calc(100vh - 150px);
   position: relative;
 
   &__titel {
-    font-weight: 400;
-    letter-spacing: 0.05em;
     color: #95bea1;
     text-align: center;
     font-size: 1.5rem;
+    letter-spacing: 0.05em;
     padding: 10px 0px;
 
     @media screen and (max-width: 550px) {
-      font: 1.2rem $Roboto;
+      font-size: 1.2rem;
     }
   }
 
@@ -28,7 +26,6 @@
 
   &__title {
     font-size: 1.2rem;
-    font-weight: 400;
     color: #95bea1;
     letter-spacing: 0.1px;
 
@@ -79,10 +76,6 @@
   height: 36px;
 }
 
-.active-section {
-  font-weight: 700;
-}
-
 .favorites {
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +83,6 @@
 
   &__empty-catalog {
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
   }
 }
@@ -102,7 +94,6 @@
 
   &__developing {
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
   }
 }

@@ -1,6 +1,6 @@
 import './contactsPage.scss';
 import MapYandex from './mapYandex';
-
+import { roboto, roboto_bold } from '@/styles/nextFonts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default async function Contacts() {
   return (
-    <main className="contactsPage__container wrapper">
+    <main className={roboto.className + ' contactsPage__container wrapper'}>
       <MapYandex />
       <div className="contactsPage-adress__container">
-        <h2 className="contactsPage-adress__header">Adress</h2>
+        <h2 className={roboto_bold.className + ' contactsPage-adress__header'}>Adress</h2>
         <p className="contactsPage-adress">
           Bayfront Park <br />
           Miami, USA 12345

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-evenly;
 
-  @media screen and (max-width: 1070px) {
+  @media screen and (max-width: 1170px) {
     grid-column: 1;
     grid-row: 2 / 4;
     flex-direction: column-reverse;
@@ -20,7 +20,7 @@
     flex-direction: column;
     gap: 20px;
 
-    @media screen and (max-width: 1070px) {
+    @media screen and (max-width: 1170px) {
       flex-direction: row;
     }
   }

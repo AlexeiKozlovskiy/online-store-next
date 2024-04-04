@@ -11,7 +11,6 @@
   }
 
   &__path {
-    font-family: $Roboto;
     display: flex;
     align-items: center;
     color: $darkGray;
@@ -29,17 +28,11 @@
   }
 
   &__home-link {
-    font-family: $Roboto;
     color: $mainBlack;
     display: flex;
     align-items: center;
-    font-size: 1rem;
     cursor: pointer;
     transition: transform 0.3s;
-
-    @media screen and (max-width: 767px) {
-      font-size: 0.6rem;
-    }
 
     &:hover {
       transform: scale(1.05);
@@ -106,7 +99,7 @@
   &__summaru-item {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    font: 1.5rem $Roboto;
+    font-size: 1.5rem;
     align-self: center;
 
     @media screen and (max-width: 1170px) {
@@ -116,7 +109,7 @@
     }
 
     @media screen and (max-width: 767px) {
-      font: 1.2rem $Roboto;
+      font-size: 1.2rem;
       padding-left: 50px;
       height: 75px;
     }
@@ -165,13 +158,12 @@
   }
 
   &__specifications-title {
-    font: 1.4rem $Roboto;
-    font-weight: 700;
+    font-size: 1.4rem;
     padding-bottom: 10px;
     border-bottom: 1px solid $greyBorder;
 
     @media screen and (max-width: 767px) {
-      font: 1rem $Roboto;
+      font-size: 1rem;
       font-weight: 700;
     }
   }
@@ -179,12 +171,11 @@
 
 .product-summary {
   &__description {
-    font-weight: 400;
     letter-spacing: 0.05em;
   }
 
   &__state-in-cart {
-    font: 1.2rem $Roboto;
+    font-size: 1.2rem;
     text-align: center;
     background: $oliva;
     padding: 4px;
@@ -246,23 +237,22 @@
 
 .table {
   &__title {
-    font: 1.2rem $Roboto;
-    font-weight: 700;
+    font-size: 1.2rem;
     padding-bottom: 10px;
     width: 40%;
 
     @media screen and (max-width: 768px) {
-      font: 1rem $Roboto;
+      font-size: 1rem;
       font-weight: 700;
     }
   }
 
   &__info {
-    font: 1.2rem $Roboto;
+    font-size: 1.2rem;
     padding-bottom: 10px;
 
     @media screen and (max-width: 768px) {
-      font: 1rem $Roboto;
+      font-size: 1rem;
     }
   }
 }
@@ -273,7 +263,7 @@
   border-radius: 4px;
   background-color: $oliva;
   border: none;
-  font: 1rem $Roboto;
+  font-size: 1rem;
   color: #fff;
   cursor: pointer;
   transition:
@@ -295,7 +285,7 @@
   height: 60px;
   border-radius: 4px;
   background-color: $oliva;
-  font: 1rem $Roboto;
+  font-size: 1rem;
   color: #fff;
   border: none;
   cursor: pointer;

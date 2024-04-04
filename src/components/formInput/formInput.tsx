@@ -1,3 +1,4 @@
+import { roboto } from '@/styles/nextFonts';
 import './formInput.scss';
 import { InputComponents } from '@/types/types';
 
@@ -25,7 +26,7 @@ export function FormInput({
       )}
       <input
         placeholder={placeholder}
-        className={`formInput__input ${className && className} ${errors && 'invalid'} ${isValid && 'valid'}`}
+        className={`${roboto.className} formInput__input ${className && className} ${errors && 'invalid'} ${isValid && 'valid'}`}
         type={type}
         id={id}
         disabled={disabled}

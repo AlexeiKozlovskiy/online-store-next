@@ -2,6 +2,7 @@
 import './sortedViewPanel.scss';
 import dynamic from 'next/dynamic';
 import { ISelect } from '@/types/types';
+import { roboto } from '@/styles/nextFonts';
 import { useMyURLContext } from '@/context/URLContext';
 import { toggleShowFilters } from '@/store/controller';
 import { ITEMS_IN_PAGE, SORT_OPTIONS } from '@/helpers/constant';
@@ -29,7 +30,7 @@ export default function SortedViewPanel({ countProducts }: ISortedViewPanel) {
   }
 
   return (
-    <div className="main-center-section__sorted sorted-filters">
+    <div className={roboto.className + ' main-center-section__sorted sorted-filters'}>
       <div className="sorted-filters__filters-menu filters-menu">
         <div className="filters-menu__icon" onClick={() => toggleShowFilters()} data-testid="showFilterButton"></div>
         <div className="filters-menu__title">Show filters</div>

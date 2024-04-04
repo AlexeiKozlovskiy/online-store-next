@@ -1,11 +1,10 @@
 .aboutPage {
   &__container {
-    font: 1rem $Roboto;
+    font-size: 1rem;
     min-height: calc(100vh - 218px);
   }
 
   &__title {
-    font-weight: 700;
     text-align: center;
     padding-bottom: 20px;
   }
@@ -14,7 +13,6 @@
     text-indent: 50px;
     max-width: 650px;
     margin: 0 auto;
-    font: 1rem $Roboto;
     padding-top: 20px;
 
     a {

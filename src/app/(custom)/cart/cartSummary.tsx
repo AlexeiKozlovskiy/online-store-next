@@ -9,6 +9,7 @@ import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { applyPromocode, isPromocodeAvailable, removePromocode } from '@/store/controller';
+import { roboto_bold } from '@/styles/nextFonts';
 
 export function Summary() {
   const [inputValue, setInputValue] = useState('');
@@ -91,14 +92,14 @@ export function Summary() {
             </div>
             <div className="order-container__total-count total-count">
               <div className="total-count__text">Order Total</div>
-              <div className={`total-count__total-value ${promocodeState.applied.length && 'discount'}`}>
+              <div className={`${roboto_bold.className} total-count__total-value ${promocodeState.applied.length && 'discount'}`}>
                 ${totalPrice.toFixed(2)}
               </div>
             </div>
           </div>
           <div className="order-container__promocode promocode-order">
             {promosList}
-            <div className="promocode-order__total-value">
+            <div className={roboto_bold.className + ' promocode-order__total-value'}>
               {promocodeState.applied.length ? `$${formatPrice(totalPriseByPromocode)}` : ''}
             </div>
           </div>

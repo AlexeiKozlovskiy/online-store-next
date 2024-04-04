@@ -14,6 +14,7 @@ import GenerateTitle from './generateTitle';
 import { ProductImages } from './productImages';
 import { ErrorBoundary } from 'react-error-boundary';
 import { AddToCart } from './buttonAddToCart/addToCart';
+import { roboto, roboto_bold } from '@/styles/nextFonts';
 import { getProducts, getProductByID } from '@/helpers/api';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
 import getMetadataWithFallback from './getMetadataWithFallback';
@@ -62,7 +63,7 @@ export default async function ProductPage({ params }: IProductPage) {
   );
 
   const breadCrumbs = (
-    <div className="bread-crumbs-product">
+    <div className={roboto.className + ' bread-crumbs-product'}>
       <div className="bread-crumbs-product__path">
         <Link href={ROUTE.MAIN} className="bread-crumbs-product__home-link">
           Home
@@ -82,31 +83,31 @@ export default async function ProductPage({ params }: IProductPage) {
     <table className="product-page__table">
       <tbody>
         <tr className="table__row">
-          <td className="table__title">Item number</td>
+          <td className={roboto_bold.className + ' table__title'}>Item number</td>
           <td className="table__info">{id?.slice(-5)}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Color</td>
+          <td className={roboto_bold.className + ' table__title'}>Color</td>
           <td className="table__info">{color}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Collection</td>
+          <td className={roboto_bold.className + ' table__title'}>Collection</td>
           <td className="table__info">{collection}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Price</td>
+          <td className={roboto_bold.className + ' table__title'}>Price</td>
           <td className="table__info">{price}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Size</td>
+          <td className={roboto_bold.className + ' table__title'}>Size</td>
           <td className="table__info">{size}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Category</td>
+          <td className={roboto_bold.className + ' table__title'}>Category</td>
           <td className="table__info">{category}</td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">In stock</td>
+          <td className={roboto_bold.className + ' table__title'}>In stock</td>
           <td className="table__info">
             <ShakeField stock={stock}>{stock}</ShakeField>
           </td>
@@ -121,7 +122,7 @@ export default async function ProductPage({ params }: IProductPage) {
         <main>
           <GenerateTitle title={name} />
           <div className="bread-crumbs-product__container">{breadCrumbs}</div>
-          <section className="product-page wrapper">
+          <section className={roboto.className + ' product-page wrapper'}>
             <ArrowBack />
             <ProductImages images={images} />
             <div className="product-page__summaru-item product-summary">{productName}</div>
@@ -133,7 +134,7 @@ export default async function ProductPage({ params }: IProductPage) {
               </div>
             </div>
             <div className="product-page__specifications-container">
-              <h4 className="product-page__specifications-title">Product specifications</h4>
+              <h4 className={roboto_bold.className + ' product-page__specifications-title'}>Product specifications</h4>
               {specificationsTable}
               <ButtonBuyNow product={product} />
             </div>

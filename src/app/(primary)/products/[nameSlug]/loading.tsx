@@ -5,49 +5,50 @@ import { ImgsSkeleton } from './productSkeletons/imgsSkeleton';
 import { NameSkeleton } from './productSkeletons/nameSkeleton';
 import { SpecSkeleton } from './productSkeletons/specSkeleton';
 import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
+import { roboto, roboto_bold } from '@/styles/nextFonts';
 
 export default function Loading() {
   const specificationsTable = (
     <table className="product-page__table">
       <tbody>
         <tr className="table__row">
-          <td className="table__title">Item number</td>
+          <td className={roboto_bold.className + ' table__title'}>Item number</td>
           <td className="table__info">
             <SpecSkeleton width={80} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Color</td>
+          <td className={roboto_bold.className + ' table__title'}>Color</td>
           <td className="table__info">
             <SpecSkeleton width={60} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Collection</td>
+          <td className={roboto_bold.className + ' table__title'}>Collection</td>
           <td className="table__info">
             <SpecSkeleton width={100} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Price</td>
+          <td className={roboto_bold.className + ' table__title'}>Price</td>
           <td className="table__info">
             <SpecSkeleton width={100} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Size</td>
+          <td className={roboto_bold.className + ' table__title'}>Size</td>
           <td className="table__info">
             <SpecSkeleton width={40} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">Category</td>
+          <td className={roboto_bold.className + ' table__title'}>Category</td>
           <td className="table__info">
             <SpecSkeleton width={160} />
           </td>
         </tr>
         <tr className="table__row">
-          <td className="table__title">In stock</td>
+          <td className={roboto_bold.className + ' table__title'}>In stock</td>
           <td className="table__info">
             <SpecSkeleton width={40} />
           </td>
@@ -66,18 +67,18 @@ export default function Loading() {
           <NameSkeleton />
         </div>
         <div className="product-page__cart-container">
-          <div className="product-page__isInCart-container">{/* <IsInCart id={id} /> */}</div>
+          <div className="product-page__isInCart-container"></div>
           <div className="product-page__add-to-cart-container">
             <QuantityPiecesProduct stock={1} />
-            <button className="button-add-cart button">
+            <button className={roboto.className + ' button-add-cart button'}>
               <ButtonAddToCart />
             </button>
           </div>
         </div>
         <div className="product-page__specifications-container">
-          <h4 className="product-page__specifications-title">Product specifications</h4>
+          <h4 className={roboto_bold.className + ' product-page__specifications-title'}>Product specifications</h4>
           {specificationsTable}
-          <button className="button-buy-now button">BUY NOW</button>
+          <button className={roboto.className + ' button-buy-now button'}>BUY NOW</button>
         </div>
       </section>
     </main>

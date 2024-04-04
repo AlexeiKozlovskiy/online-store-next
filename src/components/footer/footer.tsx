@@ -1,8 +1,9 @@
 import './footer.scss';
+import { roboto } from '@/styles/nextFonts';
 
 export default function Footer() {
   return (
-    <footer data-testid="footer" className="footer">
+    <footer data-testid="footer" className={roboto.className + ' footer'}>
       <div className="footer__container wrapper">
         <div className="footer__github">
           <a className="github-link" href="https://github.com/AlexeiKozlovskiy">

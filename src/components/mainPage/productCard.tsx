@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
 import { Product, ROUTE } from '@/types/types';
 import { replaceSpace } from '@/helpers/helpersFunc';
+import { roboto } from '@/styles/nextFonts';
 
 const CardButton = dynamic(() => import('./productCardCartButton'));
 
@@ -23,7 +24,7 @@ export function ProductCard({ product }: ProductViewData) {
   }
 
   return (
-    <div className="product-item">
+    <div className={roboto.className + ' product-item'}>
       <div data-testid="product-item-chose">
         <Image
           className="product-item__img"

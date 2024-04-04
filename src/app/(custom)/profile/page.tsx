@@ -1,12 +1,13 @@
 'use client';
 import './profilePage.scss';
 import { useState } from 'react';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { roboto } from '@/styles/nextFonts';
 import { ProfileSection } from './sections/profileSection';
 import { FavoritesSection } from './sections/favoritesSection';
 import { MyShoppingSection } from './sections/myShoppingSection';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
 
 interface TabPanelProps {
@@ -46,7 +47,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <main className="profile">
+    <main className={roboto.className + ' profile'}>
       <h2 className="profile__titel">MY PROFILE</h2>
       <div className="profile__container">
         <ArrowBack />

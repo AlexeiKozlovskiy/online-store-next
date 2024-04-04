@@ -1,6 +1,6 @@
 import './aboutPage.scss';
-
 import type { Metadata } from 'next';
+import { roboto, roboto_bold } from '@/styles/nextFonts';
 
 export const metadata: Metadata = {
   title: 'Online Store | About project',
@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default async function About() {
   return (
-    <main className="aboutPage__container wrapper">
+    <main className={roboto.className + ' aboutPage__container wrapper'}>
       <section className="aboutPage__text">
-        <h2 className="aboutPage__title">About project</h2>
+        <h2 className={roboto_bold.className + ' aboutPage__title'}>About project</h2>
         <p>
           This fullstack project is an online store made using Next, Nest and PrismaDB. You can read a detailed description in the
           corresponding repositories of my Github.
@@ -41,7 +41,7 @@ export default async function About() {
           I managed a common board task.
         </p>
         <br />
-        <h3 className="aboutPage__title">Please take note. </h3>
+        <h3 className={roboto_bold.className + ' aboutPage__title'}>Please take note. </h3>
         <p className="aboutPage-container__text">
           Due to the use of a free deployment service for the backend, database, and the application itself, there may be delays
           in response. For example, a click on a product card, or the first request for a geting list of products. First fetching

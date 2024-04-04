@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { NEWS } from '@/helpers/constant';
 import { INews } from '@/types/types';
 import ImageNews from './imageNews';
+import { roboto } from '@/styles/nextFonts';
 import { replaceUnderscore } from '@/helpers/helpersFunc';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
 
@@ -25,7 +26,7 @@ export default function Page({ params: { nameNews } }: Ipage) {
   const { date, title, image, description } = getNews(nameNews) as INews;
 
   return (
-    <main className="newsItemPage__container wrapper">
+    <main className={roboto.className + ' newsItemPage__container wrapper'}>
       <ArrowBack />
       <section className="newsItemPage__content">
         <p className="newsItemPage__date">{date}</p>

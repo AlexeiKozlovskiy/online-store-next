@@ -1,9 +1,10 @@
 'use client';
 import './sideFilters.scss';
+import Slider from 'react-slider';
+import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-import Slider from 'react-slider';
+import { roboto, roboto_bold } from '@/styles/nextFonts';
 import { toggleShowFilters } from '@/store/controller';
 import { useMyURLContext } from '@/context/URLContext';
 import { DualRangeInput } from './dualRangeInput';
@@ -134,7 +135,7 @@ export default function SideFilters() {
         {balancerCollection.map(({ collection }) => (
           <div
             key={collection}
-            className={`collection__year ${collectionsSelected.includes(collection) && 'is-selected'}`}
+            className={`${roboto.className} collection__year ${collectionsSelected.includes(collection) && 'is-selected'}`}
             data-collection={collection}
             onClick={() => handleCollectionClick(collection.toString())}
           >
@@ -151,7 +152,7 @@ export default function SideFilters() {
         const id = categoryName.toLowerCase().replace(' ', '-');
         return (
           <div key={id} className="item-content__category category">
-            <label htmlFor={id} className="category__label">
+            <label htmlFor={id} className={roboto.className + ' category__label'}>
               {categoryName}
             </label>
             <CategoryCount count={count} />
@@ -264,27 +265,27 @@ export default function SideFilters() {
   return (
     <div className="filters" data-show={showFilters} data-testid="filterPanel">
       <div className="filters__item filters-item">
-        <div className="filters-item__title">Color</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>Color</div>
         {ColorFilter}
       </div>
       <div className="filters__item filters-item">
-        <div className="filters-item__title">Collection</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>Collection</div>
         {CollectionFilter}
       </div>
       <div className="filters__item filters-item">
-        <div className="filters-item__title">Price</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>Price</div>
         {PriceFilter}
       </div>
       <div className="filters__item filters-item">
-        <div className="filters-item__title">Size</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>Size</div>
         {SizeFilter}
       </div>
       <div className="filters__item filters-item">
-        <div className="filters-item__title">Category</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>Category</div>
         {CategoryFilter}
       </div>
       <div className="filters__item filters-item">
-        <div className="filters-item__title">In stock</div>
+        <div className={roboto_bold.className + ' filters-item__title'}>In stock</div>
         {StockFilter}
       </div>
       <ButtonCross onClickCross={() => toggleShowFilters()} adittionClassName="close-side-filters-cross" />
