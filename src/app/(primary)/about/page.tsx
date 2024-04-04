@@ -10,14 +10,27 @@ export default async function About() {
           corresponding repositories of my Github.
         </p>
         <p className="aboutPage-container__text">
-          <a href="https://github.com/AlexeiKozlovskiy/online-store-next">Next code. </a>
+          <a target="_blank" rel="noreferrer" href="https://github.com/AlexeiKozlovskiy/online-store-next">
+            Next code.
+          </a>
+          For next setting ci/cd, you will see actions and PR comments and details.
         </p>
         <p className="aboutPage-container__text">
-          <a href="https://github.com/AlexeiKozlovskiy/online-store-nest">Nest code. </a>
+          <a target="_blank" rel="noreferrer" href="https://github.com/AlexeiKozlovskiy/online-store-nest">
+            Nest code.{' '}
+          </a>
         </p>
         <p className="aboutPage-container__text">
-          <a href="https://github.com/AlexeiKozlovskiy/online-store-react"> React code. </a>
+          <a target="_blank" rel="noreferrer" href="https://github.com/AlexeiKozlovskiy/online-store-react">
+            React code.{' '}
+          </a>
           Previously I developed this application in react.
+        </p>
+        <p className="aboutPage-container__text">
+          <a target="_blank" rel="noreferrer" href="https://github.com/users/AlexeiKozlovskiy/projects/1/views/1">
+            Task board.{' '}
+          </a>
+          I managed a common board task.
         </p>
         <br />
         <p className="aboutPage-container__text">

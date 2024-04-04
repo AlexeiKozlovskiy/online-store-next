@@ -32,7 +32,7 @@ export async function getProductsQwery(qwery?: string): Promise<Product[]> {
   }
 }
 
-export async function getProductByID({ id }: { id: string }): Promise<Product | null> {
+export async function getProductByID(id: string): Promise<Product | null> {
   try {
     const res = await fetch(`${API_ROUTES.PODUCTS}/${id}`);
     return await res.json();

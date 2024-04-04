@@ -6,8 +6,6 @@ import { NameSkeleton } from './productSkeletons/nameSkeleton';
 import { SpecSkeleton } from './productSkeletons/specSkeleton';
 import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
 
-// this coponent is not used
-
 export default function Loading() {
   const specificationsTable = (
     <table className="product-page__table">

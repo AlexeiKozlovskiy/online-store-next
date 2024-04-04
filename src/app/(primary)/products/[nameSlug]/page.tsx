@@ -1,22 +1,24 @@
 import './productPage.scss';
 import Link from 'next/link';
-// import Loading from './loading';
-// import { Suspense } from 'react';
+import Loading from './loading';
+import { Metadata } from 'next';
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import type { Metadata } from 'next';
+import ShakeField from './shakeField';
+import { ROUTE } from '@/types/types';
+import ErrorProductPage from './error';
 import { cookies } from 'next/headers';
 import { getCookie } from 'cookies-next';
+import ButtonBuyNow from './buttonBuyNow';
+import GenerateTitle from './generateTitle';
+import { ProductImages } from './productImages';
+import { ErrorBoundary } from 'react-error-boundary';
+import { AddToCart } from './buttonAddToCart/addToCart';
 import { getProducts, getProductByID } from '@/helpers/api';
 import { ArrowBack } from '@/components/arrowBack/arrowBack';
-import ShakeField from './shakeField';
-import ButtonBuyNow from './buttonBuyNow';
+import getMetadataWithFallback from './getMetadataWithFallback';
 import { formatPrice, replaceUnderscore } from '@/helpers/helpersFunc';
-import { ProductImages } from './productImages';
-import { AddToCart } from './buttonAddToCart/addToCart';
 import { QuantityPiecesProduct } from '@/components/quantityPieces/quantityPiecesProduct';
-import { ErrorBoundary } from 'react-error-boundary';
-import ErrorProductPage from './error';
-import { ROUTE } from '@/types/types';
 
 const IsInCart = dynamic(() => import('./IsInCart'), {
   ssr: false,
@@ -41,7 +43,7 @@ async function getProductIDByName(nameSlug: string): Promise<string> {
 export default async function ProductPage({ params }: IProductPage) {
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
-  const product = await getProductByID({ id: productID });
+  const product = await getProductByID(productID);
 
   if (!product) {
     throw new Error('Error Product');
@@ -115,53 +117,47 @@ export default async function ProductPage({ params }: IProductPage) {
 
   return (
     <ErrorBoundary fallback={<ErrorProductPage />}>
-      {/* <Suspense fallback={<Loading />}> */}
-      <main>
-        <div className="bread-crumbs-product__container">{breadCrumbs}</div>
-        <section className="product-page wrapper">
-          <ArrowBack />
-          <ProductImages images={images} />
-          <div className="product-page__summaru-item product-summary">{productName}</div>
-          <div className="product-page__cart-container">
-            <div className="product-page__isInCart-container">
-              <IsInCart id={id} />
+      <Suspense fallback={<Loading />}>
+        <main>
+          <GenerateTitle title={name} />
+          <div className="bread-crumbs-product__container">{breadCrumbs}</div>
+          <section className="product-page wrapper">
+            <ArrowBack />
+            <ProductImages images={images} />
+            <div className="product-page__summaru-item product-summary">{productName}</div>
+            <div className="product-page__cart-container">
+              <div className="product-page__isInCart-container">{<IsInCart id={id} />}</div>
+              <div className="product-page__add-to-cart-container">
+                <QuantityPiecesProduct stock={stock} />
+                <AddToCart product={product} />
+              </div>
             </div>
-            <div className="product-page__add-to-cart-container">
-              <QuantityPiecesProduct stock={stock} />
-              <AddToCart product={product} />
+            <div className="product-page__specifications-container">
+              <h4 className="product-page__specifications-title">Product specifications</h4>
+              {specificationsTable}
+              <ButtonBuyNow product={product} />
             </div>
-          </div>
-          <div className="product-page__specifications-container">
-            <h4 className="product-page__specifications-title">Product specifications</h4>
-            {specificationsTable}
-            <ButtonBuyNow product={product} />
-          </div>
-        </section>
-      </main>
-      {/* </Suspense> */}
+          </section>
+        </main>
+      </Suspense>
     </ErrorBoundary>
   );
 }
 
-export async function generateMetadata({ params }: MetadataParams): Promise<Metadata> {
+export const generateMetadata = getMetadataWithFallback(async ({ params }: MetadataParams): Promise<Metadata> => {
   const { nameSlug } = params;
   const productID = await getProductIDByName(nameSlug);
-  const product = await getProductByID({ id: productID });
+  const product = await getProductByID(productID);
 
   if (!product) {
     throw new Error('Error Product metadata');
   }
-
   const { name, images, category } = product;
-
-  if (!name || !images.length || !category) {
-    throw new Error('Error properties metadata');
-  }
 
   return {
     metadataBase: new URL('https://online-store-next-rouge.vercel.app'),
     title: name,
-    category: category,
+    category,
     keywords: ['decorations', 'christmas', 'atmosphere'],
     description: 'Find Christmas decorations to create a festive atmosphere at your home',
     openGraph: {
@@ -175,4 +171,4 @@ export async function generateMetadata({ params }: MetadataParams): Promise<Meta
       ],
     },
   };
-}
+});
