@@ -104,7 +104,7 @@ export default function Navigation() {
           <Tab sx={stylesTab} label="products" />
           <Tab sx={stylesTab} label="news" />
           <Tab sx={stylesTab} label="Payment and delivery" />
-          <Tab sx={stylesTab} label="about us" />
+          <Tab sx={stylesTab} label="about project" />
           <Tab sx={stylesTab} label="contacts" />
         </Tabs>
       </nav>

@@ -18,7 +18,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import ErrorProductPage from './error';
 import { ROUTE } from '@/types/types';
 
-const IsInCart = dynamic(() => import('@/app/(primary)/products/[nameSlug]/IsInCart'), {
+const IsInCart = dynamic(() => import('./IsInCart'), {
   ssr: false,
 });
 
