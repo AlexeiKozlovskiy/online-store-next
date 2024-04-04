@@ -32,10 +32,6 @@
   }
 
   &__header {
-    font: 1.5rem $Roboto bold;
-
-    @media screen and (max-width: 420px) {
-      font: 1rem $Roboto bold;
-    }
+    padding-bottom: 10px;
   }
 }

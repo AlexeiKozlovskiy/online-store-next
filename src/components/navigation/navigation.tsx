@@ -28,12 +28,10 @@ export default function Navigation() {
         return 1;
       case ROUTE.NEWS:
         return 2;
-      case ROUTE.PAYMENT:
-        return 3;
       case ROUTE.ABOUT:
-        return 4;
+        return 3;
       case ROUTE.CONTACTS:
-        return 5;
+        return 4;
       default:
         return 0;
     }
@@ -55,12 +53,9 @@ export default function Navigation() {
         router.push(ROUTE.NEWS);
         break;
       case 3:
-        router.push(ROUTE.PAYMENT);
-        break;
-      case 4:
         router.push(ROUTE.ABOUT);
         break;
-      case 5:
+      case 4:
         router.push(ROUTE.CONTACTS);
         break;
       default:
@@ -103,7 +98,7 @@ export default function Navigation() {
           <Tab sx={stylesTab} label="main" />
           <Tab sx={stylesTab} label="products" />
           <Tab sx={stylesTab} label="news" />
-          <Tab sx={stylesTab} label="Payment and delivery" />
+          {/* <Tab sx={stylesTab} label="Payment and delivery" /> */}
           <Tab sx={stylesTab} label="about project" />
           <Tab sx={stylesTab} label="contacts" />
         </Tabs>
