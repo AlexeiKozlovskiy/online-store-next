@@ -5,7 +5,6 @@ import { MODAL_WINDOWS } from '@/helpers/constant';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { CredentialGoogle, GoogleResp } from '@/types/types';
-import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 
 export function GoogleButton() {
   const { openModals, closeAnimationModal } = useCloseOpenModalsContext();
@@ -19,7 +18,6 @@ export function GoogleButton() {
     setGoogleData(googleData);
     modalSignIN && closeAnimationModal(SIGN_IN);
     modalSignUP && closeAnimationModal(SIGN_UP);
-    bodyRemoveScroll();
   }
 
   useEffect(() => {

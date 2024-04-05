@@ -6,7 +6,6 @@ import { setAuthParams, clearAuthParams } from '@/store/controller';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { refreshTokensApi, signInApi, signInGoogleApi, signUPApi, getUser } from '@/helpers/api';
 import { User, CredentialGoogle, Authentication, RootReducerProps, FORM_MESSAGES, FormSignIN, FormSignUP } from '@/types/types';
-import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 
 interface IUserAuthContext {
   user: User | null;
@@ -114,7 +113,6 @@ export const UserAuthContextProvider = ({ children }: { children: ReactNode }) =
       } else {
         setErrorUser(`${FORM_MESSAGES.INCORRECT_USERNAME_OR_PASSWORD} ${error}.`);
       }
-      bodyRemoveScroll();
     }
   }
 

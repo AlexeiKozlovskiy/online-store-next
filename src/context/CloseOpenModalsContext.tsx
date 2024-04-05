@@ -39,18 +39,15 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
 
     switch (dataset.id) {
       case SIGN_UP:
-        bodyRemoveScroll();
         closeAnimationModal(SIGN_UP);
         break;
       case SIGN_IN:
-        bodyRemoveScroll();
         closeAnimationModal(SIGN_IN);
         break;
       case USER:
         closeAnimationModal(USER);
         break;
       case PAYMENT:
-        bodyRemoveScroll();
         closeAnimationModal(PAYMENT);
         break;
     }
@@ -65,6 +62,7 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
         setOpenModals((prevOpenModals) => ({ ...prevOpenModals, [modalType]: false }));
       }, 400);
     }
+    bodyRemoveScroll();
   }
 
   return (

@@ -47,8 +47,12 @@ export default function HeaderAuthNav() {
       ...prevOpenModals,
       [key]: true,
     }));
+
     setShowBurgerMenu(false);
-    bodyNotScroll();
+
+    if (key !== 'modalUser') {
+      bodyNotScroll();
+    }
   }
 
   const userIcon = <UserIcon handleClick={modalsUdater} />;
