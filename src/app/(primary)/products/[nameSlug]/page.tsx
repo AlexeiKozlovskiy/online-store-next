@@ -70,7 +70,7 @@ export default async function ProductPage({ params }: IProductPage) {
         </Link>
       </div>
       <div className="bread-crumbs-product__path">
-        <Link href={ROUTE.PRODUCT} className="bread-crumbs-product__home-link">
+        <Link href={ROUTE.PRODUCTS} className="bread-crumbs-product__home-link">
           Products
         </Link>
       </div>

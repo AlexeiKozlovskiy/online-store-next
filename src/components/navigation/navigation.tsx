@@ -24,7 +24,7 @@ export default function Navigation() {
     switch (extractPath) {
       case ROUTE.MAIN:
         return 0;
-      case ROUTE.PRODUCT:
+      case ROUTE.PRODUCTS:
         return 1;
       case ROUTE.NEWS:
         return 2;
@@ -47,7 +47,7 @@ export default function Navigation() {
         router.push(ROUTE.MAIN);
         break;
       case 1:
-        router.push(ROUTE.PRODUCT);
+        router.push(ROUTE.PRODUCTS);
         break;
       case 2:
         router.push(ROUTE.NEWS);

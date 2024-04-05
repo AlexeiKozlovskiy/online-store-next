@@ -16,7 +16,7 @@ export interface Product {
 export enum ROUTE {
   MAIN = '/',
   CART = '/cart',
-  PRODUCT = '/products',
+  PRODUCTS = '/products',
   PROFILE = '/profile',
   NEWS = '/news',
   PAYMENT = '/payment',

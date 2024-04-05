@@ -50,7 +50,7 @@ export default async function About() {
             height={18}
             src="https://wakatime.com/badge/user/018d3b7f-99dd-4b60-ab6b-4d807848fdb5/project/018de4e5-fbe2-4aaa-b92b-3fd594c0ee93.svg"
           />
-          <p className="aboutPage__text-wakatime">- time on pure code development Next JS version.</p>
+          <p className="aboutPage__text-wakatime">- time on code a NextJS version.</p>
         </div>
         <br />
         <h3 className={roboto_bold.className + ' aboutPage__title'}>Please take note. </h3>

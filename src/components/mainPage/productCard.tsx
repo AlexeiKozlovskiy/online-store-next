@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductViewData) {
 
   function productItemClick() {
     setCookie('clikedId', `${id}`);
-    router.push(`${ROUTE.PRODUCT}/${replaceSpace(name)}`);
+    router.push(`${ROUTE.PRODUCTS}/${replaceSpace(name)}`);
   }
 
   return (

@@ -11,6 +11,7 @@ import { DualRangeInput } from './dualRangeInput';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
 import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter } from '@/types/types';
+import { bodyNotScroll } from '@/helpers/helpersFunc';
 
 const CategoryCount = dynamic(() => import('./categoryCount'), {
   loading: () => <></>,
@@ -111,6 +112,11 @@ export default function SideFilters() {
     // handleClickFilters(true);
     setSelectedFilters({ ...selectedFilters, [type]: value });
     setFilter(value);
+  };
+
+  const handleClickCross = () => {
+    bodyNotScroll();
+    toggleShowFilters();
   };
 
   const ColorFilter = (
@@ -288,7 +294,7 @@ export default function SideFilters() {
         <div className={roboto_bold.className + ' filters-item__title'}>In stock</div>
         {StockFilter}
       </div>
-      <ButtonCross onClickCross={() => toggleShowFilters()} adittionClassName="close-side-filters-cross" />
+      <ButtonCross onClickCross={handleClickCross} adittionClassName="close-side-filters-cross" />
     </div>
   );
 }

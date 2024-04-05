@@ -13,6 +13,10 @@ export function bodyNotScroll() {
   document.body.classList.toggle('lock');
 }
 
+export function bodyRemoveScroll() {
+  document.body.classList.remove('lock');
+}
+
 export function replaceSpace(name: string) {
   return name.replace(/\s+/g, '_').toLocaleLowerCase();
 }

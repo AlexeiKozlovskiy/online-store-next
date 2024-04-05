@@ -3,7 +3,7 @@ import './cartPage.scss';
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import { PROMOCODES } from '@/helpers/constant';
-import { formatPrice } from '@/helpers/helpersFunc';
+import { bodyNotScroll, formatPrice } from '@/helpers/helpersFunc';
 import { useTotalCartInfo } from '@/hooks/totalCartInfo';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
@@ -35,6 +35,7 @@ export function Summary() {
   }
 
   function proceedClick() {
+    bodyNotScroll();
     if (authenticated) {
       checkAuth('modalPayment');
     } else {

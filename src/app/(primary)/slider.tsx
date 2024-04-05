@@ -17,7 +17,7 @@ const SliderDescription = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="slider__content">
       {children}
-      <button onClick={() => router.push(ROUTE.PRODUCT)} className={roboto.className + ' button button-main'}>
+      <button onClick={() => router.push(ROUTE.PRODUCTS)} className={roboto.className + ' button button-main'}>
         GO TO PRODUCTS
       </button>
     </div>

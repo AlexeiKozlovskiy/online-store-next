@@ -23,7 +23,7 @@ export function CartItemList({ itemNumber, quantity, product }: CartItem) {
 
   function handleImageClick() {
     setCookie('clikedId', `${id}`);
-    router.push(`${ROUTE.PRODUCT}/${replaceSpace(name)}`);
+    router.push(`${ROUTE.PRODUCTS}/${replaceSpace(name)}`);
   }
 
   return (

@@ -13,6 +13,7 @@ import { SignINModal } from '@/components/modalWindow/signIN/signINModal';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { UserModal } from '@/components/modalWindow/user/userModal';
 import { Preloader } from '@/components/preloader/preloader';
+import { roboto } from '@/styles/nextFonts';
 
 const CartIcon = dynamic(() => import('./cartIcon'));
 const UserIcon = dynamic(() => import('@/components/userIcon/userIcon'));
@@ -47,6 +48,7 @@ export default function HeaderAuthNav() {
       [key]: true,
     }));
     setShowBurgerMenu(false);
+    bodyNotScroll();
   }
 
   const userIcon = <UserIcon handleClick={modalsUdater} />;
@@ -58,7 +60,7 @@ export default function HeaderAuthNav() {
       {modalSignUP && <SignUPModal handelCloseModal={handelCloseModal} />}
       {modalSignIN && <SignINModal handelCloseModal={handelCloseModal} />}
       {modalUser && <UserModal handelCloseModal={handelCloseModal} closeAnimationModal={closeAnimationModal} />}
-      <div className="header-nav" data-show={showBurgerMenu}>
+      <div className={roboto.className + ' header-nav'} data-show={showBurgerMenu}>
         <ButtonCross onClickCross={handleShowBurgerMenu} adittionClassName="close-burger-cross" />
         <LogoStore onClickBurger={logoClickBurger} />
         <div className="header-nav-contents">

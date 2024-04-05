@@ -1,5 +1,6 @@
 'use client';
 import { MODAL_WINDOWS } from '@/helpers/constant';
+import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 import { ModalsWindows } from '@/types/types';
 import { useState, createContext, useContext, ReactNode } from 'react';
 
@@ -38,15 +39,18 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
 
     switch (dataset.id) {
       case SIGN_UP:
+        bodyRemoveScroll();
         closeAnimationModal(SIGN_UP);
         break;
       case SIGN_IN:
+        bodyRemoveScroll();
         closeAnimationModal(SIGN_IN);
         break;
       case USER:
         closeAnimationModal(USER);
         break;
       case PAYMENT:
+        bodyRemoveScroll();
         closeAnimationModal(PAYMENT);
         break;
     }
