@@ -11,11 +11,12 @@ import { CARD_IMAGES, TEST_USER_DATA } from '@/helpers/constant';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { FormInput } from '@/components/formInput/formInput';
 import { Preloader } from '@/components/preloader/preloader';
+import { useMyProfileUserContext } from '@/context/ProfileUserContext';
+import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 
 export function Form() {
   const imageCard = useRef('');
   const router = useRouter();
-
   const cartItemsState = useSelector<RootReducerProps, CartItem[]>((state) => state.cart);
   const {
     register,
@@ -41,7 +42,7 @@ export function Form() {
   } = useFormsValidation();
   const { user } = useMyUserAuthContext();
   useFormsInputsHelper({ watch, setValue });
-  // const { profileData, updateUserProfile } = useMyProfileUserContext();
+  const { profileData, updateUserProfile } = useMyProfileUserContext();
   const { totalPriseByPromocode } = useTotalCartInfo();
   const [showPreloader, setShowPreloader] = useState(false);
 
@@ -60,7 +61,7 @@ export function Form() {
     setShowPreloader(true);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { email, ...dataForm } = formProfile;
-    // updateUserProfile(dataForm);
+    updateUserProfile(dataForm);
 
     const orderExempleData = {
       userID: user?.id,
@@ -82,17 +83,18 @@ export function Form() {
       reset();
       removeAllCart();
       router.push(ROUTE.MAIN);
+      bodyRemoveScroll();
     }, 2000);
   };
 
-  // useEffect(() => {
-  //   async function getProfile() {
-  //     if (profileData) {
-  //       setValue('formProfile', profileData);
-  //     }
-  //   }
-  //   getProfile();
-  // }, [profileData]);
+  useEffect(() => {
+    async function getProfile() {
+      if (profileData) {
+        setValue('formProfile', profileData);
+      }
+    }
+    getProfile();
+  }, [profileData]);
 
   useEffect(() => {
     function checkImageCard() {

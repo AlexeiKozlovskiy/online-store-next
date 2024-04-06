@@ -38,14 +38,6 @@ export function ProductList({ productsFromServer }: IProductListDoble) {
   const { colorsSelected, collectionsSelected, categorySelected } = selectedFilters;
   const { BALANCER_COLOR, BALANCER_COLLECTION, BALANCER_CATEGORY, BALANCER_PRICE, BALANCER_SIZE, BALANCER_STOCK } = BALANCERS;
 
-  // useMemo(() => {
-  //   if (qweryParams) {
-  //     fetchProductsByQwery();
-  //   } else {
-  //     setProductsByQwery(sortByFavorite(productsFromServer));
-  //   }
-  // }, [productsFromServer]);
-
   useEffect(() => {
     if (productsByQwery.length) {
       refreshBalanser();

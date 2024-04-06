@@ -1,0 +1,38 @@
+.aboutPage {
+  &__container {
+    font-size: 1rem;
+    min-height: calc(100vh - 218px);
+  }
+
+  &__title {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  &__text {
+    line-height: 1.2rem;
+    text-indent: 50px;
+  }
+
+  &__section {
+    max-width: 650px;
+    margin: 0 auto;
+    padding-top: 20px;
+
+    a {
+      color: $darkGray;
+      text-decoration: underline;
+    }
+  }
+
+  &__wakatime {
+    padding-left: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__text-wakatime {
+    padding-left: 5px;
+  }
+}

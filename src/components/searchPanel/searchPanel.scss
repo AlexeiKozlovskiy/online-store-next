@@ -1,39 +1,3 @@
-.find-container {
-  background: linear-gradient(45deg, $winter 10%, $winterHover 50%, $winter 80%);
-  animation: background-gradient 3s infinite alternate;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 2px;
-
-  @media screen and (max-width: 600px) {
-    height: 130px;
-  }
-}
-
-.find-title {
-  width: 550px;
-  font: 1.8rem $Roboto;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  line-height: 1.5em;
-  color: #fff;
-  text-align: center;
-
-  @media screen and (max-width: 700px) {
-    width: 380px;
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 450px) {
-    width: 315px;
-    font-size: 1rem;
-  }
-}
-
 .find-input-wrapper {
   position: relative;
   width: 230px;
@@ -47,7 +11,7 @@
   border-radius: 3px;
   border: none;
   text-align: start;
-  font: 1rem $Roboto;
+  font-size: 1rem;
   color: #888;
 
   &:focus {
@@ -98,32 +62,4 @@
 }
 .find-input:placeholder-shown ~ .find-input-img_search {
   display: block;
-}
-
-.snow-blocks {
-  width: 100%;
-
-  &__snow1 {
-    background-image: url('/img/snow1.png');
-    position: absolute;
-    width: 100%;
-    height: 152px;
-    animation: snow1 18s linear infinite;
-
-    @media screen and (max-width: 600px) {
-      height: 130px;
-    }
-  }
-
-  &__snow2 {
-    background-image: url('/img/snow2.png'), url('/img/snow3.png');
-    animation: snow2 10s linear infinite;
-    width: 100%;
-    height: 152px;
-    position: absolute;
-
-    @media screen and (max-width: 600px) {
-      height: 130px;
-    }
-  }
 }

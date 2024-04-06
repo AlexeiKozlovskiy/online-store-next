@@ -1,5 +1,4 @@
 .sorted-filters {
-  font-family: $Roboto;
   font-size: 0.9rem;
   display: flex;
   align-items: center;
@@ -32,27 +31,7 @@
   }
 
   &__title {
-    font-family: $Roboto;
     font-size: 0.9rem;
-  }
-
-  &__count {
-    background-color: $oliva;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 0.8rem;
-    border-radius: 50%;
-    font-family: $Roboto;
-    width: 25px;
-    height: 25px;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $olivaHover;
-      color: #eeeeee;
-    }
   }
 }
 

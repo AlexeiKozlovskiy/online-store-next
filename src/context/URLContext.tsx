@@ -96,14 +96,16 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
       swichedViews && setSwichedView(swichedViews);
     }
     setDataFromUrl();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     function setDataInURL() {
       const params = new URLSearchParams();
+
       setFiltersQweryInParams(params);
       setPagesQweryInParams(params);
-      if (pathname === ROUTE.MAIN) {
+
+      if (pathname === ROUTE.PRODUCTS) {
         router.push(`${pathname}?${params.toString()}`);
       }
     }
@@ -120,6 +122,7 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     curPageMain,
     perMainPageOption,
     swichedView,
+    pathname,
   ]);
 
   useEffect(() => {
@@ -168,10 +171,10 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
     if (sortindViewOption.value.length) {
       params.set('sortBy', sortindViewOption.value);
     }
-    if (curPageMain > 1 && location.pathname === '/') {
+    if (curPageMain > 1 && location.pathname === ROUTE.PRODUCTS) {
       params.set('page', curPageMain.toString());
     }
-    if (+perMainPageOption.value !== 20 && location.pathname === '/') {
+    if (+perMainPageOption.value !== 20 && location.pathname === ROUTE.PRODUCTS) {
       params.set('perPage', perMainPageOption.value);
     }
     if (swichedView === 'row') {
@@ -214,11 +217,11 @@ export const URLContextProvider = ({ children }: { children: ReactNode }) => {
   }
 
   function updatedPagination(curPageMain: string, perMainOption: string) {
-    if (curPageMain && location.pathname === '/') {
+    if (curPageMain && location.pathname === ROUTE.PRODUCTS) {
       setCurPageMain(+curPageMain);
     }
 
-    if (perMainOption && location.pathname === '/') {
+    if (perMainOption && location.pathname === ROUTE.PRODUCTS) {
       setPerMainPageOption({
         value: perMainOption,
         label: ITEMS_IN_PAGE.filter(({ value, label }) => {

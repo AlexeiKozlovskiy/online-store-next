@@ -1,10 +1,10 @@
 .common-cross-btn {
-  background: url('https://api.iconify.design/typcn/delete-outline.svg?color=%238b9d93&width=24&height=24') no-repeat center
-    center / contain;
+  background: url('/img/cross.svg') no-repeat center center / contain;
   width: 36px;
   height: 36px;
   transition: transform 0.2s;
   border: none;
+  fill-opacity: 0.5;
 
   &:hover {
     cursor: pointer;
@@ -21,11 +21,18 @@
   height: 20px;
 }
 
-.close-modal-cross,
 .close-burger-cross,
 .close-side-filters-cross {
   position: absolute;
   display: none;
+  right: 20px;
+  top: 25px;
+  z-index: 2;
+}
+
+.close-modal-cross,
+.close-burger-cross {
+  position: absolute;
   right: 20px;
   top: 25px;
   z-index: 2;

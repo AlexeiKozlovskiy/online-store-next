@@ -16,8 +16,12 @@ export interface Product {
 export enum ROUTE {
   MAIN = '/',
   CART = '/cart',
-  PRODUCT = '/product',
+  PRODUCTS = '/products',
   PROFILE = '/profile',
+  NEWS = '/news',
+  PAYMENT = '/payment',
+  ABOUT = '/about',
+  CONTACTS = '/contacts',
 }
 
 export type DualRange = [number | null, number | null];
@@ -302,4 +306,11 @@ export enum FORM_MESSAGES {
   INCORRECT_USERNAME_OR_PASSWORD = 'Incorrect username or password.',
   SOMETHING_WRONG_WITH_GOOGLE = 'Something wrong with google.',
   SOMETHING_WRONG = 'Something wrong.',
+}
+
+export interface INews {
+  title: string;
+  date: string;
+  image: string;
+  description?: string;
 }

@@ -3,8 +3,8 @@
   border-radius: 5px;
   background: linear-gradient(90deg, $oliva 50%, $olivaBlack 100%);
   padding: 5px 10px;
-  font: 1.3rem $Roboto;
-  font-weight: 600;
+  font-size: 1.3rem;
+  // font-weight: 600;
   cursor: pointer;
   transition: color 0.3s;
   -webkit-text-fill-color: white;
@@ -27,7 +27,7 @@
 }
 
 .header-auth__text {
-  font: 1rem $Roboto;
+  font-size: 1rem;
   color: $darkGray;
   letter-spacing: 0.05em;
 }
@@ -36,8 +36,8 @@
   padding: 0;
   border: none;
   background-color: transparent;
-  font: 1rem $Roboto;
-  font-weight: 600;
+  font-size: 1rem;
+  // font-weight: 600;
   color: black;
   transition: color 0.3s;
 

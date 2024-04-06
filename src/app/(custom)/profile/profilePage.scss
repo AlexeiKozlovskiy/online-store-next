@@ -1,0 +1,99 @@
+.profile {
+  min-height: calc(100vh - 150px);
+  position: relative;
+
+  &__titel {
+    color: #95bea1;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    padding: 10px 0px;
+
+    @media screen and (max-width: 550px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__section {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.profile-form {
+  padding-top: 20px;
+
+  &__title {
+    font-size: 1.2rem;
+    color: #95bea1;
+    letter-spacing: 0.1px;
+
+    @media screen and (max-width: 550px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.profile-btn {
+  background: $oliva;
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  width: 80px;
+  margin-top: 15px;
+  border: none;
+  font-size: 1.1rem;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    background: $olivaHover;
+    transition: background 0.3s;
+  }
+
+  &:active {
+    transform: scale(0.98);
+    transition: transform 0.3s;
+  }
+
+  &:disabled {
+    transform: none;
+    background: $greyBorder;
+  }
+}
+
+.profile-preloader-container {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.profile-preloader-user-container {
+  width: 25px;
+  height: 36px;
+}
+
+.favorites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 20px;
+
+  &__empty-catalog {
+    margin: 0 auto;
+    font-size: 1.2rem;
+  }
+}
+
+.my-shopping {
+  &__section {
+    display: flex;
+  }
+
+  &__developing {
+    margin: 0 auto;
+    font-size: 1.2rem;
+  }
+}

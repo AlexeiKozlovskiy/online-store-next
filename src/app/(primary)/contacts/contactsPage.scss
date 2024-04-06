@@ -1,0 +1,36 @@
+.contactsPage {
+  &__container {
+    font-size: 1rem;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      padding: 10px;
+      align-items: center;
+    }
+    @media screen and (max-width: 420px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.contactsPage-adress {
+  &__container {
+    @media screen and (max-width: 767px) {
+      width: 400px;
+      order: -1;
+    }
+
+    @media screen and (max-width: 420px) {
+      width: 300px;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__header {
+    padding-bottom: 10px;
+  }
+}

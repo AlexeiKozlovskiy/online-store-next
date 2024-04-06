@@ -142,3 +142,72 @@ export const CARD_IMAGES: Record<string, CardImg> = {
   '4': 'cards__img-visa',
   '5': 'cards__img-mastercard',
 };
+
+export const CATEGORIES_MAIN_PAGE = [
+  {
+    title: 'Christmas lights',
+    pathRedirect: '/products?categories=Christmas+lights',
+    image: '/assets/products/50-led-light-chain-warm-white-battery-operated-indoor-use(1).jpg',
+    altImage: 'Christmas lights',
+  },
+  {
+    title: 'Garland & Wreath',
+    pathRedirect: '/products?categories=Garland+%26+Wreath',
+    image: '/assets/products/garland-with-snow-20-x-270cm.jpg',
+    altImage: 'Garland & Wreath',
+  },
+  {
+    title: 'Christmas decorations',
+    pathRedirect: '/products?categories=Christmas+decorations',
+    image: '/assets/products/snowman-with-lantern-magnesia-48cm.jpg',
+    altImage: 'Christmas decorations',
+  },
+  {
+    title: 'Do It Yourself',
+    pathRedirect: '/products?categories=Do+It+Yourself',
+    image: '/assets/products/3-diy-silver-christmas-baubles-8-cm-with-markers(1).jpg',
+    altImage: 'Do It Yourself',
+  },
+  {
+    title: 'Tree decorations',
+    pathRedirect: '/products?categories=Tree+decorations',
+    image: '/assets/products/jellyfish-glass-hanging-figurine-12cm-blue(1).jpg',
+    altImage: 'Tree decorations',
+  },
+  {
+    title: 'Black decorations',
+    pathRedirect: '/products?colors=black',
+    image: '/assets/products/black-bauble-with-ruches-8-cm(1).jpg',
+    altImage: 'Black decorations',
+  },
+  {
+    title: 'NEW decorations',
+    pathRedirect: '/products?collections=2023',
+    image: '/assets/products/blowfish-glass-hanging-figurine-9cm-blue.jpg',
+    altImage: 'NEW decorations',
+  },
+];
+
+export const NEWS = [
+  {
+    date: '5 march 2024',
+    title: '8 March',
+    image: '/assets/news/8march.jpg',
+    description:
+      'Dear customers, we inform you about the opening hours of our store during the holidays. Due to International Womens Day, March 8, the store is closed. We apologize for any inconvenience and look forward to seeing you on March 11th',
+  },
+  {
+    date: '21 december 2023',
+    title: 'Christmas discounts',
+    image: '/assets/news/kartinka-v-novosti.jpg',
+    description:
+      'We wish you a Merry Christmas and invite you to our store! In honor of this bright holiday, we have prepared a special offer for you - discounts of up to 20% on artificial Christmas trees and pine trees!',
+  },
+  {
+    date: '30 november 2023',
+    title: 'Winter Mode',
+    image: '/assets/news/winter-rezhim-raboty.webp',
+    description:
+      'Dear friends! Our store is switching to winter operating hours. If you have any questions, please call and clarify the information you are interested in. From 01.12.2023 the store is open: Mon - Fri 9:00 - 19:00. Sat 10:00 - 18:00. Sun 10:00 - 17:00.',
+  },
+];
