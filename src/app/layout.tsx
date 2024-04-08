@@ -11,6 +11,7 @@ import { UserAuthContextProvider } from '@/context/UserAuthContext';
 import { ProfileUserContextProvider } from '@/context/ProfileUserContext';
 import QueryClientProviders from '@/components/queryClientProvider';
 import { FavoritesContextProvider } from '@/context/favoritesContext';
+import CustomAlert from '@/components/customAlert/customAlert';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
                 <UserAuthContextProvider>
                   <ProfileUserContextProvider>
                     <FavoritesContextProvider>
+                      <CustomAlert />
                       <Header />
                       {children}
                     </FavoritesContextProvider>
