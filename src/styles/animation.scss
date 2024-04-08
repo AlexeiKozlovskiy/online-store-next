@@ -170,3 +170,23 @@
     transform: scale(1);
   }
 }
+
+@keyframes backDropView {
+  0% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes backDropHide {
+  0% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  100% {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

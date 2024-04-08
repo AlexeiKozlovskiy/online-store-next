@@ -55,6 +55,11 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
 
   function closeAnimationModal(modalType: string) {
     const modalWindow = document.querySelector(`.${modalType}`) as HTMLDivElement;
+    const modalBackdrop = document.querySelector('.modal-page') as HTMLDivElement;
+
+    if (modalBackdrop) {
+      modalBackdrop.classList.toggle('modal-page-hide');
+    }
 
     if (modalWindow) {
       modalWindow.classList.toggle(`${modalType}-hide`);
