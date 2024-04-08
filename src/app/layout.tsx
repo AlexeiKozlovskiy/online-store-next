@@ -35,12 +35,12 @@ export default function RootLayout({
                 <UserAuthContextProvider>
                   <ProfileUserContextProvider>
                     <FavoritesContextProvider>
-                      <div className="app">
-                        <CustomAlert />
-                        <Header />
-                        {children}
-                        <Footer />
-                      </div>
+                      {/* <div className="app"> */}
+                      <CustomAlert />
+                      <Header />
+                      {children}
+                      <Footer />
+                      {/* </div> */}
                     </FavoritesContextProvider>
                   </ProfileUserContextProvider>
                 </UserAuthContextProvider>

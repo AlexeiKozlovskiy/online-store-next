@@ -6,12 +6,34 @@ import { usePathname, useRouter } from 'next/navigation';
 import { ROUTE } from '@/types/types';
 import { useEffect, useState } from 'react';
 import { SxProps, Theme, useMediaQuery } from '@mui/material';
+import CartIcon from '../header/cartIcon';
+import { useCheckScrollHook } from '@/hooks/checkScrollHook';
 
 export default function Navigation() {
+  const [viewCartIcon, setViewCartIcon] = useState(false);
   const mediaMatches = useMediaQuery('(max-width:600px)');
   const pathname = usePathname();
   const router = useRouter();
   const color = '#2e8b57';
+  const hasScroll = useCheckScrollHook(130);
+
+  useEffect(() => {
+    if (hasScroll) {
+      setViewCartIcon(true);
+    } else {
+      hideCartIcon();
+    }
+  }, [hasScroll]);
+
+  function hideCartIcon() {
+    const cartIcon = document.querySelector('.cartIcon-animation-container') as HTMLDivElement;
+    if (cartIcon) {
+      cartIcon.classList.add('cartIcon-hide');
+      setTimeout(() => {
+        setViewCartIcon(false);
+      }, 200);
+    }
+  }
 
   useEffect(() => {
     const currentTab = getCurrentTab();
@@ -101,6 +123,13 @@ export default function Navigation() {
           <Tab sx={stylesTab} label="about project" />
           <Tab sx={stylesTab} label="contacts" />
         </Tabs>
+      </div>
+      <div className="cartIcon-nav-container">
+        {viewCartIcon && (
+          <div className="cartIcon-animation-container">
+            <CartIcon fontSize={20} additionStyles={'small'} />
+          </div>
+        )}
       </div>
     </nav>
   );

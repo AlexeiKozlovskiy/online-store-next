@@ -3,11 +3,7 @@
 body {
   // height: 100%;
   // overflow: auto;
-  // height: auto;
-}
-
-.lock {
-  overflow: hidden;
+  height: auto;
 }
 
 .wrapper {
@@ -19,9 +15,15 @@ body {
 }
 
 .app {
-  overflow: auto;
+  // overflow: auto;
   // min-height: 100vh;
   // height: 100vh;
   // max-width: 1440px;
   // height: 100vh;
+}
+
+main {
+  // overflow: auto;
+  // height: 100vh;
+  // max-width: 1440px;
 }

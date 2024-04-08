@@ -190,3 +190,23 @@
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
+
+@keyframes cartIcon-nav-view {
+  0% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes cartIcon-nav-hide {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(50px);
+  }
+}

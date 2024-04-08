@@ -1,4 +1,5 @@
 'use client';
+import './cartIcon.scss';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { SetStateAction } from 'react';
@@ -13,19 +14,21 @@ const TotalPriceGoods = dynamic(() => import('./headerTotalPrice'), {
 });
 
 interface IcartIcon {
-  setShowBurgerMenu: (value: SetStateAction<boolean>) => void;
+  setShowBurgerMenu?: (value: SetStateAction<boolean>) => void;
+  fontSize?: number;
+  additionStyles?: string;
 }
 
-export default function CartIcon({ setShowBurgerMenu }: IcartIcon) {
+export default function CartIcon({ fontSize, setShowBurgerMenu, additionStyles }: IcartIcon) {
   return (
-    <Link href={ROUTE.CART} className="header-cart" onClick={() => setShowBurgerMenu(false)}>
-      <ShoppingCartCheckoutIcon sx={{ color: '#95bea1', fontSize: 50 }} />
-      <div className="header-cart__amount-container">
-        <p className="header-cart__amount">
+    <Link href={ROUTE.CART} className="cart-icon" onClick={() => setShowBurgerMenu && setShowBurgerMenu(false)}>
+      <ShoppingCartCheckoutIcon sx={{ color: '#95bea1', fontSize: fontSize || 50 }} />
+      <div className={`${additionStyles === 'small' && 'small-amount-container'} cart-icon__amount-container`}>
+        <p className={`${additionStyles === 'small' && 'small-amount'} cart-icon__amount`}>
           <TotalCountGoods />
         </p>
       </div>
-      <div className="header-cart__num">
+      <div className={`${additionStyles === 'small' && 'small-cart-num'} cart-icon__num`}>
         <TotalPriceGoods />
       </div>
     </Link>
