@@ -10,6 +10,7 @@ import { QuantityPiecesCart } from '@/components/quantityPieces/quantityPiecesCa
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import { roboto_bold } from '@/styles/nextFonts';
+import { FavoritesStar } from '@/components/favoritesStar/favoritesStar';
 
 export function CartItemList({ itemNumber, quantity, product }: CartItem) {
   const { id, images, name, price, color, collection, size, category, stock } = product;
@@ -44,7 +45,7 @@ export function CartItemList({ itemNumber, quantity, product }: CartItem) {
         />
       </th>
       <th className="cart-item__info">
-        {/* <FavoritesStar id={id} add_style={'cart-favorites-add'} added_style={'cart-favorites-added'} /> */}
+        <FavoritesStar id={id} add_style={'cart-favorites-add'} added_style={'cart-favorites-added'} />
         <h4 className={roboto_bold.className + ' cart-item-info__name'}>{name}</h4>
         <ul className="cart-item-info__list">
           <li className="cart-item-info__color">Color: {color}</li>

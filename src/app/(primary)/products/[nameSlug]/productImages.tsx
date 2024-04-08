@@ -1,12 +1,14 @@
 'use client';
+import { FavoritesStar } from '@/components/favoritesStar/favoritesStar';
 import Image from 'next/image';
 import { useState } from 'react';
 
 interface IProductImages {
+  id: string;
   images: string[];
 }
 
-export function ProductImages({ images }: IProductImages) {
+export function ProductImages({ id, images }: IProductImages) {
   const [curImage, setCurImage] = useState<number>(0);
   const [firstImg, secondImg] = images;
 
@@ -16,6 +18,7 @@ export function ProductImages({ images }: IProductImages) {
 
   return (
     <div className="product-page__img-container">
+      <FavoritesStar id={id} add_style={'productPage-add'} added_style={'productPage-added'} />
       <div className="img-container__slider">
         <Image
           src={firstImg}

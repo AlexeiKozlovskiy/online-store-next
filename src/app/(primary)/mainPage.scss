@@ -30,8 +30,10 @@
     }
 
     @media screen and (max-width: 420px) {
-      margin: 10px 4px 30px 4px;
-      row-gap: 5px;
+      row-gap: 10px;
+    }
+    @media screen and (max-width: 340px) {
+      row-gap: 2px;
     }
   }
 }
