@@ -12,6 +12,7 @@ import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
 import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter } from '@/types/types';
 import { bodyNotScroll } from '@/helpers/helpersFunc';
+import Tooltip from '@mui/material/Tooltip';
 
 const CategoryCount = dynamic(() => import('./categoryCount'), {
   loading: () => <></>,
@@ -122,14 +123,15 @@ export default function SideFilters() {
   const ColorFilter = (
     <div className="filters-item__content item-content">
       <div className="item-content__colors colors">
-        {balancerColor.map(({ color }) => (
-          <div
-            key={color}
-            className={`colors__color is-${color} ${colorsSelected.includes(color) && 'is-selected'}`}
-            data-color={color}
-            data-testid={`button-color-${color}`}
-            onClick={() => handleColorClick(color)}
-          ></div>
+        {balancerColor.map((el, ind) => (
+          <Tooltip title={el.color} key={el.color} placement={ind >= 5 ? 'bottom' : 'top'}>
+            <div
+              className={`colors__color is-${el.color} ${colorsSelected.includes(el.color) && 'is-selected'}`}
+              data-color={el.color}
+              data-testid={`button-color-${el.color}`}
+              onClick={() => handleColorClick(el.color)}
+            ></div>
+          </Tooltip>
         ))}
       </div>
     </div>
