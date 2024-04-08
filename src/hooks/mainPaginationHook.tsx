@@ -3,6 +3,7 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { MAX_PAGES } from '@/helpers/constant';
 import { useMyURLContext } from '@/context/URLContext';
 import { PageClickEvent, Product, ProductsQweryParams, RootReducerProps } from '@/types/types';
+// import { handlerScrollUp } from '@/helpers/helpersFunc';
 
 interface MainPagination {
   productsByQwery: Product[];
@@ -67,6 +68,7 @@ export function useMainPagination({ productsByQwery: products }: MainPagination)
     const newOffset = (event.selected * itemsPerPage) % countProducts;
     setItemOffset(newOffset);
     setCurPageMain(event.selected + 1);
+    // handlerScrollUp();
   };
 
   return { countPages, curPageMain, currentItems, handlePageClick };

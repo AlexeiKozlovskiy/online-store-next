@@ -84,8 +84,8 @@ export default function Navigation() {
   const stylesPanel = checkStylesPanel();
 
   return (
-    <div className="header-navigation-wrapper">
-      <nav className="header-navigation">
+    <nav className="header-navigation-wrapper">
+      <div className="header-navigation">
         {/* <Box sx={{ borderBottom: 1, borderColor: 'divider' }}></Box> */}
         <Tabs
           value={value}
@@ -101,7 +101,7 @@ export default function Navigation() {
           <Tab sx={stylesTab} label="about project" />
           <Tab sx={stylesTab} label="contacts" />
         </Tabs>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }

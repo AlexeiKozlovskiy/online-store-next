@@ -1,6 +1,5 @@
 'use client';
 import { MODAL_WINDOWS } from '@/helpers/constant';
-import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 import { ModalsWindows } from '@/types/types';
 import { useState, createContext, useContext, ReactNode } from 'react';
 
@@ -67,7 +66,6 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
         setOpenModals((prevOpenModals) => ({ ...prevOpenModals, [modalType]: false }));
       }, 400);
     }
-    bodyRemoveScroll();
   }
 
   return (

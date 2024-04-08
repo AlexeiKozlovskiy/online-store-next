@@ -6,7 +6,6 @@ import { roboto } from '@/styles/nextFonts';
 import { useMyURLContext } from '@/context/URLContext';
 import { toggleShowFilters } from '@/store/controller';
 import { ITEMS_IN_PAGE, SORT_OPTIONS } from '@/helpers/constant';
-import { bodyNotScroll } from '@/helpers/helpersFunc';
 
 const CustomSelect = dynamic(() => import('@/components/select/select'));
 
@@ -32,7 +31,6 @@ export default function SortedViewPanel({ countProducts }: ISortedViewPanel) {
 
   function handleShowFilters() {
     toggleShowFilters();
-    bodyNotScroll();
   }
 
   return (

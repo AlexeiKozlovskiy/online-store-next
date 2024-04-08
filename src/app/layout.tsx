@@ -35,15 +35,17 @@ export default function RootLayout({
                 <UserAuthContextProvider>
                   <ProfileUserContextProvider>
                     <FavoritesContextProvider>
-                      <CustomAlert />
-                      <Header />
-                      {children}
+                      <div className="app">
+                        <CustomAlert />
+                        <Header />
+                        {children}
+                        <Footer />
+                      </div>
                     </FavoritesContextProvider>
                   </ProfileUserContextProvider>
                 </UserAuthContextProvider>
               </CloseOpenModalsContextProvider>
             </URLContextProvider>
-            <Footer />
           </QueryClientProviders>
         </ReduxProvider>
         <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />

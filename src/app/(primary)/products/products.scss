@@ -1,3 +1,17 @@
+main {
+  // height: 1000px;
+  // min-width: 100vw;
+  // overflow: hidden;
+}
+
+.products-container {
+  // overflow: auto;
+}
+
+.app-component {
+  min-height: 100vh;
+}
+
 .main-catalog {
   padding: 20px;
   color: $mainBlack;
@@ -5,20 +19,15 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
 
-  &__products {
-    min-height: 470px;
-  }
-
   @media screen and (max-width: 768px) {
     padding: 10px 20px;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
   }
-}
 
-.main-catalog {
   &__products {
+    min-height: 470px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
