@@ -16,5 +16,6 @@ export function useAnimations({ quantity, stock }: IUseAnimations) {
       }, 3000);
     }
   }, [quantity, stock]);
+
   return shakeAnim;
 }
