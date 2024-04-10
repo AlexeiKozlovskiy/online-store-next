@@ -7,6 +7,7 @@ import { setCookie } from 'cookies-next';
 import { Product, ROUTE } from '@/types/types';
 import { replaceSpace } from '@/helpers/helpersFunc';
 import { roboto } from '@/styles/nextFonts';
+import { FavoritesStar } from '@/components/favoritesStar/favoritesStar';
 
 const CardButton = dynamic(() => import('./productCardCartButton'));
 
@@ -37,7 +38,7 @@ export function ProductCard({ product }: ProductViewData) {
         />
       </div>
       <div className="product-item__text-wrapper">{<CardButton product={product} />}</div>
-      {/* <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} /> */}
+      <FavoritesStar id={id} add_style={'product-add'} added_style={'product-added'} />
       <div className="product-item__info">
         <div className="item-info__name-price">
           <span className="item-info__name">{name}</span>

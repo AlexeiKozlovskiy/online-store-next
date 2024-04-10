@@ -1,6 +1,11 @@
 .profile {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 210px);
   position: relative;
+  margin: 30px;
+
+  @media screen and (max-width: 550px) {
+    margin: 10px;
+  }
 
   &__titel {
     color: #95bea1;
@@ -77,12 +82,21 @@
 }
 
 .favorites {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 30px 20px;
 
+  @media screen and (max-width: 630px) {
+    justify-content: center;
+  }
+
+  &__empty-wrapper {
+    width: 100%;
+    text-align: center;
+  }
+
   &__empty-catalog {
-    margin: 0 auto;
     font-size: 1.2rem;
   }
 }

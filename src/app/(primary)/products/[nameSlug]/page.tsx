@@ -124,7 +124,7 @@ export default async function ProductPage({ params }: IProductPage) {
           <div className="bread-crumbs-product__container">{breadCrumbs}</div>
           <section className={roboto.className + ' product-page wrapper'}>
             <ArrowBack />
-            <ProductImages images={images} />
+            <ProductImages id={id} images={images} />
             <div className="product-page__summaru-item product-summary">{productName}</div>
             <div className="product-page__cart-container">
               <div className="product-page__isInCart-container">{<IsInCart id={id} />}</div>

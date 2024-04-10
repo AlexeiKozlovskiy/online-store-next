@@ -10,6 +10,7 @@ import { CloseOpenModalsContextProvider } from '@/context/CloseOpenModalsContext
 import { UserAuthContextProvider } from '@/context/UserAuthContext';
 import { ProfileUserContextProvider } from '@/context/ProfileUserContext';
 import QueryClientProviders from '@/components/queryClientProvider';
+import { FavoritesContextProvider } from '@/context/favoritesContext';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -32,8 +33,10 @@ export default function RootLayout({
               <CloseOpenModalsContextProvider>
                 <UserAuthContextProvider>
                   <ProfileUserContextProvider>
-                    <Header />
-                    {children}
+                    <FavoritesContextProvider>
+                      <Header />
+                      {children}
+                    </FavoritesContextProvider>
                   </ProfileUserContextProvider>
                 </UserAuthContextProvider>
               </CloseOpenModalsContextProvider>

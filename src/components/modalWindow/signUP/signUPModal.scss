@@ -9,12 +9,20 @@
   border-radius: 10px;
   font: 0.8rem $Roboto;
 
+  @media screen and (max-width: 375px) {
+    padding: 7px;
+  }
+
   &__title {
     font-size: 2rem;
     font-weight: 600;
     color: $oliva;
     letter-spacing: 0.1em;
     text-align: center;
+
+    @media screen and (max-width: 375px) {
+      font-size: 1.5rem;
+    }
   }
 
   &__logo {
@@ -22,6 +30,10 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @media screen and (max-width: 375px) {
+      padding: 2px;
+    }
   }
 }
 

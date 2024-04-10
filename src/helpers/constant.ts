@@ -211,3 +211,8 @@ export const NEWS = [
       'Dear friends! Our store is switching to winter operating hours. If you have any questions, please call and clarify the information you are interested in. From 01.12.2023 the store is open: Mon - Fri 9:00 - 19:00. Sat 10:00 - 18:00. Sun 10:00 - 17:00.',
   },
 ];
+
+export interface FavoritesData {
+  userId: string;
+  favorites: string[];
+}
