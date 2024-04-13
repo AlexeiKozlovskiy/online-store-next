@@ -28,7 +28,8 @@ export default function CustomAlert() {
           }
           sx={{ mb: 1 }}
         >
-          Please reed a &quot;ABOUT PROJECT&quot; discription. This app have a nuances about first response data.
+          Please reed a &quot;ABOUT PROJECT&quot; discription. This app have a nuances about first response data, backend have a
+          &quot;cold start&quot;.
         </Alert>
       </Collapse>
     </Box>
