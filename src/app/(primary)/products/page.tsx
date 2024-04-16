@@ -20,7 +20,7 @@ export default async function Products() {
 
   return (
     <ErrorBoundary fallback={<ErrorProductPage />}>
-      <main className="MainPage-container wrapper">
+      <main className="products-container wrapper">
         <SearchPanel />
         <div className="store-page">
           <section className="main-catalog">

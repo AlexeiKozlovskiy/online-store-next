@@ -1,11 +1,40 @@
 .header-navigation-wrapper {
+  position: sticky;
+  height: 55px;
+  top: 0px;
+  overflow: auto;
+  z-index: 2;
   border-radius: 2px;
-  // background: linear-gradient(90deg, #9dc7b2 10%, #85c0cb 50%, #9dc7b2 80%);
-  // animation: background-gradient 3s infinite alternate;
+  background: linear-gradient(45deg, #ecf6f6 20%, #bbeaf0 50%, #eaf3f4 80%);
+  opacity: 0.94;
+  margin-bottom: 10px;
+  display: flex;
+
+  @media screen and (max-width: 600px) {
+    height: auto;
+    display: block;
+  }
 }
 
 .header-navigation {
   margin: 0 auto;
   max-width: 650px;
-  margin-bottom: 10px;
+}
+
+.cartIcon-nav-container {
+  padding-right: 30px;
+  width: 50px;
+  height: 50px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.cartIcon-animation-container {
+  animation: 0.3s ease-out cartIcon-nav-view;
+}
+
+.cartIcon-hide {
+  animation: 0.25s ease-out cartIcon-nav-hide;
 }

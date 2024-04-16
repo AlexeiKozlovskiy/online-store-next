@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
 
   .user-icon {
     transition:
@@ -52,7 +53,7 @@
     align-items: center;
     padding-top: 25px;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
@@ -95,51 +96,5 @@
 .header-nav-contents {
   @media screen and (max-width: 600px) {
     flex-direction: column;
-  }
-}
-
-.header-cart {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-
-  &__img {
-    background: url('/img/cart-header.svg') no-repeat center;
-    width: 60px;
-    height: 60px;
-    background-size: contain;
-  }
-
-  &__amount-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 12px;
-    right: -8px;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: $oliva;
-  }
-
-  &__num {
-    font: 1rem $Roboto;
-    color: #747474;
-
-    @media screen and (max-width: 600px) {
-      font-size: 1.2rem;
-    }
-
-    @media screen and (max-width: 450px) {
-      font-size: 1rem;
-    }
-  }
-
-  &__amount {
-    font: 0.8rem $Roboto;
-    color: #eee;
   }
 }

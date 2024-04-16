@@ -1,0 +1,52 @@
+.cart-icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  margin: 10px;
+
+  &__amount-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 16px;
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: $oliva;
+    transition: background-color 0.3s;
+  }
+
+  &__num {
+    font: 0.8rem $Roboto;
+    color: #747474;
+  }
+
+  &__amount {
+    font: 0.6rem $Roboto;
+    color: #eee;
+  }
+}
+
+.small-amount-container {
+  top: 3px;
+  right: -10px;
+  width: 13px;
+  height: 13px;
+}
+
+.small-cart-num {
+  font: 0.7rem $Roboto;
+}
+
+.small-amount {
+  font: 0.5rem $Roboto;
+}
+
+.header-cart:hover > .header-cart__amount-container {
+  background-color: $winter;
+  transition: background-color 0.3s;
+}

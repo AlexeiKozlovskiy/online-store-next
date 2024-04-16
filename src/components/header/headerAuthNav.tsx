@@ -3,7 +3,6 @@ import './header.scss';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { bodyNotScroll } from '@/helpers/helpersFunc';
 import { Authentication, RootReducerProps } from '@/types/types';
 import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { LogoStore } from '@/components/logoStore/logoStore';
@@ -14,6 +13,7 @@ import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { UserModal } from '@/components/modalWindow/user/userModal';
 import { Preloader } from '@/components/preloader/preloader';
 import { roboto } from '@/styles/nextFonts';
+import { RemoveScroll } from 'react-remove-scroll';
 
 const CartIcon = dynamic(() => import('./cartIcon'));
 const UserIcon = dynamic(() => import('@/components/userIcon/userIcon'));
@@ -32,7 +32,6 @@ export default function HeaderAuthNav() {
 
   function handleShowBurgerMenu() {
     setShowBurgerMenu((prev) => !prev);
-    bodyNotScroll();
   }
 
   function logoClickBurger() {
@@ -47,12 +46,7 @@ export default function HeaderAuthNav() {
       ...prevOpenModals,
       [key]: true,
     }));
-
     setShowBurgerMenu(false);
-
-    if (key !== 'modalUser') {
-      bodyNotScroll();
-    }
   }
 
   const userIcon = <UserIcon handleClick={modalsUdater} />;
@@ -60,7 +54,7 @@ export default function HeaderAuthNav() {
   const authBar = <HeaderAuth handelClick={modalsUdater} />;
 
   return (
-    <>
+    <RemoveScroll enabled={showBurgerMenu || modalSignUP || modalSignIN}>
       {modalSignUP && <SignUPModal handelCloseModal={handelCloseModal} />}
       {modalSignIN && <SignINModal handelCloseModal={handelCloseModal} />}
       {modalUser && <UserModal handelCloseModal={handelCloseModal} closeAnimationModal={closeAnimationModal} />}
@@ -74,6 +68,6 @@ export default function HeaderAuthNav() {
         <CartIcon setShowBurgerMenu={setShowBurgerMenu} />
       </div>
       <div className="header-nav__icon" onClick={handleShowBurgerMenu}></div>
-    </>
+    </RemoveScroll>
   );
 }

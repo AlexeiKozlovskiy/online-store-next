@@ -11,6 +11,7 @@ import { UserAuthContextProvider } from '@/context/UserAuthContext';
 import { ProfileUserContextProvider } from '@/context/ProfileUserContext';
 import QueryClientProviders from '@/components/queryClientProvider';
 import { FavoritesContextProvider } from '@/context/favoritesContext';
+import CustomAlert from '@/components/customAlert/customAlert';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -34,14 +35,17 @@ export default function RootLayout({
                 <UserAuthContextProvider>
                   <ProfileUserContextProvider>
                     <FavoritesContextProvider>
+                      {/* <div className="app"> */}
+                      <CustomAlert />
                       <Header />
                       {children}
+                      <Footer />
+                      {/* </div> */}
                     </FavoritesContextProvider>
                   </ProfileUserContextProvider>
                 </UserAuthContextProvider>
               </CloseOpenModalsContextProvider>
             </URLContextProvider>
-            <Footer />
           </QueryClientProviders>
         </ReduxProvider>
         <Script src="https://accounts.google.com/gsi/client" strategy="beforeInteractive" />

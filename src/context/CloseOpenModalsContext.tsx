@@ -1,6 +1,5 @@
 'use client';
 import { MODAL_WINDOWS } from '@/helpers/constant';
-import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 import { ModalsWindows } from '@/types/types';
 import { useState, createContext, useContext, ReactNode } from 'react';
 
@@ -55,6 +54,11 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
 
   function closeAnimationModal(modalType: string) {
     const modalWindow = document.querySelector(`.${modalType}`) as HTMLDivElement;
+    const modalBackdrop = document.querySelector('.modal-page') as HTMLDivElement;
+
+    if (modalBackdrop) {
+      modalBackdrop.classList.toggle('modal-page-hide');
+    }
 
     if (modalWindow) {
       modalWindow.classList.toggle(`${modalType}-hide`);
@@ -62,7 +66,6 @@ export const CloseOpenModalsContextProvider = ({ children }: { children: ReactNo
         setOpenModals((prevOpenModals) => ({ ...prevOpenModals, [modalType]: false }));
       }, 400);
     }
-    bodyRemoveScroll();
   }
 
   return (

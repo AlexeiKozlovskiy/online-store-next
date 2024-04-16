@@ -8,6 +8,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.6);
+  animation: backDropView 0.3s forwards;
 
   &__container {
     padding: 20px 10px;
@@ -75,6 +76,10 @@
 
 .animation-view-form {
   animation: modal-view 1s forwards;
+}
+
+.modal-page-hide {
+  animation: backDropHide 0.3s forwards;
 }
 
 .modalSignUP-hide,

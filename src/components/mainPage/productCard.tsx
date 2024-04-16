@@ -21,7 +21,7 @@ export function ProductCard({ product }: ProductViewData) {
 
   function productItemClick() {
     setCookie('clikedId', `${id}`);
-    router.push(`${ROUTE.PRODUCTS}/${replaceSpace(name)}`);
+    router.push(`${ROUTE.PRODUCTS}/${replaceSpace(name)}`, { scroll: false });
   }
 
   return (

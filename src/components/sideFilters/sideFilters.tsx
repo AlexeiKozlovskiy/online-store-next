@@ -4,14 +4,15 @@ import Slider from 'react-slider';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Tooltip from '@mui/material/Tooltip';
 import { roboto, roboto_bold } from '@/styles/nextFonts';
+import { RemoveScroll } from 'react-remove-scroll';
 import { toggleShowFilters } from '@/store/controller';
 import { useMyURLContext } from '@/context/URLContext';
 import { DualRangeInput } from './dualRangeInput';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { PRICE_MIN, PRICE_MAX, SIZE_MIN, SIZE_MAX, STOCK_MIN, STOCK_MAX } from '@/helpers/constant';
 import { Balancers, DualRange, IviewSideFilters, RootReducerProps, SelectedFilter } from '@/types/types';
-import { bodyNotScroll } from '@/helpers/helpersFunc';
 
 const CategoryCount = dynamic(() => import('./categoryCount'), {
   loading: () => <></>,
@@ -115,21 +116,21 @@ export default function SideFilters() {
   };
 
   const handleClickCross = () => {
-    bodyNotScroll();
     toggleShowFilters();
   };
 
   const ColorFilter = (
     <div className="filters-item__content item-content">
       <div className="item-content__colors colors">
-        {balancerColor.map(({ color }) => (
-          <div
-            key={color}
-            className={`colors__color is-${color} ${colorsSelected.includes(color) && 'is-selected'}`}
-            data-color={color}
-            data-testid={`button-color-${color}`}
-            onClick={() => handleColorClick(color)}
-          ></div>
+        {balancerColor.map((el, ind) => (
+          <Tooltip title={el.color} key={el.color} placement={ind >= 5 ? 'bottom' : 'top'}>
+            <div
+              className={`colors__color is-${el.color} ${colorsSelected.includes(el.color) && 'is-selected'}`}
+              data-color={el.color}
+              data-testid={`button-color-${el.color}`}
+              onClick={() => handleColorClick(el.color)}
+            ></div>
+          </Tooltip>
         ))}
       </div>
     </div>
@@ -270,31 +271,33 @@ export default function SideFilters() {
 
   return (
     <div className="filters" data-show={showFilters} data-testid="filterPanel">
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>Color</div>
-        {ColorFilter}
-      </div>
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>Collection</div>
-        {CollectionFilter}
-      </div>
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>Price</div>
-        {PriceFilter}
-      </div>
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>Size</div>
-        {SizeFilter}
-      </div>
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>Category</div>
-        {CategoryFilter}
-      </div>
-      <div className="filters__item filters-item">
-        <div className={roboto_bold.className + ' filters-item__title'}>In stock</div>
-        {StockFilter}
-      </div>
-      <ButtonCross onClickCross={handleClickCross} adittionClassName="close-side-filters-cross" />
+      <RemoveScroll enabled={showFilters}>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>Color</div>
+          {ColorFilter}
+        </div>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>Collection</div>
+          {CollectionFilter}
+        </div>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>Price</div>
+          {PriceFilter}
+        </div>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>Size</div>
+          {SizeFilter}
+        </div>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>Category</div>
+          {CategoryFilter}
+        </div>
+        <div className="filters__item filters-item">
+          <div className={roboto_bold.className + ' filters-item__title'}>In stock</div>
+          {StockFilter}
+        </div>
+        <ButtonCross onClickCross={handleClickCross} adittionClassName="close-side-filters-cross" />
+      </RemoveScroll>
     </div>
   );
 }

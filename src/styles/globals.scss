@@ -1,13 +1,29 @@
 @import './normalize.scss';
 
-.container {
-  max-width: 1440px;
+body {
+  // height: 100%;
+  // overflow: auto;
+  height: auto;
 }
 
 .wrapper {
   margin: 0 auto;
 }
 
-.lock {
-  overflow: hidden;
+.container {
+  max-width: 1440px;
+}
+
+.app {
+  // overflow: auto;
+  // min-height: 100vh;
+  // height: 100vh;
+  // max-width: 1440px;
+  // height: 100vh;
+}
+
+main {
+  // overflow: auto;
+  // height: 100vh;
+  // max-width: 1440px;
 }

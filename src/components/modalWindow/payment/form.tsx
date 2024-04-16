@@ -12,7 +12,6 @@ import { useMyUserAuthContext } from '@/context/UserAuthContext';
 import { FormInput } from '@/components/formInput/formInput';
 import { Preloader } from '@/components/preloader/preloader';
 import { useMyProfileUserContext } from '@/context/ProfileUserContext';
-import { bodyRemoveScroll } from '@/helpers/helpersFunc';
 
 export function Form() {
   const imageCard = useRef('');
@@ -83,7 +82,6 @@ export function Form() {
       reset();
       removeAllCart();
       router.push(ROUTE.MAIN);
-      bodyRemoveScroll();
     }, 2000);
   };
 

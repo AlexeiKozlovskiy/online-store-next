@@ -3,21 +3,24 @@ import './cartPage.scss';
 import { useSelector } from 'react-redux';
 import { useRef, useState } from 'react';
 import { PROMOCODES } from '@/helpers/constant';
-import { bodyNotScroll, formatPrice } from '@/helpers/helpersFunc';
+import { formatPrice } from '@/helpers/helpersFunc';
 import { useTotalCartInfo } from '@/hooks/totalCartInfo';
 import { ButtonCross } from '@/components/buttonCross/buttonCross';
 import { Authentication, PromocodeData, RootReducerProps } from '@/types/types';
 import { useCloseOpenModalsContext } from '@/context/CloseOpenModalsContext';
 import { applyPromocode, isPromocodeAvailable, removePromocode } from '@/store/controller';
 import { roboto_bold } from '@/styles/nextFonts';
+import { RemoveScroll } from 'react-remove-scroll';
 
 export function Summary() {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<string | null>(null);
-  const { setOpenModals } = useCloseOpenModalsContext();
+  const { openModals, setOpenModals } = useCloseOpenModalsContext();
   const promocodeState = useSelector<RootReducerProps, PromocodeData>((state) => state.promocode);
   const { totalItems, totalPrice, totalPriseByPromocode } = useTotalCartInfo();
   const { authenticated } = useSelector<RootReducerProps, Authentication>((state) => state.auth);
+
+  const { modalSignIN, modalPayment } = openModals;
 
   function handelClickBTN() {
     setInputValue('');
@@ -35,7 +38,6 @@ export function Summary() {
   }
 
   function proceedClick() {
-    bodyNotScroll();
     if (authenticated) {
       checkAuth('modalPayment');
     } else {
@@ -83,43 +85,53 @@ export function Summary() {
 
   return (
     <aside className="shopping-cart__summary">
-      <div className="summery-info">
-        <h3 className="summery-info__header">SUMMARY</h3>
-        <div className="summery-info__order-container">
-          <div className="order-container__content">
-            <div className="order-container__items-count items-count">
-              <div className="items-count__title">Items Total</div>
-              <div className="items-count__count">{totalItems}</div>
-            </div>
-            <div className="order-container__total-count total-count">
-              <div className="total-count__text">Order Total</div>
-              <div className={`${roboto_bold.className} total-count__total-value ${promocodeState.applied.length && 'discount'}`}>
-                ${totalPrice.toFixed(2)}
+      <RemoveScroll enabled={modalSignIN || modalPayment}>
+        <div className="summery-info">
+          <h3 className="summery-info__header">SUMMARY</h3>
+          <div className="summery-info__order-container">
+            <div className="order-container__content">
+              <div className="order-container__items-count items-count">
+                <div className="items-count__title">Items Total</div>
+                <div className="items-count__count">{totalItems}</div>
+              </div>
+              <div className="order-container__total-count total-count">
+                <div className="total-count__text">Order Total</div>
+                <div
+                  className={`${roboto_bold.className} total-count__total-value ${promocodeState.applied.length && 'discount'}`}
+                >
+                  ${totalPrice.toFixed(2)}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="order-container__promocode promocode-order">
-            {promosList}
-            <div className={roboto_bold.className + ' promocode-order__total-value'}>
-              {promocodeState.applied.length ? `$${formatPrice(totalPriseByPromocode)}` : ''}
+            <div className="order-container__promocode promocode-order">
+              {promosList}
+              <div className={roboto_bold.className + ' promocode-order__total-value'}>
+                {promocodeState.applied.length ? `$${formatPrice(totalPriseByPromocode)}` : ''}
+              </div>
+            </div>
+            <div className="order-container-button">
+              <button className="button-order" onClick={proceedClick} data-testid="button-order">
+                Proceed to Checkout
+              </button>
             </div>
           </div>
-          <div className="order-container-button">
-            <button className="button-order" onClick={proceedClick} data-testid="button-order">
-              Proceed to Checkout
+        </div>
+        <div className="shopping-promo">
+          <div className="shopping-promo__container">
+            <input
+              className="input-promo"
+              type="text"
+              placeholder="Enter promo code"
+              onChange={handleChange}
+              value={inputValue}
+            />
+            <button className="button-apply" onClick={handelClickBTN} disabled={isAvailablePromos}>
+              Apply
             </button>
           </div>
+          {testPromos}
         </div>
-      </div>
-      <div className="shopping-promo">
-        <div className="shopping-promo__container">
-          <input className="input-promo" type="text" placeholder="Enter promo code" onChange={handleChange} value={inputValue} />
-          <button className="button-apply" onClick={handelClickBTN} disabled={isAvailablePromos}>
-            Apply
-          </button>
-        </div>
-        {testPromos}
-      </div>
+      </RemoveScroll>
     </aside>
   );
 }
