@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# <img src="./public/img/spruce-logo.svg" alt="image" width="30" height="30"> Online-store-next 
+
+Hi, this is rewrite version NextJS app my previous [React app](https://github.com/AlexeiKozlovskiy/online-store-react).
 
 ## Getting Started
 
