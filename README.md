@@ -1,38 +1,19 @@
 # <img src="./public/img/spruce-logo.svg" alt="image" width="30" height="30"> Online-store-next 
 
-Hi, this is rewrite version NextJS app my previous [React app](https://github.com/AlexeiKozlovskiy/online-store-react).
+This is NextJS app rewrite version my previous [React app](https://github.com/AlexeiKozlovskiy/online-store-react), with some additions. For deploy app utilized vercel with, hosted https://www.kozlovsky.space
+
+Due to the use of a free deployment service for the backend, database, and the application itself, there may be delays in response and some bugs in first load. For example, a click on a product card, or the first request for a geting list of products or click by product category in the main page and side filters in product page. First fetching data is can take near 1-3 minutes, further is fast. You may need to reload the page.
+
+## Backend part in this [repo](https://github.com/AlexeiKozlovskiy/online-store-nest).
 
 ## Getting Started
+To run this project locally, follow these steps:
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Clone this repository. `https://github.com/AlexeiKozlovskiy/online-store-next.git`
+- Checkout to the development branch `git checkout develop`
+- Install dependencies using `npm install`.
+- Rename `.env.local.example` to `.env.local`.
+- Run `npm run dev` or `npm run start`.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
