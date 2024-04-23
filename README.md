@@ -6,6 +6,8 @@ Due to the use of a free deployment service for the backend, database, and the a
 
 ## Backend part in this [repo](https://github.com/AlexeiKozlovskiy/online-store-nest).
 
+For the project configured ci/cd, you can see the actions and PR comments.
+
 ## Getting Started
 To run this project locally, follow these steps:
 
