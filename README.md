@@ -19,3 +19,5 @@ To run this project locally, follow these steps:
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+# <img src="https://wakatime.com/badge/user/018d3b7f-99dd-4b60-ab6b-4d807848fdb5/project/018de4e5-fbe2-4aaa-b92b-3fd594c0ee93.svg" alt="wakatime image" width="162" height="18">
+
