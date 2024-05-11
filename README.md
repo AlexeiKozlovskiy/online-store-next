@@ -8,6 +8,20 @@ Due to the use of a free deployment service for the backend, database, and the a
 
 For the project configured ci/cd, you can see the actions and PR comments.
 
+## Common stack
+- TS
+- React
+- Next
+- Redux Toolkit
+- React Query
+- React Hook Form
+- React Loading Skeleton
+- React Pagination
+- React Select
+- React Slider
+- Material UI
+- Jest
+
 ## Getting Started
 To run this project locally, follow these steps:
 
