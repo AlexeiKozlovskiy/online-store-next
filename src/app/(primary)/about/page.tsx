@@ -55,10 +55,10 @@ export default async function About() {
         <br />
         <h3 className={roboto_bold.className + ' aboutPage__title'}>Please take note. </h3>
         <p className="aboutPage__text">
-          Due to the use of a free deployment service for the backend, database, and the application itself, there may be delays
-          in response and some bugs in first load. For example, a click on a product card, or the first request for a geting list
-          of products or click by product category in the main page and side filters in product page. First fetching data is can
-          take near 1-3 minutes, further is fast. You may need to reload the page.
+          Due to the use of a free host services for the backend, database, and the application itself, there may be delays
+          response in first load. Backend host have a &#34;cold start&#34;. For example, a click on a product card, or the first
+          request for a geting list of of products or click by product category in the main page and side filters in product page.
+          First fetching data is can take near 1-3 minutes, further is fast. You may need to reload the page.
         </p>
       </section>
     </main>
